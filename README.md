@@ -5,7 +5,7 @@ optimizes pictures and SVG. Also creates a server with auto-reloading web page.
 
 ## How to use:
 * install nodejs (https://nodejs.org/en/);
-* install Gulp globally: ```npm install —global gulp@next```;
+* install Gulp globally: ```npm install --global gulp@next```;
 * ```git clone https://github.com/andreyalexeich/gulppack.git```
 * ```cd gulppack``` (use Powershell if you are using Windows);
 * ```install gulp npm@next 'gulp-watch browser-sync gulp-autoprefixer gulp-uglify gulp-sass gulp-clean-css gulp-rename gulp-imagemin imagemin-pngquant gulp-svgo' gulp-filter, gulp-notify del --save-dev``` or drag ```npm.sh``` to the terminal and press Enter (Linux, macOS) or run ```npm.bat``` (Windows only)

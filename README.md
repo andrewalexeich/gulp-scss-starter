@@ -1,7 +1,6 @@
 # Gulppack
 
-Gulppack is very helpful for developing your frontend projects. Gulppack compiles SASS to CSS, compresses the CSS, JS files,
-optimizes pictures and SVG. Also creates a server with auto-reloading web page.
+Gulppack is a very useful gulp build for your front-end projects. Compile SASS, compress the files, optimize the pictures. It reloads your browser automatically every time you save a file in a code editor. Don't care about tedious things, leave it to us!
 
 ## How to use:
 * install [NodeJs](https://nodejs.org/en/);

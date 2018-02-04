@@ -74,8 +74,12 @@ function images() {
     return gulp.src(paths.images.src)
         .pipe(f)
         .pipe(imagemin({
-            progressive: true,
             interlaced: true,
+            progressive: true,
+            optimizationLevel: 5,
+            svgoPlugins: [{
+                removeViewBox: true
+            }],
             use: [pngquant()],
         }))
         .pipe(svgo())

@@ -10,6 +10,7 @@ var gulp = require("gulp"),
     imagemin = require("gulp-imagemin"),
     pngquant = require("imagemin-pngquant"),
     svgo = require("gulp-svgo"),
+    favicons = require("gulp-favicons"),
     notify = require("gulp-notify"),
     filter = require("gulp-filter"),
     del = require("del");
@@ -48,7 +49,7 @@ function styles() {
             errLogToConsole: false,
         }))
         .on("error", function(err) {
-            server.notify(err.message, 100000);
+            browsersync.notify(err.message, 100000);
             this.emit("end");
         })
         .pipe(cleanCSS({
@@ -87,6 +88,24 @@ function images() {
         .pipe(gulp.dest(paths.images.dest));
 }
 
+function favgenerator() {
+    return gulp.src("src/img/fav/fav.png")
+        .pipe(favicons({
+            icons: {
+                online: false,
+                appleIcon: true,
+                appleStartup: false,
+                android: false,
+                favicons: true,
+                firefox: false,
+                yandex: false,
+                windows: false,
+                coast: false
+            }
+        }))
+        .pipe(gulp.dest("dest/img/fav/"));
+}
+
 function watcher() {
     gulp.watch(paths.html.src, html);
     gulp.watch(paths.styles.src, styles);
@@ -113,5 +132,5 @@ function clean() {
     return del(["./dest/*"]);
 }
 
-var build = gulp.series(clean, gulp.parallel(html, styles, scripts, images), gulp.parallel(watcher, server));
+var build = gulp.series(clean, gulp.parallel(html, styles, scripts, images, favgenerator), gulp.parallel(watcher, server));
 gulp.task("default", build);

@@ -1,6 +1,7 @@
 var gulp = require("gulp"),
     watch = require("gulp-watch"),
-    server = require("browser-sync").create(),
+    browsersync = require("browser-sync").create(),
+    reload = browsersync.reload,
     autoprefixer = require("gulp-autoprefixer"),
     uglify = require("gulp-uglify"),
     sass = require("gulp-sass"),
@@ -36,10 +37,6 @@ var paths = {
     }
 };
 
-function clean() {
-    return del(["./dest/*"]);
-}
-
 function html() {
     return gulp.src(paths.html.src)
         .pipe(gulp.dest(paths.html.dest));
@@ -73,10 +70,6 @@ function scripts() {
         .pipe(gulp.dest(paths.scripts.dest));
 }
 
-var f = filter(paths.images.exclude, {
-    restore: true
-});
-
 function images() {
     return gulp.src(paths.images.src)
         .pipe(f)
@@ -90,23 +83,31 @@ function images() {
         .pipe(gulp.dest(paths.images.dest));
 }
 
-function watch() {
+function watcher() {
     gulp.watch(paths.html.src, html);
     gulp.watch(paths.styles.src, styles);
     gulp.watch(paths.scripts.src, scripts);
     gulp.watch(paths.images.src, images);
 }
 
-function livereload() {
-    server.init({
+function server() {
+    browsersync.init({
         server: {
             baseDir: "./dest/"
         },
         open: true,
         notify: false
     });
-    server.watch("dest", server.reload);
+    browsersync.watch("dest", browsersync.reload);
 }
 
-var build = gulp.series(clean, gulp.parallel(html, styles, scripts, images), livereload);
+var f = filter(paths.images.exclude, {
+    restore: true
+});
+
+function clean() {
+    return del(["./dest/*"]);
+}
+
+var build = gulp.series(clean, gulp.parallel(html, styles, scripts, images), gulp.parallel(watcher, server));
 gulp.task("default", build);

@@ -21,6 +21,7 @@ Gulppack is a very useful gulp build for your front-end projects. Compile SASS, 
 * ```gulp-imagemin``` - minifing PNG, JPEG, GIF and SVG images ([https://www.npmjs.com/package/gulp-imagemin](https://www.npmjs.com/package/gulp-imagemin));
 * ```imagemin-pngquant``` - plugin for ```gulp-imagemin``` for optimizing PNG ([https://www.npmjs.com/package/imagemin-pngquant](https://www.npmjs.com/package/imagemin-pngquant));
 * ```gulp-svgo``` - optimizing SVG vector graphics ([https://www.npmjs.com/package/gulp-svgo](https://www.npmjs.com/package/gulp-svgo));
+* ```gulp-favicons``` - favicons generator for your projects ([https://github.com/evilebottnawi/favicons](https://github.com/evilebottnawi/favicons));
 * ```gulp-notify``` - notifications (SCSS/Sass errors for example) ([https://www.npmjs.com/package/gulp-notify](https://www.npmjs.com/package/gulp-notify));
 * ```gulp-filter``` - enables you to work on a subset of the original files by filtering them using glob patterns. When you're done and want all the original files back you just use the restore stream ([https://www.npmjs.com/package/gulp-filter](https://www.npmjs.com/package/gulp-filter));
 * ```del``` - delete files and folders ([https://www.npmjs.com/package/del](https://www.npmjs.com/package/del)).

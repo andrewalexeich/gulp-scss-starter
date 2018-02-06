@@ -7,8 +7,7 @@ var gulp = require("gulp"),
     sass = require("gulp-sass"),
     cleanCSS = require("gulp-clean-css"),
     rename = require("gulp-rename"),
-    imagemin = require("gulp-imagemin"),
-    pngquant = require("imagemin-pngquant"),
+    imagemin = require("gulp-tinypng-compress"),
     svgo = require("gulp-svgo"),
     favicons = require("gulp-favicons"),
     notify = require("gulp-notify"),
@@ -74,17 +73,14 @@ function scripts() {
 function images() {
     return gulp.src(paths.images.src)
         .pipe(f)
-        .pipe(imagemin({
-            interlaced: true,
-            progressive: true,
-            optimizationLevel: 5,
-            svgoPlugins: [{
-                removeViewBox: true
-            }],
-            use: [pngquant()],
-        }))
         .pipe(svgo())
         .pipe(f.restore)
+        .pipe(gulp.dest(paths.images.dest));
+}
+
+function imagemin() {
+    return gulp.src("src/img/**/*.{jpg,jpeg,png}")
+        .pipe(tinypng("YOUR_API_KEY"))
         .pipe(gulp.dest(paths.images.dest));
 }
 
@@ -132,5 +128,5 @@ function clean() {
     return del(["./dest/*"]);
 }
 
-var build = gulp.series(clean, gulp.parallel(html, styles, scripts, images, favgenerator), gulp.parallel(watcher, server));
+var build = gulp.series(clean, gulp.parallel(html, styles, scripts, images, imagemin, favgenerator), gulp.parallel(watcher, server));
 gulp.task("default", build);

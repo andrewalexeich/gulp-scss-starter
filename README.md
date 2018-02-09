@@ -4,6 +4,7 @@ Gulppack is a very useful gulp build for your front-end projects. Compile SASS, 
 
 ## How to use:
 * install [NodeJs](https://nodejs.org/en/);
+* Install Sass: ```npm install --global sass```;
 * install Gulp globally: ```npm install --global gulp@next```;
 * ```git clone https://github.com/andreyalexeich/gulppack.git```;
 * ```cd gulppack``` (use Powershell if you are using Windows);

@@ -7,10 +7,10 @@ var gulp = require("gulp"),
     sass = require("gulp-sass"),
     cleanCSS = require("gulp-clean-css"),
     rename = require("gulp-rename"),
-    imagemin = require("gulp-tinypng-compress"),
     svgo = require("gulp-svgo"),
+    image = require("gulp-image"),
     favicons = require("gulp-favicons"),
-    notify = require("gulp-notify"),
+    plumber = require("gulp-plumber"),
     filter = require("gulp-filter"),
     del = require("del");
 
@@ -38,19 +38,20 @@ var paths = {
 };
 
 function html() {
-    return gulp.src(paths.html.src)
+    return gulp.src(paths.html.src, {
+            passthrough: true
+        })
         .pipe(gulp.dest(paths.html.dest));
 }
 
 function styles() {
-    return gulp.src(paths.styles.src)
-        .pipe(sass({
-            errLogToConsole: false,
-        }))
-        .on("error", function(err) {
-            browsersync.notify(err.message, 100000);
-            this.emit("end");
+    return gulp.src(paths.styles.src, {
+            passthrough: true
         })
+        .pipe(plumber())
+        .pipe(sass({
+            errLogToConsole: true,
+        }))
         .pipe(cleanCSS({
             compatibility: "ie8"
         }))
@@ -58,11 +59,14 @@ function styles() {
             suffix: ".min"
         }))
         .pipe(autoprefixer())
+        .pipe(plumber.stop())
         .pipe(gulp.dest(paths.styles.dest));
 }
 
 function scripts() {
-    return gulp.src(paths.scripts.src)
+    return gulp.src(paths.scripts.src, {
+            passthrough: true
+        })
         .pipe(uglify())
         .pipe(rename({
             suffix: ".min"
@@ -71,20 +75,27 @@ function scripts() {
 }
 
 function images() {
-    return gulp.src(paths.images.src)
+    return gulp.src(paths.images.src, {
+            passthrough: true
+        })
         .pipe(f)
-        .pipe(svgo())
+        .pipe(image({
+            pngquant: true,
+            optipng: false,
+            zopflipng: true,
+            jpegRecompress: false,
+            mozjpeg: true,
+            guetzli: false,
+            gifsicle: true,
+            svgo: true,
+            concurrent: 10,
+            quiet: true // defaults to false
+        }))
         .pipe(f.restore)
         .pipe(gulp.dest(paths.images.dest));
 }
 
-function imagemin() {
-    return gulp.src("src/img/**/*.{jpg,jpeg,png}")
-        .pipe(tinypng("YOUR_API_KEY"))
-        .pipe(gulp.dest(paths.images.dest));
-}
-
-function favgenerator() {
+function favicon() {
     return gulp.src("src/img/fav/fav.png")
         .pipe(favicons({
             icons: {
@@ -128,5 +139,5 @@ function clean() {
     return del(["./dest/*"]);
 }
 
-var build = gulp.series(clean, gulp.parallel(html, styles, scripts, images, imagemin, favgenerator), gulp.parallel(watcher, server));
+var build = gulp.series(clean, gulp.parallel(html, styles, scripts, images, favicon), gulp.parallel(watcher, server));
 gulp.task("default", build);

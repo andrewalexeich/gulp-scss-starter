@@ -8,7 +8,7 @@ Gulppack is a very useful gulp build for your front-end projects. Compile SASS, 
 * install Gulp globally: ```npm install --global gulp@next```;
 * ```git clone https://github.com/andreyalexeich/gulppack.git```;
 * ```cd gulppack``` (use Powershell if you are using Windows);
-* ```npm install gulp npm@next gulp-watch browser-sync gulp-autoprefixer gulp-uglify gulp-sass gulp-clean-css gulp-rename gulp-imagemin imagemin-pngquant gulp-svgo' gulp-filter, gulp-notify del --save-dev``` or drag ```npm.sh``` to the terminal and press Enter (Linux, macOS) or run ```npm.bat``` (Windows only);
+* ```npm install gulp@next gulp-watch browser-sync gulp-autoprefixer gulp-uglify gulp-sass gulp-clean-css gulp-rename gulp-svgo gulp-favicons gulp-filter gulp-plumber del --save-dev``` or drag ```npm.sh``` to the terminal and press Enter (Linux, macOS);
 * enter ```gulp``` in your terminal and press Enter.
 
 ## Plugins:

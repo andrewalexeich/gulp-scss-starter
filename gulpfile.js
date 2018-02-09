@@ -38,20 +38,14 @@ var paths = {
 };
 
 function html() {
-    return gulp.src(paths.html.src, {
-            passthrough: true
-        })
+    return gulp.src(paths.html.src)
         .pipe(gulp.dest(paths.html.dest));
 }
 
 function styles() {
-    return gulp.src(paths.styles.src, {
-            passthrough: true
-        })
+    return gulp.src(paths.styles.src)
         .pipe(plumber())
-        .pipe(sass({
-            errLogToConsole: true,
-        }))
+        .pipe(sass())
         .pipe(cleanCSS({
             compatibility: "ie8"
         }))
@@ -64,9 +58,7 @@ function styles() {
 }
 
 function scripts() {
-    return gulp.src(paths.scripts.src, {
-            passthrough: true
-        })
+    return gulp.src(paths.scripts.src)
         .pipe(uglify())
         .pipe(rename({
             suffix: ".min"
@@ -75,9 +67,7 @@ function scripts() {
 }
 
 function images() {
-    return gulp.src(paths.images.src, {
-            passthrough: true
-        })
+    return gulp.src(paths.images.src)
         .pipe(f)
         .pipe(image({
             pngquant: true,

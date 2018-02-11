@@ -8,11 +8,10 @@ Gulppack is a very useful gulp build for your front-end projects. Compile SASS, 
 * install Gulp globally: ```npm install --global gulp@next```;
 * ```git clone https://github.com/andreyalexeich/gulppack.git```;
 * ```cd gulppack``` (use Powershell if you are using Windows);
-* ```npm install gulp@next gulp-watch browser-sync gulp-autoprefixer gulp-uglify gulp-sass gulp-clean-css gulp-concat gulp-rename gulp-svgo gulp-image gulp-favicons gulp-plumber gulp-filter del --save-dev``` or drag ```npm.sh``` to the terminal and press Enter (Linux, macOS, Git on Windows);
+* ```npm install gulp@next browser-sync gulp-autoprefixer gulp-uglify gulp-sass gulp-clean-css gulp-concat gulp-rename gulp-svgo gulp-imagemin imagemin-pngquant imagemin-jpeg-recompress  gulp-favicons gulp-plumber ngrok gulp-cache del gulp-watch --save-dev --save-exact``` or drag ```npm.sh``` to the terminal and press Enter (Linux, macOS, Git on Windows);
 * enter ```gulp``` in your terminal and press Enter.
 
 ## Plugins:
-* ```gulp-watch``` - file watcher ([https://www.npmjs.com/package/gulp-watch](https://www.npmjs.com/package/gulp-watch));
 * ```browser-sync``` - live reloading your web page. Browsersync makes your browser testing workflow faster by synchronising URLs, interactions and code changes across multiple devices ([https://browsersync.io/docs/gulp](https://browsersync.io/docs/gulp));
 * ```gulp-autoprefixer``` - parsing CSS and add vendor prefixes to rules by Can I Use ([https://www.npmjs.com/package/gulp-autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer));
 * ```gulp-uglify``` - minifing JS files ([https://www.npmjs.com/package/gulp-uglify](https://www.npmjs.com/package/gulp-uglify));
@@ -21,7 +20,12 @@ Gulppack is a very useful gulp build for your front-end projects. Compile SASS, 
 * ```gulp-concat``` - concatenates files ([https://www.npmjs.com/package/gulp-concat](https://www.npmjs.com/package/gulp-concat));
 * ```gulp-rename``` - renaming files, adding prefix, suffix ([https://www.npmjs.com/package/gulp-rename](https://www.npmjs.com/package/gulp-rename));
 * ```gulp-svgo``` - optimizing SVG vector graphics ([https://www.npmjs.com/package/gulp-svgo](https://www.npmjs.com/package/gulp-svgo));
-* ```gulp-image``` - minifing PNG, JPEG, GIF and SVG images ([https://www.npmjs.com/package/gulp-image](https://www.npmjs.com/package/gulp-image));
+* ```gulp-imagemin``` - minify PNG, JPEG, GIF and SVG images ([https://www.npmjs.com/package/gulp-imagemin](https://www.npmjs.com/package/gulp-imagemin));
+* ```imagemin-pngquant``` - pngquant imagemin plugin ([https://www.npmjs.com/package/imagemin-pngquant](https://www.npmjs.com/package/imagemin-pngquant));
+* ```imagemin-jpeg-recompress``` - jpeg-recompress imagemin plugin ([https://www.npmjs.com/package/imagemin-jpeg-recompress](https://www.npmjs.com/package/imagemin-jpeg-recompress));
 * ```gulp-favicons``` - favicons generator for your projects ([https://github.com/evilebottnawi/favicons](https://github.com/evilebottnawi/favicons));
 * ```gulp-plumber``` - notifications in your terminal (SCSS/Sass errors for example) ([https://www.npmjs.com/package/gulp-plumber](https://www.npmjs.com/package/gulp-plumber));
-* ```del``` - delete files and folders ([https://www.npmjs.com/package/del](https://www.npmjs.com/package/del)).
+* ```ngrok``` - secure introspectable tunnels to localhost webhook development tool and debugging tool ([https://www.npmjs.com/package/ngrok](https://www.npmjs.com/package/ngrok));
+* ```gulp-cache``` - a temp file based caching proxy task for gulp ([https://www.npmjs.com/package/gulp-cache](https://www.npmjs.com/package/gulp-cache));
+* ```del``` - delete files and folders ([https://www.npmjs.com/package/del](https://www.npmjs.com/package/del));
+* ```gulp-watch``` - file watcher ([https://www.npmjs.com/package/gulp-watch](https://www.npmjs.com/package/gulp-watch)).

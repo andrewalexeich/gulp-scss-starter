@@ -1,11 +1,9 @@
 var gulp = require("gulp"),
     browsersync = require("browser-sync").create(),
     reload = browsersync.reload,
-    ngrok = require('ngrok'),
     autoprefixer = require("gulp-autoprefixer"),
     uglify = require("gulp-uglify"),
     sass = require("gulp-sass"),
-    watch = require("gulp-watch"),
     cleanCSS = require("gulp-clean-css"),
     concat = require("gulp-concat"),
     rename = require("gulp-rename"),
@@ -14,10 +12,11 @@ var gulp = require("gulp"),
     pngquant = require("imagemin-pngquant"),
     imageminJpegRecompress = require("imagemin-jpeg-recompress"),
     favicons = require("gulp-favicons"),
-    cache = require("gulp-cache"),
-
     plumber = require("gulp-plumber"),
-    del = require("del");
+    ngrok = require("ngrok"),
+    cache = require("gulp-cache"),
+    del = require("del"),
+    watch = require("gulp-watch");
     
 
 // PATHS
@@ -126,14 +125,14 @@ gulp.task("clean", function() {
 });
 
 gulp.task("clearImgCache", function () {
-    return cache.clearAll()
-})
+    return cache.clearAll();
+});
+
 
 // SERVER
 gulp.task("serve", function() {
     browsersync.init({
         server: "dest",
-        // ваще от балды
         port: 9002,
         host: 'localhost'
     }, function (err, bs) {
@@ -141,13 +140,11 @@ gulp.task("serve", function() {
         ngrok.connect({
             proto: 'http',
             addr: bs.options.get('port'),
-            // что-то слушало порт 4040. поэтому, переопределяем.
-            // Но всё равно идём смотреть ngrok UI по адресу 127.0.0.1:4040
             web_addr: 6632
     }, function(err, url) {
-            console.log("\n\n Вёрстка шарится для всех по этому адресу ---> " + url)
-            console.log(" Ошибки ngrok --> " + (err == null ? "их нет" : err) )
-        })
+            console.log("\n\n Вёрстка шарится для всех по этому адресу ---> " + url);
+            console.log(" Ошибки ngrok --> " + (err == null ? "их нет" : err) );
+        });
     });
 });
 
@@ -156,7 +153,7 @@ gulp.task("serve", function() {
 gulp.task("watch", function() {
     watch(paths.html.src, gulp.series("html"));
     watch(paths.styles.src, gulp.series("styles"));
-    watch(paths.images.src, gulp.series("img"))
+    watch(paths.images.src, gulp.series("img"));
     watch(paths.scripts.src, gulp.series("scripts"));
 });
 

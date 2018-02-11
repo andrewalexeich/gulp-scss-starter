@@ -1,2 +1,2 @@
 #!/bin/bash
-npm install gulp@next gulp-watch browser-sync gulp-autoprefixer gulp-uglify gulp-sass gulp-clean-css gulp-concat gulp-rename gulp-svgo gulp-image gulp-favicons gulp-plumber del --save-dev
+npm install gulp@next browser-sync gulp-autoprefixer gulp-uglify gulp-sass gulp-clean-css gulp-concat gulp-rename gulp-svgo gulp-imagemin imagemin-pngquant ngrok gulp-favicons gulp-plumber del gulp-cache imagemin-jpeg-recompress gulp-watch --save-dev --save-exact

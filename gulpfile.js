@@ -1,16 +1,21 @@
 var gulp = require("gulp"),
-    watch = require("gulp-watch"),
     browsersync = require("browser-sync").create(),
     reload = browsersync.reload,
+    ngrok = require('ngrok'),
     autoprefixer = require("gulp-autoprefixer"),
     uglify = require("gulp-uglify"),
     sass = require("gulp-sass"),
+    watch = require("gulp-watch"),
     cleanCSS = require("gulp-clean-css"),
     concat = require("gulp-concat"),
     rename = require("gulp-rename"),
     svgo = require("gulp-svgo"),
-    image = require("gulp-image"),
+    imagemin = require("gulp-imagemin"),
+    pngquant = require("imagemin-pngquant"),
+    imageminJpegRecompress = require("imagemin-jpeg-recompress"),
     favicons = require("gulp-favicons"),
+    cache = require("gulp-cache"),
+
     plumber = require("gulp-plumber"),
     del = require("del");
     
@@ -64,18 +69,21 @@ gulp.task("styles", function() {
 // IMAGES
 gulp.task("img", function() {
     return gulp.src(paths.images.src)
-        .pipe(image({
-            pngquant: true,
-            optipng: false,
-            zopflipng: true,
-            jpegRecompress: false,
-            mozjpeg: true,
-            guetzli: false,
-            gifsicle: true,
-            svgo: true,
-            concurrent: 10,
-            quiet: true
-        }))
+        .pipe(imagemin([
+                  imagemin.gifsicle({interlaced: true}),
+                  imagemin.jpegtran({progressive: true}),
+                  imageminJpegRecompress({
+                    loops: 1,
+                    // min: 45,
+                    // max: 75,
+                    // quality parameters: low, medium, high, veryhigh
+                    quality:'low'
+                  }),
+                  imagemin.svgo(),
+                  imagemin.optipng({optimizationLevel: 5}),
+                  pngquant({quality: '65-70', speed: 5})
+              
+              ]))
         .pipe(gulp.dest(paths.images.dest))
         .pipe(browsersync.reload({ stream: true }));
 });
@@ -117,21 +125,39 @@ gulp.task("clean", function() {
     return del(["build/*"]);
 });
 
+gulp.task("clearImgCache", function () {
+    return cache.clearAll()
+})
 
 // SERVER
 gulp.task("serve", function() {
     browsersync.init({
-        server: "dest"
+        server: "dest",
+        // ваще от балды
+        port: 9002,
+        host: 'localhost'
+    }, function (err, bs) {
+        ngrok.kill();
+        ngrok.connect({
+            proto: 'http',
+            addr: bs.options.get('port'),
+            // что-то слушало порт 4040. поэтому, переопределяем.
+            // Но всё равно идём смотреть ngrok UI по адресу 127.0.0.1:4040
+            web_addr: 6632
+    }, function(err, url) {
+            console.log("\n\n Вёрстка шарится для всех по этому адресу ---> " + url)
+            console.log(" Ошибки ngrok --> " + (err == null ? "их нет" : err) )
+        })
     });
 });
 
 
 // WATCH
 gulp.task("watch", function() {
-    gulp.watch(paths.html.src, gulp.series("html"));
-    gulp.watch(paths.styles.src, gulp.series("styles"));
-    gulp.watch(paths.images.src, gulp.series("img"));
-    gulp.watch(paths.scripts.src, gulp.series("scripts"));
+    watch(paths.html.src, gulp.series("html"));
+    watch(paths.styles.src, gulp.series("styles"));
+    watch(paths.images.src, gulp.series("img"))
+    watch(paths.scripts.src, gulp.series("scripts"));
 });
 
 

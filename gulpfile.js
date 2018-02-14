@@ -68,7 +68,7 @@ gulp.task("styles", function() {
 // IMAGES
 gulp.task("img", function() {
     return gulp.src(paths.images.src)
-        .pipe(imagemin([
+        .pipe(chache(imagemin([
                   imagemin.gifsicle({interlaced: true}),
                   imagemin.jpegtran({progressive: true}),
                   imageminJpegRecompress({
@@ -81,8 +81,7 @@ gulp.task("img", function() {
                   imagemin.svgo(),
                   imagemin.optipng({optimizationLevel: 5}),
                   pngquant({quality: '65-70', speed: 5})
-              
-              ]))
+              ])))
         .pipe(gulp.dest(paths.images.dest))
         .pipe(browsersync.reload({ stream: true }));
 });
@@ -91,7 +90,7 @@ gulp.task("img", function() {
 // FACICON GENERATOR
 gulp.task("favicons", function() {
     return gulp.src("src/img/favicons/*.{jpg,jpeg,png,gif}")
-        .pipe(favicons({
+        .pipe(cache(favicons({
             icons: {
                 online: false,
                 appleIcon: true,
@@ -103,7 +102,7 @@ gulp.task("favicons", function() {
                 windows: false,
                 coast: false
             }
-        }))
+        })))
         .pipe(gulp.dest("dest/img/favicons/"));
 });
 

@@ -25,6 +25,6 @@ Gulppack is a very useful gulp build for your front-end projects. Compile SASS, 
 * ```gulp-favicons``` - favicons generator for your projects ([https://github.com/evilebottnawi/favicons](https://github.com/evilebottnawi/favicons));
 * ```gulp-plumber``` - notifications in your terminal (SCSS/Sass errors for example) ([https://www.npmjs.com/package/gulp-plumber](https://www.npmjs.com/package/gulp-plumber));
 * ```ngrok``` - secure introspectable tunnels to localhost webhook development tool and debugging tool ([https://www.npmjs.com/package/ngrok](https://www.npmjs.com/package/ngrok));
-* ```gulp-cache``` - a temp file based caching proxy task for gulp ([https://www.npmjs.com/package/gulp-cache](https://www.npmjs.com/package/gulp-cache));
+* ```gulp-newer``` - piping the source files to newer before imagemin ensures that only those images that have changed are minified ([https://www.npmjs.com/package/gulp-newer](https://www.npmjs.com/package/gulp-newer));
 * ```del``` - delete files and folders ([https://www.npmjs.com/package/del](https://www.npmjs.com/package/del));
 * ```gulp-watch``` - file watcher ([https://www.npmjs.com/package/gulp-watch](https://www.npmjs.com/package/gulp-watch)).

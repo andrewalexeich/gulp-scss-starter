@@ -123,10 +123,6 @@ gulp.task("clean", function() {
     return del(["build/*"]);
 });
 
-gulp.task("clearImgCache", function () {
-    return cache.clearAll();
-});
-
 
 // SERVER
 gulp.task("serve", function() {

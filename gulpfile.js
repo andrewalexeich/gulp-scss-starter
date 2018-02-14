@@ -14,7 +14,7 @@ var gulp = require("gulp"),
     favicons = require("gulp-favicons"),
     plumber = require("gulp-plumber"),
     ngrok = require("ngrok"),
-    cache = require("gulp-cache"),
+    newer = require("gulp-newer"),
     del = require("del"),
     watch = require("gulp-watch");
     
@@ -68,7 +68,8 @@ gulp.task("styles", function() {
 // IMAGES
 gulp.task("img", function() {
     return gulp.src(paths.images.src)
-        .pipe(chache(imagemin([
+        .pipe(newer(paths.images.dest))
+        .pipe(imagemin([
                   imagemin.gifsicle({interlaced: true}),
                   imagemin.jpegtran({progressive: true}),
                   imageminJpegRecompress({
@@ -81,7 +82,7 @@ gulp.task("img", function() {
                   imagemin.svgo(),
                   imagemin.optipng({optimizationLevel: 5}),
                   pngquant({quality: '65-70', speed: 5})
-              ])))
+              ]))
         .pipe(gulp.dest(paths.images.dest))
         .pipe(browsersync.reload({ stream: true }));
 });
@@ -90,7 +91,8 @@ gulp.task("img", function() {
 // FACICON GENERATOR
 gulp.task("favicons", function() {
     return gulp.src("src/img/favicons/*.{jpg,jpeg,png,gif}")
-        .pipe(cache(favicons({
+        .pipe(newer("dest/img/favicons/"))
+        .pipe(favicons({
             icons: {
                 online: false,
                 appleIcon: true,
@@ -102,7 +104,7 @@ gulp.task("favicons", function() {
                 windows: false,
                 coast: false
             }
-        })))
+        }))
         .pipe(gulp.dest("dest/img/favicons/"));
 });
 

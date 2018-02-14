@@ -122,7 +122,7 @@ gulp.task("scripts", function() {
 
 // CLEAN
 gulp.task("clean", function() {
-    return del(["build/*"]);
+    return del(["dest/*"]);
 });
 
 

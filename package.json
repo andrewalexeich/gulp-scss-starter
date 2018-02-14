@@ -2,7 +2,7 @@
   "name": "Gulppack",
   "description": "Frontend development with pleasure",
   "author": "Andrey Gorokhov, Alexey Khabarovsky",
-  "license": "GPL-3.0",
+  "license": "MIT",
   "dependencies": {},
   "devDependencies": {
     "browser-sync": "2.23.6",

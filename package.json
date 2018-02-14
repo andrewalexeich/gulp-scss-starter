@@ -9,7 +9,7 @@
     "del": "3.0.0",
     "gulp": "4.0.0",
     "gulp-autoprefixer": "4.1.0",
-    "gulp-cache": "1.0.2",
+    "gulp-newer": "1.4.0",
     "gulp-clean-css": "3.9.2",
     "gulp-concat": "2.6.1",
     "gulp-favicons": "2.2.7",

@@ -13,6 +13,7 @@ var gulp = require("gulp"),
     imageminJpegRecompress = require("imagemin-jpeg-recompress"),
     favicons = require("gulp-favicons"),
     plumber = require("gulp-plumber"),
+    ngrok = require("ngrok"),
     newer = require("gulp-newer"),
     debug = require("gulp-debug"),
     clean = require("gulp-rimraf"),
@@ -133,11 +134,22 @@ gulp.task("clean", function() {
 
 // SERVER
 gulp.task("serve", function() {
-    browsersync.init({
-        server: "dest",
-        tunnel: "devsite"
-    });
-});
+     browsersync.init({
+         server: "dest",
+         port: 9002,
+         host: 'localhost'
+     }, function (err, bs) {
+         ngrok.kill();
+         ngrok.connect({
+             proto: 'http',
+             addr: bs.options.get('port'),
+             web_addr: 6632
+     }, function(err, url) {
+             console.log("\n\n Вёрстка шарится для всех по этому адресу ---> " + url);
+             console.log(" Ошибки ngrok --> " + (err == null ? "их нет" : err) );
+         });
+     });
+ });
 
 
 // WATCH

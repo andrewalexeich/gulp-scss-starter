@@ -15,7 +15,7 @@ var gulp = require("gulp"),
     plumber = require("gulp-plumber"),
     ngrok = require("ngrok"),
     newer = require("gulp-newer"),
-    del = require("del"),
+    debug = require("gulp-debug"),
     watch = require("gulp-watch");
     
 
@@ -69,6 +69,7 @@ gulp.task("styles", function() {
 gulp.task("img", function() {
     return gulp.src(paths.images.src)
         .pipe(newer(paths.images.dest))
+        .pipe(debug({"title": "image"}))
         .pipe(imagemin([
                   imagemin.gifsicle({interlaced: true}),
                   imagemin.jpegtran({progressive: true}),
@@ -105,6 +106,7 @@ gulp.task("favicons", function() {
                 coast: false
             }
         }))
+        .pipe(debug({"title": "image"}))
         .pipe(gulp.dest("dest/img/favicons/"));
 });
 
@@ -117,12 +119,6 @@ gulp.task("scripts", function() {
         .pipe(rename({ suffix: ".min" }))
         .pipe(gulp.dest(paths.scripts.dest))
         .pipe(browsersync.reload({ stream: true }));
-});
-
-
-// CLEAN
-gulp.task("clean", function() {
-    return del(["dest/*"]);
 });
 
 
@@ -156,11 +152,9 @@ gulp.task("watch", function() {
 
 
 // BUILD
-gulp.task("src", gulp.series("clean", 
-    gulp.parallel("html", "styles", "img", "favicons", "scripts")));
+gulp.task("src", gulp.parallel("html", "styles", "img", "favicons", "scripts"));
     
-gulp.task("build", gulp.series("clean", 
-    gulp.parallel("html", "styles", "img", "favicons", "scripts")));
+gulp.task("build", gulp.parallel("html", "styles", "img", "favicons", "scripts"));
     
 gulp.task("default", gulp.series("src",
     gulp.parallel("watch", "serve")));

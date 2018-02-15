@@ -4,7 +4,7 @@ Gulppack is a very useful gulp build for your front-end projects. Compile SASS, 
 
 ## How to use:
 * install [NodeJs](https://nodejs.org/en/);
-* install Gulp globally: ```npm install --global gulp@next```;
+* install Gulp globally: ```npm install --global gulp-cli```;
 * ```git clone https://github.com/andreyalexeich/gulppack.git```;
 * ```cd gulppack``` (use Powershell if you are using Windows);
 * ```npm install gulp@next browser-sync gulp-autoprefixer gulp-uglify gulp-sass gulp-clean-css gulp-concat gulp-rename gulp-svgo gulp-imagemin imagemin-pngquant imagemin-jpeg-recompress  gulp-favicons gulp-plumber ngrok gulp-cache del gulp-watch --save-dev --save-exact``` or drag ```npm.sh``` to the terminal and press Enter (Linux, macOS, Git on Windows);
@@ -26,5 +26,5 @@ Gulppack is a very useful gulp build for your front-end projects. Compile SASS, 
 * ```gulp-plumber``` - notifications in your terminal (SCSS/Sass errors for example) ([https://www.npmjs.com/package/gulp-plumber](https://www.npmjs.com/package/gulp-plumber));
 * ```ngrok``` - secure introspectable tunnels to localhost webhook development tool and debugging tool ([https://www.npmjs.com/package/ngrok](https://www.npmjs.com/package/ngrok));
 * ```gulp-newer``` - piping the source files to newer before imagemin ensures that only those images that have changed are minified ([https://www.npmjs.com/package/gulp-newer](https://www.npmjs.com/package/gulp-newer));
-* ```del``` - delete files and folders ([https://www.npmjs.com/package/del](https://www.npmjs.com/package/del));
+* ```gulp-debug``` - debug Vinyl file streams to see what files are run through your Gulp pipeline ([https://www.npmjs.com/package/gulp-debug](https://www.npmjs.com/package/gulp-debug));
 * ```gulp-watch``` - file watcher ([https://www.npmjs.com/package/gulp-watch](https://www.npmjs.com/package/gulp-watch)).

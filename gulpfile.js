@@ -13,7 +13,6 @@ var gulp = require("gulp"),
     imageminJpegRecompress = require("imagemin-jpeg-recompress"),
     favicons = require("gulp-favicons"),
     plumber = require("gulp-plumber"),
-    ngrok = require("ngrok"),
     newer = require("gulp-newer"),
     debug = require("gulp-debug"),
     clean = require("gulp-rimraf"),
@@ -48,6 +47,7 @@ var paths = {
 gulp.task("html", function() {
     return gulp.src(paths.html.src)
         .pipe(gulp.dest(paths.html.dest))
+        .pipe(debug({"title": "html"}))
         .pipe(browsersync.reload({ stream: true }));
 });
 
@@ -57,11 +57,12 @@ gulp.task("styles", function() {
     return gulp.src(paths.styles.src)
         .pipe(plumber())
         .pipe(sass())
-        .pipe(cleanCSS({ compatibility: "ie8" }))
+        .pipe(cleanCSS({compatibility: "ie8"}))
         .pipe(rename({ suffix: ".min" }))
         .pipe(autoprefixer())
         .pipe(plumber.stop())
         .pipe(gulp.dest(paths.styles.dest))
+        .pipe(debug({"title": "styles"}))
         .pipe(browsersync.reload({ stream: true }));
 });
 
@@ -70,22 +71,22 @@ gulp.task("styles", function() {
 gulp.task("img", function() {
     return gulp.src(paths.images.src)
         .pipe(newer(paths.images.dest))
-        .pipe(debug({"title": "image"}))
         .pipe(imagemin([
-                  imagemin.gifsicle({interlaced: true}),
-                  imagemin.jpegtran({progressive: true}),
-                  imageminJpegRecompress({
-                    loops: 1,
-                    // min: 45,
-                    // max: 75,
-                    // quality parameters: low, medium, high, veryhigh
-                    quality:'low'
-                  }),
-                  imagemin.svgo(),
-                  imagemin.optipng({optimizationLevel: 5}),
-                  pngquant({quality: '65-70', speed: 5})
-              ]))
+            imagemin.gifsicle({interlaced: true}),
+            imagemin.jpegtran({progressive: true}),
+            imageminJpegRecompress({
+                loops: 1,
+                // min: 45,
+                // max: 75,
+                // quality parameters: low, medium, high, veryhigh
+                quality:'low'
+            }),
+            imagemin.svgo(),
+            imagemin.optipng({optimizationLevel: 5}),
+            pngquant({quality: '65-70', speed: 5})
+        ]))
         .pipe(gulp.dest(paths.images.dest))
+        .pipe(debug({"title": "images"}))
         .pipe(browsersync.reload({ stream: true }));
 });
 
@@ -107,7 +108,7 @@ gulp.task("favicons", function() {
                 coast: false
             }
         }))
-        .pipe(debug({"title": "image"}))
+        .pipe(debug({"title": "favicons"}))
         .pipe(gulp.dest("dest/img/favicons/"));
 });
 
@@ -119,6 +120,7 @@ gulp.task("scripts", function() {
         .pipe(concat("scripts.js"))
         .pipe(rename({ suffix: ".min" }))
         .pipe(gulp.dest(paths.scripts.dest))
+        .pipe(debug({"title": "scripts"}))
         .pipe(browsersync.reload({ stream: true }));
 });
 
@@ -133,18 +135,7 @@ gulp.task("clean", function() {
 gulp.task("serve", function() {
     browsersync.init({
         server: "dest",
-        port: 9002,
-        host: 'localhost'
-    }, function (err, bs) {
-        ngrok.kill();
-        ngrok.connect({
-            proto: 'http',
-            addr: bs.options.get('port'),
-            web_addr: 6632
-    }, function(err, url) {
-            console.log("\n\n Вёрстка шарится для всех по этому адресу ---> " + url);
-            console.log(" Ошибки ngrok --> " + (err == null ? "их нет" : err) );
-        });
+        tunnel: "devsite"
     });
 });
 
@@ -159,6 +150,6 @@ gulp.task("watch", function() {
 
 
 // BUILD
-gulp.task("src", gulp.parallel("html", "styles", "img", "favicons", "scripts"));   
-gulp.task("build", gulp.parallel("html", "styles", "img", "favicons", "scripts"));   
+gulp.task("src", gulp.parallel("html", "styles", "img", "favicons", "scripts"));
+gulp.task("build", gulp.parallel("html", "styles", "img", "favicons", "scripts"));
 gulp.task("default", gulp.series("src", "clean", gulp.parallel("watch", "serve")));

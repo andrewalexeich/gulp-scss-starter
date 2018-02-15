@@ -27,4 +27,5 @@ Gulppack is a very useful gulp build for your front-end projects. Compile SASS, 
 * ```ngrok``` - secure introspectable tunnels to localhost webhook development tool and debugging tool ([https://www.npmjs.com/package/ngrok](https://www.npmjs.com/package/ngrok));
 * ```gulp-newer``` - piping the source files to newer before imagemin ensures that only those images that have changed are minified ([https://www.npmjs.com/package/gulp-newer](https://www.npmjs.com/package/gulp-newer));
 * ```gulp-debug``` - debug Vinyl file streams to see what files are run through your Gulp pipeline ([https://www.npmjs.com/package/gulp-debug](https://www.npmjs.com/package/gulp-debug));
+* ```gulp-rimraf``` - delete folders and files ([https://github.com/robrich/gulp-rimraf](https://github.com/robrich/gulp-rimraf));
 * ```gulp-watch``` - file watcher ([https://www.npmjs.com/package/gulp-watch](https://www.npmjs.com/package/gulp-watch)).

@@ -16,6 +16,7 @@ var gulp = require("gulp"),
     ngrok = require("ngrok"),
     newer = require("gulp-newer"),
     debug = require("gulp-debug"),
+    clean = require("gulp-rimraf"),
     watch = require("gulp-watch");
     
 
@@ -122,6 +123,12 @@ gulp.task("scripts", function() {
 });
 
 
+// CLEAN
+gulp.task("clean", function() {
+    return gulp.src("dest/img/favicons/fav.png", { read: false }).pipe(clean());
+});
+
+
 // SERVER
 gulp.task("serve", function() {
     browsersync.init({
@@ -152,9 +159,6 @@ gulp.task("watch", function() {
 
 
 // BUILD
-gulp.task("src", gulp.parallel("html", "styles", "img", "favicons", "scripts"));
-    
-gulp.task("build", gulp.parallel("html", "styles", "img", "favicons", "scripts"));
-    
-gulp.task("default", gulp.series("src",
-    gulp.parallel("watch", "serve")));
+gulp.task("src", gulp.parallel("html", "styles", "img", "favicons", "scripts"));   
+gulp.task("build", gulp.parallel("html", "styles", "img", "favicons", "scripts"));   
+gulp.task("default", gulp.series("src", "clean", gulp.parallel("watch", "serve")));

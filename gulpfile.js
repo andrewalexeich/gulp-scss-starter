@@ -128,28 +128,30 @@ gulp.task("scripts", function() {
 
 // CLEAN
 gulp.task("clean", function() {
-    return gulp.src("dest/img/favicons/fav.png", { read: false }).pipe(clean());
+    return gulp.src("dest/img/favicons/fav.png", { read: false })
+        .pipe(clean())
+        .pipe(debug({"title": "clean"}));
 });
 
 
 // SERVER
 gulp.task("serve", function() {
-     browsersync.init({
-         server: "dest",
-         port: 9002,
-         host: 'localhost'
-     }, function (err, bs) {
-         ngrok.kill();
-         ngrok.connect({
-             proto: 'http',
-             addr: bs.options.get('port'),
-             web_addr: 6632
-     }, function(err, url) {
-             console.log("\n\n Вёрстка шарится для всех по этому адресу ---> " + url);
-             console.log(" Ошибки ngrok --> " + (err == null ? "их нет" : err) );
-         });
-     });
- });
+    browsersync.init({
+        server: "dest",
+        port: 9002,
+        host: 'localhost'
+    }, function (err, bs) {
+        ngrok.kill();
+        ngrok.connect({
+            proto: 'http',
+            addr: bs.options.get('port'),
+            web_addr: 6632
+    }, function(err, url) {
+            console.log("\n\n Вёрстка шарится для всех по этому адресу ---> " + url);
+            console.log(" Ошибки ngrok --> " + (err == null ? "их нет" : err));
+        });
+    });
+});
 
 
 // WATCH

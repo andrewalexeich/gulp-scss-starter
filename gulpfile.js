@@ -12,6 +12,8 @@ var gulp = require("gulp"),
     pngquant = require("imagemin-pngquant"),
     imageminJpegRecompress = require("imagemin-jpeg-recompress"),
     favicons = require("gulp-favicons"),
+    svgSprite = require("gulp-svg-sprites"),
+	replace = require('gulp-replace'),
     plumber = require("gulp-plumber"),
     ngrok = require("ngrok"),
     newer = require("gulp-newer"),
@@ -35,6 +37,16 @@ var paths = {
     images: {
         src: "src/img/**/*.*",
         dest: "dest/img/"
+    },
+    
+    favicons: {
+        src: "src/img/favicons/*.{jpg,jpeg,png,gif}",
+        dest: "dest/img/favicons/"
+    },
+    
+    sprites: {
+        src: "src/img/svg/*.svg",
+        dest:  "dest/img/svg"
     },
         
     scripts: {
@@ -92,10 +104,24 @@ gulp.task("img", function() {
 });
 
 
+// SVG SPRITES
+gulp.task("sprites", function() {
+    return gulp.src(paths.sprites.src)
+        .pipe(newer(paths.sprites.dest))
+        .pipe(replace('&gt;', '>'))
+        .pipe(svgSprite({
+            preview: false,
+            selector: "icon-%f",
+            svg: { sprite: "sprite.svg" }
+        }))
+        .pipe(gulp.dest(paths.sprites.dest));
+});
+
+
 // FACICON GENERATOR
 gulp.task("favicons", function() {
-    return gulp.src("src/img/favicons/*.{jpg,jpeg,png,gif}")
-        .pipe(newer("dest/img/favicons/"))
+    return gulp.src(paths.favicons.src)
+        .pipe(newer(paths.favicons.dest))
         .pipe(favicons({
             icons: {
                 online: false,
@@ -110,7 +136,7 @@ gulp.task("favicons", function() {
             }
         }))
         .pipe(debug({"title": "favicons"}))
-        .pipe(gulp.dest("dest/img/favicons/"));
+        .pipe(gulp.dest(paths.favicons.dest));
 });
 
 
@@ -128,7 +154,7 @@ gulp.task("scripts", function() {
 
 // CLEAN
 gulp.task("clean", function() {
-    return gulp.src("dest/img/favicons/fav.png", { read: false })
+    return gulp.src(["dest/img/favicons/fav.png", "dest/img/svg/*.svg", "!dest/img/svg/sprite.svg"], { read: false })
         .pipe(clean())
         .pipe(debug({"title": "clean"}));
 });
@@ -159,11 +185,12 @@ gulp.task("watch", function() {
     watch(paths.html.src, gulp.series("html"));
     watch(paths.styles.src, gulp.series("styles"));
     watch(paths.images.src, gulp.series("img"));
+    watch(paths.sprites.src, gulp.series("sprites"));
     watch(paths.scripts.src, gulp.series("scripts"));
 });
 
 
 // BUILD
-gulp.task("src", gulp.parallel("html", "styles", "img", "favicons", "scripts"));
-gulp.task("build", gulp.parallel("html", "styles", "img", "favicons", "scripts"));
+gulp.task("src", gulp.parallel("html", "styles", "img", "sprites", "favicons", "scripts"));
+gulp.task("build", gulp.parallel("html", "styles", "img", "sprites", "favicons", "scripts"));
 gulp.task("default", gulp.series("src", "clean", gulp.parallel("watch", "serve")));

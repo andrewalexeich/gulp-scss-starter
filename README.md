@@ -25,6 +25,8 @@ Gulppack is a very useful gulp build for your front-end projects. Compile SASS, 
 * ```imagemin-pngquant``` - pngquant imagemin plugin ([https://www.npmjs.com/package/imagemin-pngquant](https://www.npmjs.com/package/imagemin-pngquant));
 * ```imagemin-jpeg-recompress``` - jpeg-recompress imagemin plugin ([https://www.npmjs.com/package/imagemin-jpeg-recompress](https://www.npmjs.com/package/imagemin-jpeg-recompress));
 * ```gulp-favicons``` - favicons generator for your projects ([https://github.com/evilebottnawi/favicons](https://github.com/evilebottnawi/favicons));
+* ```gulp-svg-sprites``` - create SVG sprites ([https://github.com/shakyShane/gulp-svg-sprites](https://github.com/shakyShane/gulp-svg-sprites));
+* ```gulp-replace``` - a string replace plugin ([https://www.npmjs.com/package/gulp-replace](https://www.npmjs.com/package/gulp-replace));
 * ```gulp-plumber``` - notifications in your terminal (SCSS/Sass errors for example) ([https://www.npmjs.com/package/gulp-plumber](https://www.npmjs.com/package/gulp-plumber));
 * ```ngrok``` - secure introspectable tunnels to localhost webhook development tool and debugging tool ([https://www.npmjs.com/package/ngrok](https://www.npmjs.com/package/ngrok));
 * ```gulp-newer``` - piping the source files to newer before imagemin ensures that only those images that have changed are minified ([https://www.npmjs.com/package/gulp-newer](https://www.npmjs.com/package/gulp-newer));

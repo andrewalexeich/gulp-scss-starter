@@ -16,6 +16,8 @@ Gulppack - сборка для автоматизации задач в повс
 * [imagemin-pngquant](https://www.npmjs.com/package/imagemin-pngquant) — дополнение к gulp-imagemin для работы с PNG-изображениями;
 * [imagemin-jpeg-recompress](https://www.npmjs.com/package/imagemin-jpeg-recompress) — дополнение к gulp-imagemin для работы с JPG-изображениями;
 * [gulp-favicons](https://github.com/evilebottnawi/favicons) — генератор фавиконок для вашего проекта;
+* [gulp-svg-sprites](https://github.com/shakyShane/gulp-svg-sprites) - создание SVG-спрайтов;
+* [gulp-replace](https://www.npmjs.com/package/gulp-replace) - плагин для замены символов;
 * [gulp-plumber](https://www.npmjs.com/package/gulp-plumber) — оповещения в командной строке (например, ошибки в Sass/SCSS);
 * [ngrok](https://www.npmjs.com/package/ngrok) — предоставление доступа к локальному серверу (аналог tunnel в browser-sync. Предпочтительно для работы в ОС Windows, если будут проблемы с browser-sync);
 * [gulp-newer](https://www.npmjs.com/package/gulp-newer) — кэширование;

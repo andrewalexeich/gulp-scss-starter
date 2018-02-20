@@ -1,4 +1,4 @@
-[![ru-lang](https://img.shields.io/badge/lang-ru-red.svg)](README.md)
+[![ru-lang](https://img.shields.io/badge/lang-ru-red.svg)](README.ru.md)
 
 # Gulppack
 

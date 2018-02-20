@@ -112,6 +112,7 @@ gulp.task("sprites", function() {
         .pipe(svgSprite({
             preview: false,
             selector: "icon-%f",
+            templates: { css: false },
             svg: { sprite: "sprite.svg" }
         }))
         .pipe(gulp.dest(paths.sprites.dest));

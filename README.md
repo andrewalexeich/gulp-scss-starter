@@ -1,3 +1,5 @@
+[![ru-lang](https://img.shields.io/badge/lang-ru-red.svg)](README.md)
+
 # Gulppack
 
 Gulppack is a very useful gulp build for your front-end projects. Compile SASS, compress the files, optimize the pictures. It reloads your browser automatically every time you save a file in a code editor. Don't care about tedious things, leave it to us!

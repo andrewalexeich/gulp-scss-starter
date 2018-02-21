@@ -13,14 +13,18 @@ var gulp = require("gulp"),
     imageminJpegRecompress = require("imagemin-jpeg-recompress"),
     favicons = require("gulp-favicons"),
     svgSprite = require("gulp-svg-sprites"),
-	replace = require('gulp-replace'),
+    replace = require('gulp-replace'),
     plumber = require("gulp-plumber"),
     ngrok = require("ngrok"),
     newer = require("gulp-newer"),
     debug = require("gulp-debug"),
     clean = require("gulp-rimraf"),
+
+    svgSymbols = require("gulp-svg-symbols"),
+
     watch = require("gulp-watch");
     
+
 
 // PATHS
 var paths = {
@@ -35,7 +39,7 @@ var paths = {
     },
     
     images: {
-        src: "src/img/**/*.*",
+        src: ["src/img/**/*.*","!src/img/svg/*"],
         dest: "dest/img/"
     },
     
@@ -89,8 +93,7 @@ gulp.task("img", function() {
             imagemin.jpegtran({progressive: true}),
             imageminJpegRecompress({
                 loops: 1,
-                // min: 45,
-                // max: 75,
+
                 // quality parameters: low, medium, high, veryhigh
                 quality:'low'
             }),
@@ -105,16 +108,10 @@ gulp.task("img", function() {
 
 
 // SVG SPRITES
-gulp.task("sprites", function() {
+gulp.task("svg_sprites", function() {
     return gulp.src(paths.sprites.src)
-        .pipe(newer(paths.sprites.dest))
-        .pipe(replace('&gt;', '>'))
-        .pipe(svgSprite({
-            preview: false,
-            selector: "icon-%f",
-            templates: { css: false },
-            svg: { sprite: "sprite.svg" }
-        }))
+        .pipe(imagemin([imagemin.svgo()]))
+        .pipe(svgSymbols({ templates: ['default-svg'] }))
         .pipe(gulp.dest(paths.sprites.dest));
 });
 
@@ -155,7 +152,7 @@ gulp.task("scripts", function() {
 
 // CLEAN
 gulp.task("clean", function() {
-    return gulp.src(["dest/img/favicons/fav.png", "dest/img/svg/*.svg", "!dest/img/svg/sprite.svg"], { read: false })
+    return gulp.src('dest',{read: false})
         .pipe(clean())
         .pipe(debug({"title": "clean"}));
 });
@@ -163,35 +160,43 @@ gulp.task("clean", function() {
 
 // SERVER
 gulp.task("serve", function() {
-    browsersync.init({
-        server: "dest",
-        port: 9002,
-        host: 'localhost'
-    }, function (err, bs) {
-        ngrok.kill();
-        ngrok.connect({
-            proto: 'http',
-            addr: bs.options.get('port'),
-            web_addr: 6632
-    }, function(err, url) {
-            console.log("\n\n Вёрстка шарится для всех по этому адресу ---> " + url);
-            console.log(" Ошибки ngrok --> " + (err == null ? "их нет" : err));
+    return new Promise((res,rej)=>{
+
+        browsersync.init({
+            server: "dest",
+            port: 9002,
+            host: 'localhost'
+        }, function (err, bs) {
+            ngrok.kill();
+            ngrok.connect({
+                proto: 'http',
+                addr: bs.options.get('port'),
+                web_addr: 6632
+        }, function(err, url) {
+                console.log("\n\n Вёрстка шарится для всех по этому адресу ---> " + url);
+                console.log(" Ошибки ngrok --> " + (err == null ? "их нет" : err));
+            });
         });
+        res()
     });
 });
 
 
 // WATCH
 gulp.task("watch", function() {
-    watch(paths.html.src, gulp.series("html"));
-    watch(paths.styles.src, gulp.series("styles"));
-    watch(paths.images.src, gulp.series("img"));
-    watch(paths.sprites.src, gulp.series("sprites"));
-    watch(paths.scripts.src, gulp.series("scripts"));
+    return new Promise((res,rej)=> {
+
+        watch(paths.html.src, gulp.series("html"));
+        watch(paths.styles.src, gulp.series("styles"));
+        watch(paths.images.src, gulp.series("img"));
+        watch(paths.sprites.src, gulp.series("svg_sprites"));
+        watch(paths.scripts.src, gulp.series("scripts"));
+        res();
+    });
 });
 
 
 // BUILD
-gulp.task("src", gulp.parallel("html", "styles", "img", "sprites", "favicons", "scripts"));
-gulp.task("build", gulp.parallel("html", "styles", "img", "sprites", "favicons", "scripts"));
-gulp.task("default", gulp.series("src", "clean", gulp.parallel("watch", "serve")));
+gulp.task("src", gulp.parallel("html", "styles", "img", "svg_sprites", "favicons", "scripts"));
+gulp.task("build", gulp.parallel("html", "styles", "img", "svg_sprites", "favicons", "scripts"));
+gulp.task("default", gulp.series("clean", "src", "watch", "serve"));

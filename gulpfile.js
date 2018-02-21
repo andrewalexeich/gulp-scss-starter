@@ -149,7 +149,7 @@ gulp.task("scripts", function() {
 
 // CLEAN
 gulp.task("clean", function() {
-    return gulp.src('dest',{read: false})
+    return gulp.src('dest/*',{read: false})
         .pipe(clean())
         .pipe(debug({"title": "clean"}));
 });
@@ -157,8 +157,7 @@ gulp.task("clean", function() {
 
 // SERVER
 gulp.task("serve", function() {
-    return new Promise((res,rej)=>{
-
+    return new Promise((res,rej) => {
         browsersync.init({
             server: "dest",
             port: 9002,
@@ -174,7 +173,7 @@ gulp.task("serve", function() {
                 console.log(" Ошибки ngrok --> " + (err == null ? "их нет" : err));
             });
         });
-        res()
+        res();
     });
 });
 
@@ -182,7 +181,6 @@ gulp.task("serve", function() {
 // WATCH
 gulp.task("watch", function() {
     return new Promise((res,rej)=> {
-
         watch(paths.html.src, gulp.series("html"));
         watch(paths.styles.src, gulp.series("styles"));
         watch(paths.images.src, gulp.series("img"));

@@ -16,7 +16,6 @@ var gulp = require("gulp"),
     replace = require('gulp-replace'),
     plumber = require("gulp-plumber"),
     ngrok = require("ngrok"),
-    newer = require("gulp-newer"),
     debug = require("gulp-debug"),
     clean = require("gulp-rimraf"),
     watch = require("gulp-watch");
@@ -84,7 +83,6 @@ gulp.task("styles", function() {
 // IMAGES
 gulp.task("img", function() {
     return gulp.src(paths.images.src)
-        .pipe(newer(paths.images.dest))
         .pipe(imagemin([
             imagemin.gifsicle({interlaced: true}),
             imagemin.jpegtran({progressive: true}),
@@ -116,7 +114,6 @@ gulp.task("svg_sprites", function() {
 // FACICON GENERATOR
 gulp.task("favicons", function() {
     return gulp.src(paths.favicons.src)
-        .pipe(newer(paths.favicons.dest))
         .pipe(favicons({
             icons: {
                 online: false,
@@ -149,7 +146,7 @@ gulp.task("scripts", function() {
 
 // CLEAN
 gulp.task("clean", function() {
-    return gulp.src('dest/*',{read: false})
+    return gulp.src("dest/*", {read: false})
         .pipe(clean())
         .pipe(debug({"title": "clean"}));
 });

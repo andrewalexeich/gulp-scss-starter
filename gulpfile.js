@@ -12,16 +12,13 @@ var gulp = require("gulp"),
     pngquant = require("imagemin-pngquant"),
     imageminJpegRecompress = require("imagemin-jpeg-recompress"),
     favicons = require("gulp-favicons"),
-    svgSprite = require("gulp-svg-sprites"),
+    svgSymbols = require("gulp-svg-symbols"),
     replace = require('gulp-replace'),
     plumber = require("gulp-plumber"),
     ngrok = require("ngrok"),
     newer = require("gulp-newer"),
     debug = require("gulp-debug"),
     clean = require("gulp-rimraf"),
-
-    svgSymbols = require("gulp-svg-symbols"),
-
     watch = require("gulp-watch");
     
 

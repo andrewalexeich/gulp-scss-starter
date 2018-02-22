@@ -13,7 +13,7 @@ var gulp = require("gulp"),
     imageminJpegRecompress = require("imagemin-jpeg-recompress"),
     favicons = require("gulp-favicons"),
     svgSymbols = require("gulp-svg-symbols"),
-    replace = require('gulp-replace'),
+    newer = require("gulp-newer"),
     plumber = require("gulp-plumber"),
     ngrok = require("ngrok"),
     debug = require("gulp-debug"),
@@ -34,14 +34,14 @@ var paths = {
         dest: "dest/styles/"
     },
     
-    images: {
-        src: ["src/img/**/*.*","!src/img/svg/*"],
-        dest: "dest/img/"
-    },
-    
     favicons: {
         src: "src/img/favicons/*.{jpg,jpeg,png,gif}",
         dest: "dest/img/favicons/"
+    },
+    
+    images: {
+        src: ["src/img/**/*.*","!src/img/svg/*"],
+        dest: "dest/img/"
     },
     
     sprites: {
@@ -80,37 +80,6 @@ gulp.task("styles", function() {
 });
 
 
-// IMAGES
-gulp.task("img", function() {
-    return gulp.src(paths.images.src)
-        .pipe(imagemin([
-            imagemin.gifsicle({interlaced: true}),
-            imagemin.jpegtran({progressive: true}),
-            imageminJpegRecompress({
-                loops: 1,
-
-                // quality parameters: low, medium, high, veryhigh
-                quality:'low'
-            }),
-            imagemin.svgo(),
-            imagemin.optipng({optimizationLevel: 5}),
-            pngquant({quality: '65-70', speed: 5})
-        ]))
-        .pipe(gulp.dest(paths.images.dest))
-        .pipe(debug({"title": "images"}))
-        .pipe(browsersync.reload({ stream: true }));
-});
-
-
-// SVG SPRITES
-gulp.task("svg_sprites", function() {
-    return gulp.src(paths.sprites.src)
-        .pipe(imagemin([imagemin.svgo()]))
-        .pipe(svgSymbols({ templates: ['default-svg'] }))
-        .pipe(gulp.dest(paths.sprites.dest));
-});
-
-
 // FACICON GENERATOR
 gulp.task("favicons", function() {
     return gulp.src(paths.favicons.src)
@@ -127,8 +96,40 @@ gulp.task("favicons", function() {
                 coast: false
             }
         }))
-        .pipe(debug({"title": "favicons"}))
-        .pipe(gulp.dest(paths.favicons.dest));
+        .pipe(gulp.dest(paths.favicons.dest))
+        .pipe(debug({"title": "favicons"}));
+});
+
+
+// IMAGES
+gulp.task("img", function() {
+    return gulp.src(paths.images.src)
+        .pipe(newer(paths.images.dest))
+        .pipe(imagemin([
+            imagemin.gifsicle({interlaced: true}),
+            imagemin.jpegtran({progressive: true}),
+            imageminJpegRecompress({
+                loops: 1,
+                // quality parameters: low, medium, high, veryhigh
+                quality:'low'
+            }),
+            imagemin.svgo(),
+            imagemin.optipng({optimizationLevel: 5}),
+            pngquant({quality: '65-70', speed: 5})
+        ]))
+        .pipe(gulp.dest(paths.images.dest))
+        .pipe(debug({"title": "images"}))
+        .pipe(browsersync.reload({ stream: true }));
+});
+
+
+// SVG SPRITES
+gulp.task("sprites", function() {
+    return gulp.src(paths.sprites.src)
+        .pipe(imagemin([imagemin.svgo()]))
+        .pipe(svgSymbols({ templates: ['default-svg'] }))
+        .pipe(gulp.dest(paths.sprites.dest))
+        .pipe(debug({"title": "sprites"}));
 });
 
 
@@ -146,7 +147,7 @@ gulp.task("scripts", function() {
 
 // CLEAN
 gulp.task("clean", function() {
-    return gulp.src("dest/*", {read: false})
+    return gulp.src("dest/img/favicons/fav.png", {read: false})
         .pipe(clean())
         .pipe(debug({"title": "clean"}));
 });
@@ -156,16 +157,17 @@ gulp.task("clean", function() {
 gulp.task("serve", function() {
     return new Promise((res,rej) => {
         browsersync.init({
-            server: "dest",
-            port: 9002,
-            host: 'localhost'
-        }, function (err, bs) {
+        server: "dest/",
+        port: 9002,
+        host: "localhost"}, 
+        function (err, bs) {
             ngrok.kill();
             ngrok.connect({
-                proto: 'http',
-                addr: bs.options.get('port'),
+                proto: "http",
+                addr: bs.options.get("port"),
                 web_addr: 6632
-        }, function(err, url) {
+            }, 
+            function(err, url) {
                 console.log("\n\n Вёрстка шарится для всех по этому адресу ---> " + url);
                 console.log(" Ошибки ngrok --> " + (err == null ? "их нет" : err));
             });
@@ -177,11 +179,11 @@ gulp.task("serve", function() {
 
 // WATCH
 gulp.task("watch", function() {
-    return new Promise((res,rej)=> {
+    return new Promise((res,rej) => {
         watch(paths.html.src, gulp.series("html"));
         watch(paths.styles.src, gulp.series("styles"));
         watch(paths.images.src, gulp.series("img"));
-        watch(paths.sprites.src, gulp.series("svg_sprites"));
+        watch(paths.sprites.src, gulp.series("sprites"));
         watch(paths.scripts.src, gulp.series("scripts"));
         res();
     });
@@ -189,6 +191,6 @@ gulp.task("watch", function() {
 
 
 // BUILD
-gulp.task("src", gulp.parallel("html", "styles", "img", "svg_sprites", "favicons", "scripts"));
-gulp.task("build", gulp.parallel("html", "styles", "img", "svg_sprites", "favicons", "scripts"));
-gulp.task("default", gulp.series("clean", "src", "watch", "serve"));
+gulp.task("src", gulp.parallel("html", "styles", "favicons", "img", "sprites", "scripts"));
+gulp.task("build", gulp.parallel("html", "styles", "favicons", "img", "sprites", "scripts"));
+gulp.task("default", gulp.series("src", "clean", gulp.parallel("watch", "serve")));

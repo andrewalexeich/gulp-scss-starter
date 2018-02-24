@@ -20,7 +20,8 @@ Gulppack - сборка для автоматизации задач в повс
 * [gulp-replace](https://www.npmjs.com/package/gulp-replace) - плагин для замены символов;
 * [gulp-plumber](https://www.npmjs.com/package/gulp-plumber) — оповещения в командной строке (например, ошибки в Sass/SCSS);
 * [ngrok](https://www.npmjs.com/package/ngrok) — предоставление доступа к локальному серверу (аналог tunnel в browser-sync. Предпочтительно для работы в ОС Windows, если будут проблемы с browser-sync);
-* [gulp-newer](https://www.npmjs.com/package/gulp-newer) — кэширование;
+* [gulp-newer](https://www.npmjs.com/package/gulp-newer) — дополнительный плагин к ```gulp-imagemin```, позволяет сжимать только новые изображения;
+* [gulp-cache](https://www.npmjs.com/package/gulp-cache) — кэширование;
 * [gulp-debug](https://www.npmjs.com/package/gulp-debug) — отладка в терминале;
 * [gulp-rimraf](https://github.com/robrich/gulp-rimraf) — очистка папок, удаление файлов;
 * [gulp-watch](https://www.npmjs.com/package/gulp-watch) — отслеживание изменений в ваших файлах проекта.

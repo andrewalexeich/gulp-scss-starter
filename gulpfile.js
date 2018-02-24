@@ -14,6 +14,7 @@ var gulp = require("gulp"),
     favicons = require("gulp-favicons"),
     svgSymbols = require("gulp-svg-symbols"),
     newer = require("gulp-newer"),
+    cache = require("gulp-cache"),
     plumber = require("gulp-plumber"),
     ngrok = require("ngrok"),
     debug = require("gulp-debug"),
@@ -40,13 +41,13 @@ var paths = {
     },
     
     images: {
-        src: ["src/img/**/*.*","!src/img/svg/*"],
+        src: ["src/img/**/*.*","!src/img/svg/icons/*"],
         dest: "dest/img/"
     },
     
     sprites: {
-        src: "src/img/svg/*.svg",
-        dest:  "dest/img/svg"
+        src: "src/img/svg/icons/*.svg",
+        dest:  "dest/img/svg/sprites"
     },
         
     scripts: {
@@ -83,7 +84,7 @@ gulp.task("styles", function() {
 // FACICON GENERATOR
 gulp.task("favicons", function() {
     return gulp.src(paths.favicons.src)
-        .pipe(favicons({
+        .pipe(cache(favicons({
             icons: {
                 online: false,
                 appleIcon: true,
@@ -95,7 +96,7 @@ gulp.task("favicons", function() {
                 windows: false,
                 coast: false
             }
-        }))
+        })))
         .pipe(gulp.dest(paths.favicons.dest))
         .pipe(debug({"title": "favicons"}));
 });
@@ -126,9 +127,9 @@ gulp.task("img", function() {
 // SVG SPRITES
 gulp.task("sprites", function() {
     return gulp.src(paths.sprites.src)
-        .pipe(imagemin([imagemin.svgo()]))
         .pipe(svgSymbols({ templates: ['default-svg'] }))
         .pipe(gulp.dest(paths.sprites.dest))
+        .pipe(imagemin([imagemin.svgo()]))
         .pipe(debug({"title": "sprites"}));
 });
 

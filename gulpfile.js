@@ -7,7 +7,6 @@ var gulp = require("gulp"),
     cleanCSS = require("gulp-clean-css"),
     concat = require("gulp-concat"),
     rename = require("gulp-rename"),
-    svgo = require("gulp-svgo"),
     imagemin = require("gulp-imagemin"),
     pngquant = require("imagemin-pngquant"),
     imageminJpegRecompress = require("imagemin-jpeg-recompress"),
@@ -18,7 +17,6 @@ var gulp = require("gulp"),
     plumber = require("gulp-plumber"),
     ngrok = require("ngrok"),
     debug = require("gulp-debug"),
-    clean = require("gulp-rimraf"),
     watch = require("gulp-watch");
     
 
@@ -36,17 +34,17 @@ var paths = {
     },
     
     favicons: {
-        src: "src/img/favicons/*.{jpg,jpeg,png,gif}",
+        src: "src/img/favicons/*",
         dest: "dest/img/favicons/"
     },
     
     images: {
-        src: ["src/img/**/*.*","!src/img/svg/icons/*"],
+        src: ["src/img/**/*.*", "!src/img/svg/icons/*", "!src/img/favicons/*"],
         dest: "dest/img/"
     },
     
     sprites: {
-        src: "src/img/svg/icons/*.svg",
+        src: "src/img/svg/icons/*",
         dest:  "dest/img/svg/sprites"
     },
         
@@ -109,14 +107,10 @@ gulp.task("img", function() {
         .pipe(imagemin([
             imagemin.gifsicle({interlaced: true}),
             imagemin.jpegtran({progressive: true}),
-            imageminJpegRecompress({
-                loops: 1,
-                // quality parameters: low, medium, high, veryhigh
-                quality:'low'
-            }),
+            imageminJpegRecompress({loops: 1, quality: "low"}),
             imagemin.svgo(),
             imagemin.optipng({optimizationLevel: 5}),
-            pngquant({quality: '65-70', speed: 5})
+            pngquant({quality: "65-70", speed: 5})
         ]))
         .pipe(gulp.dest(paths.images.dest))
         .pipe(debug({"title": "images"}))
@@ -127,7 +121,7 @@ gulp.task("img", function() {
 // SVG SPRITES
 gulp.task("sprites", function() {
     return gulp.src(paths.sprites.src)
-        .pipe(svgSymbols({ templates: ['default-svg'] }))
+        .pipe(svgSymbols({templates: ["default-svg"]}))
         .pipe(gulp.dest(paths.sprites.dest))
         .pipe(imagemin([imagemin.svgo()]))
         .pipe(debug({"title": "sprites"}));
@@ -139,18 +133,10 @@ gulp.task("scripts", function() {
     return gulp.src(paths.scripts.src)
         .pipe(uglify())
         .pipe(concat("scripts.js"))
-        .pipe(rename({ suffix: ".min" }))
+        .pipe(rename({suffix: ".min"}))
         .pipe(gulp.dest(paths.scripts.dest))
         .pipe(debug({"title": "scripts"}))
         .pipe(browsersync.reload({ stream: true }));
-});
-
-
-// CLEAN
-gulp.task("clean", function() {
-    return gulp.src("dest/img/favicons/fav.png", {read: false})
-        .pipe(clean())
-        .pipe(debug({"title": "clean"}));
 });
 
 
@@ -192,6 +178,5 @@ gulp.task("watch", function() {
 
 
 // BUILD
-gulp.task("src", gulp.parallel("html", "styles", "favicons", "img", "sprites", "scripts"));
 gulp.task("build", gulp.parallel("html", "styles", "favicons", "img", "sprites", "scripts"));
-gulp.task("default", gulp.series("src", "clean", gulp.parallel("watch", "serve")));
+gulp.task("default", gulp.series("build", gulp.parallel("watch", "serve")));

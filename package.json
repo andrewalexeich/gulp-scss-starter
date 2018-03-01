@@ -1,28 +1,31 @@
 {
-  "name": "Gulppack",
-  "description": "Frontend development with pleasure",
-  "author": "Andrey Gorokhov, Alexey Khabarovskii",
-  "license": "MIT",
-  "dependencies": {},
-  "devDependencies": {
-    "browser-sync": "2.23.6",
-    "gulp": "4.0.0",
-    "gulp-autoprefixer": "4.1.0",
-    "gulp-cache": "^1.0.2",
-    "gulp-clean-css": "3.9.2",
-    "gulp-concat": "2.6.1",
-    "gulp-debug": "3.2.0",
-    "gulp-favicons": "2.2.7",
-    "gulp-imagemin": "4.1.0",
-    "gulp-newer": "^1.4.0",
-    "gulp-plumber": "1.2.0",
-    "gulp-rename": "1.2.2",
-    "gulp-sass": "3.1.0",
-    "gulp-svg-symbols": "3.1.0",
-    "gulp-uglify": "3.0.0",
-    "gulp-watch": "5.0.0",
-    "imagemin-jpeg-recompress": "5.1.0",
-    "imagemin-pngquant": "5.0.1",
-    "ngrok": "2.2.25"
-  }
+    "name": "Gulppack",
+    "description": "Frontend development with pleasure",
+    "author": "Andrey Gorokhov, Alexey Khabarovskii",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/andreyalexeich/gulppack.git"
+    },
+    "license": "MIT",
+    "dependencies": {},
+    "devDependencies": {
+        "browser-sync": "^2.23.6",
+        "gulp-autoprefixer": "^5.0.0",
+        "gulp-cache": "^1.0.2",
+        "gulp-clean-css": "^3.9.2",
+        "gulp-concat": "^2.6.1",
+        "gulp-debug": "^3.2.0",
+        "gulp-favicons": "^2.2.7",
+        "gulp-imagemin": "^4.1.0",
+        "gulp-newer": "^1.4.0",
+        "gulp-plumber": "^1.2.0",
+        "gulp-rename": "^1.2.2",
+        "gulp-sass": "^3.1.0",
+        "gulp-svg-symbols": "^3.1.0",
+        "gulp-uglify": "^3.0.0",
+        "gulp-watch": "^5.0.0",
+        "gulp": "^4.0.0",
+        "imagemin-jpeg-recompress": "^5.1.0",
+        "imagemin-pngquant": "^5.0.1"
+    }
 }

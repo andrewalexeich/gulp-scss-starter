@@ -15,7 +15,6 @@ var gulp = require("gulp"),
     newer = require("gulp-newer"),
     cache = require("gulp-cache"),
     plumber = require("gulp-plumber"),
-    ngrok = require("ngrok"),
     debug = require("gulp-debug"),
     watch = require("gulp-watch");
     
@@ -144,22 +143,10 @@ gulp.task("scripts", function() {
 gulp.task("serve", function() {
     return new Promise((res,rej) => {
         browsersync.init({
-        server: "dest/",
-        port: 9002,
-        host: "localhost"}, 
-        function (err, bs) {
-            ngrok.kill();
-            ngrok.connect({
-                proto: "http",
-                addr: bs.options.get("port"),
-                web_addr: 6632
-            }, 
-            function(err, url) {
-                console.log("\n\n Вёрстка шарится для всех по этому адресу ---> " + url);
-                console.log(" Ошибки ngrok --> " + (err == null ? "их нет" : err));
-            });
+            server: "dest/",
+            tunnel: "sitedev"
         });
-        res();
+    res();
     });
 });
 

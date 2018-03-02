@@ -24,7 +24,7 @@ Gulppack is a very useful gulp build for your front-end projects. Compile SASS, 
 * [gulp-watch](https://www.npmjs.com/package/gulp-watch) - file watcher.
 
 ## How to use:
-* Install one of the package managers (optional): [NodeJS](http://nodejs.org/en/) | [Yarn](https://yarnpkg.com/en/docs/install).
+* Install one of the package managers (optional): [NodeJS](http://nodejs.org/en/) / [Yarn](https://yarnpkg.com/en/docs/install).
 
 > NodeJS is an open-source, cross-platform JavaScript run-time environment for executing JavaScript code server-side. Historically, JavaScript was used primarily for client-side scripting, in which scripts written in JavaScript are embedded in a webpage's HTML, to be run client-side by a JavaScript engine in the user's web browser. Node.js enables JavaScript to be used for server-side scripting, and runs scripts server-side to produce dynamic web page content before the page is sent to the user's web browser.
 

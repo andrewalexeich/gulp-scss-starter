@@ -32,7 +32,7 @@ Gulppack is a very useful gulp build for your front-end projects. Compile SASS, 
 
 Then using Powershell in Windows or Terminal in Linux/macOS, please do the following: 
 
-* install ```gulp``` globally: ```npm install --global gulp-cli```;
+* install ```gulp``` globally: ```npm install --global gulp-cli``` (if you are working with ```npm```) or ```yarn global add gulp-cli``` (if you are working with ```yarn```);
 * go to the folder: ```cd gulppack```;
 * enter the command that downloads the required components: ```npm install --save-dev --save-exact``` (if you are working with ```npm```) or enter ```yarn``` (if you are working with ```Yarn```);
 * ```gulp```.

@@ -5,7 +5,6 @@ var gulp = require("gulp"),
     uglify = require("gulp-uglify"),
     sass = require("gulp-sass"),
     cleanCSS = require("gulp-clean-css"),
-    concat = require("gulp-concat"),
     rename = require("gulp-rename"),
     imagemin = require("gulp-imagemin"),
     pngquant = require("imagemin-pngquant"),
@@ -44,12 +43,17 @@ var paths = {
     
     sprites: {
         src: "src/img/svg/icons/*",
-        dest:  "dest/img/svg/sprites"
+        dest:  "dest/img/svg/sprites/"
     },
         
     scripts: {
         src: "src/js/**/*.js",
         dest: "dest/js/"
+    },
+    
+    libs: {
+        src: ["src/libs/**/*.min.js", "src/libs/**/*.min.css", "src/libs/**/*.css"],
+        dest: "dest/libs/"
     }
 };
 
@@ -131,11 +135,17 @@ gulp.task("sprites", function() {
 gulp.task("scripts", function() {
     return gulp.src(paths.scripts.src)
         .pipe(uglify())
-        .pipe(concat("scripts.js"))
         .pipe(rename({suffix: ".min"}))
         .pipe(gulp.dest(paths.scripts.dest))
         .pipe(debug({"title": "scripts"}))
         .pipe(browsersync.reload({ stream: true }));
+});
+
+
+// LIBS
+gulp.task("libs", function() {
+    return gulp.src(paths.libs.src)
+        .pipe(gulp.dest(paths.libs.dest));
 });
 
 
@@ -165,5 +175,5 @@ gulp.task("watch", function() {
 
 
 // BUILD
-gulp.task("build", gulp.parallel("html", "styles", "favicons", "img", "sprites", "scripts"));
+gulp.task("build", gulp.parallel("html", "styles", "img", "sprites", "scripts", "libs"));
 gulp.task("default", gulp.series("build", gulp.parallel("watch", "serve")));

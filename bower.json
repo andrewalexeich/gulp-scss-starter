@@ -1,0 +1,15 @@
+{
+    "name": "Gulppack",
+    "description": "Frontend development with pleasure",
+    "authors": ["Andrey Gorokhov", "Alexey Khabarovskii"],
+    "license": "MIT",
+    "homepage": "https://github.com/andreyalexeich/gulppack",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ],
+    "dependencies": {}
+}

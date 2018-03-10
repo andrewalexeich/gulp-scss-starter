@@ -9,7 +9,6 @@ Gulppack - сборка для автоматизации задач в повс
 * [gulp-uglify](https://www.npmjs.com/package/gulp-uglify) — минификация js-файлов;
 * [gulp-sass](https://www.npmjs.com/package/gulp-sass) — компиляция Sass/SCSS в CSS;
 * [gulp-clean-css](https://www.npmjs.com/package/gulp-clean-css) — минификация CSS-файлов;
-* [gulp-concat](https://www.npmjs.com/package/gulp-concat) — объединение файлов;
 * [gulp-rename](https://www.npmjs.com/package/gulp-rename) — переименование файлов, добавление суффиксов и префиксов (например, добавление суффикса .min к минифицированным файлам);
 * [gulp-imagemin](https://www.npmjs.com/package/gulp-imagemin) — сжатие изображений PNG, JPG, GIF и SVG;
 * [imagemin-pngquant](https://www.npmjs.com/package/imagemin-pngquant) — дополнение к gulp-imagemin для работы с PNG-изображениями;
@@ -32,12 +31,26 @@ Gulppack - сборка для автоматизации задач в повс
 
 Далее, используя Powershell в Windows или Терминал Linux/macOS, проделайте следующие шаги: 
 
-* установите gulp глобально: ```npm install --global gulp-cli``` (если вы работаете с менеджером пакетов ```npm```) или ```yarn global add gulp-cli``` (если вы работаете с менеджером пакетов ```yarn```);
+* установите ```gulp``` глобально: ```npm install --global gulp-cli``` (если вы работаете с менеджером пакетов ```npm```) или ```yarn global add gulp-cli``` (если вы работаете с менеджером пакетов ```yarn```);
+* установите ```bower``` глобально: ```npm install --global bower``` (если вы работаете с менеджером пакетов ```npm```) или ```yarn global add bower``` (если вы работаете с менеджером пакетов ```yarn```);
 * перейдите в скачанную папку со сборкой: ```cd gulppack```;
 * введите команду, которая скачает необходимые компоненты для корректной работы нашей сборки, указанные в файле ```package.json```: ```npm install --save-dev --save-exact``` (если вы работаете с менеджером пакетов ```npm```) либо введите команду ```yarn``` (если вы работаете с менеджером пакетов ```Yarn```);
+* создайте фавиконки: ```gulp favicons```;
+* скачайте необходимые пакеты с помощью ```Bower```, например слайдер ```slick```;
 * введите последнюю команду: ```gulp```.
 
-Если вы всё сделали правильно, у вас должен открыться браузер с локальным сервером и работающим browser-sync. Теперь если вы внесёте изменения в файлы ```.html```, ```.sass```, ```.js```, браузер сам перезагрузит веб-страницу, а Gulp заново соберёт ваш проект в папке ```dest```. 
+Если вы всё сделали правильно, у вас должен открыться браузер с локальным сервером и работающим browser-sync. Теперь если вы внесёте изменения в файлы ```.html```, ```.sass```, ```.js```, браузер сам перезагрузит веб-страницу, а Gulp заново соберёт ваш проект в папке ```dest```.
+
+## Как пользоваться Bower
+> [Bower](https://bower.io/) - это самый популярный менеджер для клиентского javascript. Все, чем занимается Bower — устанавливает пакеты вместе с их зависимостями.
+
+Например, если вам нужен слайдер slick, установите его с помощью команды ```bower i slick-carousel``` в терминале и пропишите пути к нему в ```index.html``` для ```css``` и ```js```:
+```html
+<link rel="stylesheet" href="libs/slick-carousel/slick/slick.css">
+```
+```html
+<script src="libs/slick-carousel/slick/slick.min.js"></script>
+```
 
 ## Если нужна работа с SCSS
 Откройте файл ```gulpfile.js``` в папке со сборкой, найдите следующую строчку 

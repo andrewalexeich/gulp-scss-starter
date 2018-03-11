@@ -1,8 +1,0 @@
-{
-    "save": true,
-    "ignoredDependencies": [
-        "jquery",
-        "normalize"
-    ],
-    "directory": "src/libs/"
-}

@@ -15,7 +15,6 @@ global.$ = {
     replace: require("gulp-replace"),
     cheerio: require("gulp-cheerio"),
     newer: require("gulp-newer"),
-    cache: require("gulp-cache"),
     plumber: require("gulp-plumber"),
     debug: require("gulp-debug"),
     watch: require("gulp-watch"),

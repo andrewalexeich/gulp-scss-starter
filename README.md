@@ -3,7 +3,7 @@ Gulppack - сборка для автоматизации задач в повс
 
 ## Что включает в себя сборка?
 * [browser-sync](https://browsersync.io/docs/gulp) - живая перезагрузка веб-страницы при внесении изменений в файлы вашего проекта. Одна из опций — tunnel, которая выдаёт вам ссылку, чтобы любой желающий смог посмотреть вашу работу (в обход хостинга);
-* [gulp-autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer) — автоматически расставляет вендорные префиксы в CSS в соответствии с сервисом Can I Use;
+* [gulp-autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer) — автоматически расставляет вендорные префиксы в CSS в соответствии с сервисом [Can I Use](https://caniuse.com/);
 * [gulp-uglify](https://www.npmjs.com/package/gulp-uglify) — минификация js-файлов;
 * [gulp-sass](https://www.npmjs.com/package/gulp-sass) — компиляция Sass/SCSS в CSS;
 * [gulp-clean-css](https://www.npmjs.com/package/gulp-clean-css) — минификация CSS-файлов;
@@ -30,23 +30,23 @@ Gulppack - сборка для автоматизации задач в повс
 
 Далее, используя Powershell в Windows или Терминал Linux/macOS, проделайте следующие шаги: 
 
-* установите ```gulp``` глобально: ```npm install --global gulp-cli``` (если вы работаете с менеджером пакетов ```npm```) или ```yarn global add gulp-cli``` (если вы работаете с менеджером пакетов ```yarn```);
+* установите ```gulp``` глобально: ```npm install --global gulp-cli``` (если вы работаете с ```npm```) или ```yarn global add gulp-cli``` (если вы работаете с ```yarn```);
 * перейдите в скачанную папку со сборкой: ```cd gulppack```;
-* введите команду, которая скачает необходимые компоненты для корректной работы нашей сборки, указанные в файле ```package.json```: ```npm install --save-dev --save-exact``` (если вы работаете с менеджером пакетов ```npm```) либо введите команду ```yarn``` (если вы работаете с менеджером пакетов ```Yarn```);
+* введите команду, которая скачает необходимые компоненты для корректной работы нашей сборки, указанные в файле ```package.json```: ```npm install --save-dev --save-exact``` (если вы работаете с ```npm```) либо введите команду ```yarn``` (если вы работаете с ```yarn```);
 * создайте фавиконки: ```gulp favicons```;
 * введите последнюю команду: ```gulp```.
 
 Если вы всё сделали правильно, у вас должен открыться браузер с локальным сервером и работающим browser-sync. Теперь если вы внесёте изменения в файлы ```.html```, ```.sass```, ```.js```, браузер сам перезагрузит веб-страницу, а Gulp заново соберёт ваш проект в папке ```dest```.
 
 ## Если нужна работа с SCSS
-Откройте файл ```gulpfile.js``` в папке со сборкой, найдите следующую строчку 
+Откройте файл ```gulp/tasks/styles.js``` в папке со сборкой, найдите следующую строчку 
 ```javascript 
-styles: { src: "src/styles/**/*.sass", dest: "dest/styles/" } 
+return $.gulp.src("./src/styles/**/*.sass") 
 ```
 
 и измените её:
 ```javascript 
-styles: { src: "src/styles/**/*.scss", dest: "dest/styles/" }
+return $.gulp.src("./src/styles/**/*.scss")
 ```
 
 ## Если в Windows возникает ошибка с тем, что команда gulp не найдена
@@ -67,7 +67,7 @@ Gulppack is a very useful gulp build for your front-end projects. Compile SASS, 
 
 ## What includes:
 * [browser-sync](https://browsersync.io/docs/gulp) - live reloading your web page. Browsersync makes your browser testing workflow faster by synchronising URLs, interactions and code changes across multiple devices;
-* [gulp-autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer) - parsing CSS and add vendor prefixes to rules by Can I Use;
+* [gulp-autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer) - parsing CSS and add vendor prefixes to rules by [Can I Use](https://caniuse.com/);
 * [gulp-uglify](https://www.npmjs.com/package/gulp-uglify) - minifing JS files;
 * [gulp-sass](https://www.npmjs.com/package/gulp-sass) - compiling SCSS or Sass to CSS;
 * [gulp-clean-css](https://www.npmjs.com/package/gulp-clean-css) - minifing CSS files;
@@ -95,7 +95,7 @@ Then using Powershell in Windows or Terminal in Linux/macOS, please do the follo
 
 * install ```gulp``` globally: ```npm install --global gulp-cli``` (if you are working with ```npm```) or ```yarn global add gulp-cli``` (if you are working with ```yarn```);
 * go to the folder: ```cd gulppack```;
-* enter the command that downloads the required components: ```npm install --save-dev --save-exact``` (if you are working with ```npm```) or enter ```yarn``` (if you are working with ```Yarn```);
+* enter the command that downloads the required components: ```npm install --save-dev --save-exact``` (if you are working with ```npm```) or enter ```yarn``` (if you are working with ```yarn```);
 * create favicons: ```gulp favicons```;
 * ```gulp```.
 
@@ -104,12 +104,12 @@ files ```.html```, ```.css``` or ```.js```, your web browser will reload the web
 will re-build your project in the ```dest``` folder.
 
 ## If you are working with SCSS
-Open ```gulpfile.js``` and search the line: 
+Open ```gulp/tasks/styles.js``` and search the line: 
 ```javascript 
-styles: { src: "src/styles/**/*.sass", dest: "dest/styles/" } 
+return $.gulp.src("./src/styles/**/*.sass")
 ```
 
 and change to:
 ```javascript 
-styles: { src: "src/styles/**/*.scss", dest: "dest/styles/" }
+return $.gulp.src("./src/styles/**/*.scss")
 ```

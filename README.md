@@ -16,7 +16,6 @@ Gulppack - сборка для автоматизации задач в повс
 * [gulp-replace](https://www.npmjs.com/package/gulp-replace) - замена строк;
 * [gulp-cheerio](https://www.npmjs.com/package/gulp-cheerio) - плагин для манипуляций с HTML- и XML-файлами; 
 * [gulp-newer](https://www.npmjs.com/package/gulp-newer) — дополнительный плагин к ```gulp-imagemin```, позволяет сжимать только новые изображения;
-* [gulp-cache](https://www.npmjs.com/package/gulp-cache) — кэширование;
 * [gulp-plumber](https://www.npmjs.com/package/gulp-plumber) — оповещения в командной строке (например, ошибки в Sass/SCSS);
 * [gulp-debug](https://www.npmjs.com/package/gulp-debug) — отладка в терминале;
 * [gulp-watch](https://www.npmjs.com/package/gulp-watch) — отслеживание изменений в ваших файлах проекта.
@@ -81,7 +80,6 @@ Gulppack is a very useful gulp build for your front-end projects. Compile SASS, 
 * [gulp-replace](https://www.npmjs.com/package/gulp-replace) - a string replace plugin for gulp;
 * [gulp-cheerio](https://www.npmjs.com/package/gulp-cheerio) - a plugin for gulp which allows you to manipulate HTML and XML files; 
 * [gulp-newer](https://www.npmjs.com/package/gulp-newer) - piping the source files to newer before imagemin ensures that only those images that have changed are minified;
-* [gulp-cache](https://www.npmjs.com/package/gulp-cache) - a temp file based caching proxy task;
 * [gulp-plumber](https://www.npmjs.com/package/gulp-plumber) - notifications in your terminal (SCSS/Sass errors for example);
 * [gulp-debug](https://www.npmjs.com/package/gulp-debug) - debug Vinyl file streams to see what files are run through your Gulp pipeline;
 * [gulp-watch](https://www.npmjs.com/package/gulp-watch) - file watcher.

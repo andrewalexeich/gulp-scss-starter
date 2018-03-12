@@ -20,7 +20,7 @@ module.exports = function() {
                 mode: {
     				css: {
     					dest: "./",
-    					layout: "diagonal",
+    					layout: "horizontal",
     					sprite: "sprite.svg",
     					bust: false,
     					render: {
@@ -33,6 +33,6 @@ module.exports = function() {
     			}
             }))
             .pipe($.gulp.dest("./dest/img/svg/sprites/"))
-            .pipe($.gp.debug({"title": "sprites"}))
+            .pipe($.gp.debug({"title": "sprites"}));
     });
-}
+};

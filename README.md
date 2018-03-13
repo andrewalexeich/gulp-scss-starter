@@ -113,3 +113,11 @@ and change to:
 ```javascript 
 return $.gulp.src("./src/styles/**/*.scss")
 ```
+
+## Error when running gulp command in Windows
+The ```npm``` modules are not installed to the path. Thus are not found when you run them in the ```cmd```. If gulp has been installed globally, you can use the process below:
+* create an environmental variable called ```NODE_PATH```;
+* set it to: ```%AppData%\npm\node_modules``` or ```%AppData%\npm``` on Windows 8/10;
+* close ```cmd``` and re-open. Try again.
+
+![env variables](https://i.stack.imgur.com/ZEJxP.png).

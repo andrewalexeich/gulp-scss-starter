@@ -11,7 +11,7 @@ module.exports = function() {
                 $.pngquant({quality: "65-70", speed: 5})
             ]))
             .pipe($.gulp.dest("./dest/img/"))
-            .pipe($.gp.debug({"title": "images"}))
+            .pipe($.debug({"title": "images"}))
             .on("end", $.bs.reload);
     });
-}
+};

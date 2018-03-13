@@ -1,6 +1,6 @@
 module.exports = function() {
     $.gulp.task("svg", function() {
-        return $.gulp.src("./src/img/svg/icons/*.svg")
+        return $.gulp.src("./src/img/icons/svg/*.svg")
             .pipe($.gp.cheerio({
                 run: function($) {
                     $("[fill]").removeAttr("fill");
@@ -27,12 +27,9 @@ module.exports = function() {
     						css: { }
     					}
     				}
-    			},
-    			variables: {
-    				mapname: "icons"
     			}
             }))
-            .pipe($.gulp.dest("./dest/img/svg/sprites/"))
-            .pipe($.gp.debug({"title": "sprites"}));
+            .pipe($.gulp.dest("./dest/img/sprites/"))
+            .pipe($.debug({"title": "sprites"}));
     });
 };

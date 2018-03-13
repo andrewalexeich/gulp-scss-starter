@@ -3,6 +3,7 @@ global.$ = {
     gp: require("gulp-load-plugins")(),
     bs: require("browser-sync").create(),
     autoprefixer: require("gulp-autoprefixer"),
+    babel: require("gulp-babel"),
     uglify: require("gulp-uglify"),
     sass: require("gulp-sass"),
     cleanCSS: require("gulp-clean-css"),

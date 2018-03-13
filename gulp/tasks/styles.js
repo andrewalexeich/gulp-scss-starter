@@ -8,7 +8,7 @@ module.exports = function() {
             .pipe($.gp.autoprefixer())
             .pipe($.gp.plumber.stop())
             .pipe($.gulp.dest("./dest/styles/"))
-            .pipe($.gp.debug({"title": "styles"}))
+            .pipe($.debug({"title": "styles"}))
             .on("end", $.bs.reload);
     });
-}
+};

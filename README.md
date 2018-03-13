@@ -1,9 +1,10 @@
 # Gulppack
-Gulppack - сборка для автоматизации задач в повседневной front-end разработке. Компилируйте SCSS/Sass, сжимайте файлы, оптимизируйте картинки. При каждом сохранении файла в редакторе кода браузер автоматически перезагружает страницу. Не волнуйтесь о том, что вам придётся выполнять рутинную работу.
+Gulppack - сборка для автоматизации задач в повседневной front-end разработке. Компилируйте SCSS/Sass, сжимайте файлы, оптимизируйте картинки, пишите на ES6. При  каждом сохранении файла в редакторе кода браузер автоматически перезагружает страницу. Не волнуйтесь о том, что вам придётся выполнять рутинную работу.
 
 ## Что включает в себя сборка?
 * [browser-sync](https://browsersync.io/docs/gulp) - живая перезагрузка веб-страницы при внесении изменений в файлы вашего проекта. Одна из опций — tunnel, которая выдаёт вам ссылку, чтобы любой желающий смог посмотреть вашу работу (в обход хостинга);
 * [gulp-autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer) — автоматически расставляет вендорные префиксы в CSS в соответствии с сервисом [Can I Use](https://caniuse.com/);
+* [gulp-babel](https://www.npmjs.com/package/gulp-babel) - использование ES6 с [Babel](https://babeljs.io/);
 * [gulp-uglify](https://www.npmjs.com/package/gulp-uglify) — минификация js-файлов;
 * [gulp-sass](https://www.npmjs.com/package/gulp-sass) — компиляция Sass/SCSS в CSS;
 * [gulp-clean-css](https://www.npmjs.com/package/gulp-clean-css) — минификация CSS-файлов;
@@ -28,11 +29,14 @@ Gulppack - сборка для автоматизации задач в повс
 
 > Yarn - это современная альтернатива npm. Yarn работает с тем же файлом ```package.json``` и так же скачивает необходимые модули в папку ```node_modules```, но делает это намного быстрее.
 
-Далее, используя Powershell в Windows или Терминал Linux/macOS, проделайте следующие шаги: 
+Далее, используя ```cmd``` в Windows или Терминал Linux/macOS, проделайте 
+следующие шаги: 
 
-* установите ```gulp``` глобально: ```npm install --global gulp-cli``` (если вы работаете с ```npm```) или ```yarn global add gulp-cli``` (если вы работаете с ```yarn```);
+* установите ```gulp``` глобально: ```npm i --global gulp-cli``` (если вы работаете с ```npm```) или ```yarn global add gulp-cli``` (если вы работаете с ```yarn```);
 * перейдите в скачанную папку со сборкой: ```cd gulppack```;
 * введите команду, которая скачает необходимые компоненты для корректной работы нашей сборки, указанные в файле ```package.json```: ```npm install --save-dev --save-exact``` (если вы работаете с ```npm```) либо введите команду ```yarn``` (если вы работаете с ```yarn```);
+* установите плагины для работы Babel: ```npm i babel-core babel-preset-env 
+--save-dev``` (если вы работаете с ```npm```) или ```yarn add babel-core babel-preset-env --dev``` (если вы работаете с ```yarn```);
 * создайте фавиконки: ```gulp favicons```;
 * введите последнюю команду: ```gulp```.
 
@@ -53,8 +57,8 @@ return $.gulp.src("./src/styles/**/*.scss")
 Модули ```npm```, такие как ```gulp```, не установлены в путях. Таким образом они не обнаруживаются при их запуске в командной строке.
 * Компьютер — Свойства — Защита системы — Дополнительно — Переменные среды;
 * В разделе Переменные среды выберите переменную среды PATH. Нажмите Изменить. Если переменной PATH не существует, нажмите Создать;
-* в имени переменной укажите NODE_PATH;
-* в значении переменной укажите %AppData%\npm или %AppData%\npm\node_modules;
+* в имени переменной укажите ```NODE_PATH```;
+* в значении переменной укажите ```%AppData%\npm``` или ```%AppData%\npm\node_modules```;
 * закройте командную строку и попробуйте ещё раз.
 
 ![Добавление переменных сред](https://pp.userapi.com/c834403/v834403892/c00bd/DgYTcUMrEoA.jpg).
@@ -63,11 +67,12 @@ return $.gulp.src("./src/styles/**/*.scss")
 
 # Gulppack
 
-Gulppack is a very useful gulp build for your front-end projects. Compile SASS, compress the files, optimize the pictures. It reloads your browser automatically every time you save a file in a code editor. Don't care about tedious things, leave it to us!
+Gulppack is a very useful gulp build for your front-end projects. Compile SASS, compress the files, optimize the pictures, write ES6. It reloads your browser automatically every time you save a file in a code editor. Don't care about tedious things, leave it to us!
 
 ## What includes:
 * [browser-sync](https://browsersync.io/docs/gulp) - live reloading your web page. Browsersync makes your browser testing workflow faster by synchronising URLs, interactions and code changes across multiple devices;
 * [gulp-autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer) - parsing CSS and add vendor prefixes to rules by [Can I Use](https://caniuse.com/);
+* [gulp-babel](https://www.npmjs.com/package/gulp-babel) - use next generation JavaScript with [Babel](https://babeljs.io/);
 * [gulp-uglify](https://www.npmjs.com/package/gulp-uglify) - minifing JS files;
 * [gulp-sass](https://www.npmjs.com/package/gulp-sass) - compiling SCSS or Sass to CSS;
 * [gulp-clean-css](https://www.npmjs.com/package/gulp-clean-css) - minifing CSS files;
@@ -91,11 +96,12 @@ Gulppack is a very useful gulp build for your front-end projects. Compile SASS, 
 
 > Yarn is a modern alternative to npm. Yarn works with the same ```package file.json``` and just downloads the required modules into the folder ```node_modules```, but does it much faster.
 
-Then using Powershell in Windows or Terminal in Linux/macOS, please do the following: 
+Then using ```cmd``` in Windows or Terminal in Linux/macOS, please do the following: 
 
 * install ```gulp``` globally: ```npm install --global gulp-cli``` (if you are working with ```npm```) or ```yarn global add gulp-cli``` (if you are working with ```yarn```);
 * go to the folder: ```cd gulppack```;
-* enter the command that downloads the required components: ```npm install --save-dev --save-exact``` (if you are working with ```npm```) or enter ```yarn``` (if you are working with ```yarn```);
+* enter the command that downloads the required components: ```npm i --save-dev --save-exact``` (if you are working with ```npm```) or enter ```yarn``` (if you are working with ```yarn```);
+* install plugins for Babel: ```npm i babel-core babel-preset-env --save-dev```;
 * create favicons: ```gulp favicons```;
 * ```gulp```.
 

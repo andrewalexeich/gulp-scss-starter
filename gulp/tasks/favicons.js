@@ -15,6 +15,6 @@ module.exports = function() {
                 }
             }))
             .pipe($.gulp.dest("./dest/img/favicons/"))
-            .pipe($.gp.debug({"title": "favicons"}));
+            .pipe($.debug({"title": "favicons"}));
     });
-}
+};

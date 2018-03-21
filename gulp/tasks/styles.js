@@ -6,6 +6,7 @@ module.exports = function() {
             .pipe($.cleanCSS({compatibility: "ie8"}))
             .pipe($.gp.rename({ suffix: ".min" }))
             .pipe($.gp.autoprefixer())
+            .pipe($.gp.replace("../../dest/", "../"))
             .pipe($.gp.plumber.stop())
             .pipe($.gulp.dest("./dest/styles/"))
             .pipe($.debug({"title": "styles"}))

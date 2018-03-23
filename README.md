@@ -106,7 +106,9 @@ Then using ```cmd``` in Windows or Terminal in Linux/macOS, please do the follow
 * create favicons: ```gulp favicons```;
 * install by ```bower``` library what you need, [jQuery](https://jquery.com/) for example: ```bower i jquery```;
 * ```gulp```.
-![](https://i.imgur.com/iOYGCoG.png).
+
+![](https://i.imgur.com/iOYGCoG.png)
+
 Your web browser will open with local server and running browser-sync. Now if you make changes to the
 files ```.html```, ```.css``` or ```.js```, your web browser will reload the web page itself, and Gulp
 will re-build your project in the ```dest``` folder.

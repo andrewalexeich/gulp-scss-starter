@@ -1,6 +1,6 @@
 module.exports = function() {
     $.gulp.task("styles", function() {
-        return $.gulp.src("./src/styles/**/*.sass")
+        return $.gulp.src("./src/styles/**/*.scss")
             .pipe($.gp.plumber())
             .pipe($.gp.sass())
             .pipe($.cleanCSS({compatibility: "ie8"}))

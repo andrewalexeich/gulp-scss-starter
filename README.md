@@ -33,11 +33,9 @@ Gulppack - сборка для автоматизации задач в повс
 следующие шаги: 
 
 * установите ```gulp``` глобально: ```npm i --global gulp-cli``` (если вы работаете с ```npm```) или ```yarn global add gulp-cli``` (если вы работаете с ```yarn```);
-* установите ```bower``` глобально: ```npm i --global bower``` (если вы работаете с ```npm```) или ```yarn global add bower``` (если вы работаете с ```yarn```);
 * перейдите в скачанную папку со сборкой: ```cd gulppack```;
 * введите команду, которая скачает необходимые компоненты для корректной работы нашей сборки, указанные в файле ```package.json```: ```npm install --save-dev --save-exact``` (если вы работаете с ```npm```) либо введите команду ```yarn``` (если вы работаете с ```yarn```);
 * создайте фавиконки: ```gulp favicons```;
-* установите с помощью ```bower``` необходимый вам плагин или библиотеку, например, [jQuery](https://jquery.com/): ```bower i jquery```;
 * введите последнюю команду: ```gulp```.
 ![](https://i.imgur.com/iOYGCoG.png)
 
@@ -100,12 +98,10 @@ Gulppack is a very useful gulp build for your front-end projects. Compile SASS, 
 Then using ```cmd``` in Windows or Terminal in Linux/macOS, please do the following: 
 
 * install ```gulp``` globally: ```npm install --global gulp-cli``` (if you are working with ```npm```) or ```yarn global add gulp-cli``` (if you are working with ```yarn```);
-* install ```bower``` globally: ```npm i --global bower``` (if you are working with ```npm```) или ```yarn global add bower``` (if you are working with ```yarn```);
 * go to the folder: ```cd gulppack```;
 * enter the command that downloads the required components: ```npm i --save-dev --save-exact``` (if you are working with ```npm```) or enter ```yarn``` (if you are working with ```yarn```);
 * create favicons: ```gulp favicons```;
-* install by ```bower``` library what you need, [jQuery](https://jquery.com/) for example: ```bower i jquery```;
-* ```gulp```.
+* run Gulp: ```gulp```.
 
 ![](https://i.imgur.com/iOYGCoG.png)
 

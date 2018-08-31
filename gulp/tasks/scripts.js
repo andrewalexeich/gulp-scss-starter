@@ -1,6 +1,6 @@
 module.exports = function() {
     $.gulp.task("scripts", function() {
-        return $.gulp.src(["./src/js/**/*.js", "./src/vendor/jquery/dist/jquery.js"])
+        return $.gulp.src("./src/js/**/*.js")
             .pipe($.gp.babel({presets: ["env"]}))
             .pipe($.gp.uglify())
             .pipe($.gp.rename({suffix: ".min"}))

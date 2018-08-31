@@ -6,7 +6,7 @@ Gulppack - сборка для автоматизации задач в повс
 * [gulp-autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer) — автоматически расставляет вендорные префиксы в CSS в соответствии с сервисом [Can I Use](https://caniuse.com/);
 * [gulp-babel](https://www.npmjs.com/package/gulp-babel) - использование ES6 с [Babel](https://babeljs.io/);
 * [gulp-uglify](https://www.npmjs.com/package/gulp-uglify) — минификация js-файлов;
-* [gulp-sass](https://www.npmjs.com/package/gulp-sass) — компиляция Sass/SCSS в CSS;
+* [gulp-sass](https://www.npmjs.com/package/gulp-sass) — компиляция SCSS в CSS;
 * [gulp-clean-css](https://www.npmjs.com/package/gulp-clean-css) — минификация CSS-файлов;
 * [gulp-rename](https://www.npmjs.com/package/gulp-rename) — переименование файлов, добавление суффиксов и префиксов (например, добавление суффикса .min к минифицированным файлам);
 * [gulp-imagemin](https://www.npmjs.com/package/gulp-imagemin) — сжатие изображений PNG, JPG, GIF и SVG;
@@ -62,7 +62,7 @@ Gulppack is a very useful gulp build for your front-end projects. Compile SASS, 
 * [gulp-autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer) - parsing CSS and add vendor prefixes to rules by [Can I Use](https://caniuse.com/);
 * [gulp-babel](https://www.npmjs.com/package/gulp-babel) - use next generation JavaScript with [Babel](https://babeljs.io/);
 * [gulp-uglify](https://www.npmjs.com/package/gulp-uglify) - minifing JS files;
-* [gulp-sass](https://www.npmjs.com/package/gulp-sass) - compiling SCSS or Sass to CSS;
+* [gulp-sass](https://www.npmjs.com/package/gulp-sass) - compiling SCSS to CSS;
 * [gulp-clean-css](https://www.npmjs.com/package/gulp-clean-css) - minifing CSS files;
 * [gulp-rename](https://www.npmjs.com/package/gulp-rename) - renaming files, adding prefix, suffix;
 * [gulp-imagemin](https://www.npmjs.com/package/gulp-imagemin) - minify PNG, JPEG, GIF and SVG images;

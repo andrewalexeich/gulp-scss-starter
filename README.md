@@ -41,17 +41,6 @@ Gulppack - сборка для автоматизации задач в повс
 
 Если вы всё сделали правильно, у вас должен открыться браузер с локальным сервером и работающим browser-sync. Теперь если вы внесёте изменения в файлы ```.html```, ```.sass```, ```.js```, браузер сам перезагрузит веб-страницу, а Gulp заново соберёт ваш проект в папке ```dest```.
 
-## Если нужна работа с SCSS
-Откройте файл ```gulp/tasks/styles.js``` в папке со сборкой, найдите следующую строчку 
-```javascript 
-return $.gulp.src("./src/styles/**/*.sass") 
-```
-
-и измените её:
-```javascript 
-return $.gulp.src("./src/styles/**/*.scss")
-```
-
 ## Если в Windows возникает ошибка с тем, что команда gulp не найдена
 Модули ```npm```, такие как ```gulp```, не установлены в путях. Таким образом они не обнаруживаются при их запуске в командной строке.
 * Компьютер — Свойства — Защита системы — Дополнительно — Переменные среды;
@@ -108,17 +97,6 @@ Then using ```cmd``` in Windows or Terminal in Linux/macOS, please do the follow
 Your web browser will open with local server and running browser-sync. Now if you make changes to the
 files ```.html```, ```.css``` or ```.js```, your web browser will reload the web page itself, and Gulp
 will re-build your project in the ```dest``` folder.
-
-## If you are working with SCSS
-Open ```gulp/tasks/styles.js``` and search the line: 
-```javascript 
-return $.gulp.src("./src/styles/**/*.sass")
-```
-
-and change to:
-```javascript 
-return $.gulp.src("./src/styles/**/*.scss")
-```
 
 ## Error when running gulp command in Windows
 The ```npm``` modules are not installed to the path. Thus are not found when you run them in the ```cmd```. If gulp has been installed globally, you can use the process below:

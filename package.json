@@ -4,7 +4,7 @@
     "author": "Andrey Gorokhov, Alexey Khabarovskii",
     "repository": {
         "type": "git",
-        "url": "https://github.com/andreyalexeich/gulppack.git"
+        "url": "https://github.com/andreyalexeich/gulppack-scss.git"
     },
     "license": "MIT",
     "dependencies": {},

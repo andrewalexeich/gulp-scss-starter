@@ -15,7 +15,6 @@ Gulppack - сборка для автоматизации задач в повс
 * [gulp-favicons](https://github.com/evilebottnawi/favicons) — генератор фавиконок для вашего проекта;
 * [gulp-svg-sprite](https://github.com/jkphl/gulp-svg-sprite) - создание SVG-спрайтов;
 * [gulp-replace](https://www.npmjs.com/package/gulp-replace) - замена строк;
-* [gulp-cheerio](https://www.npmjs.com/package/gulp-cheerio) - плагин для манипуляций с HTML- и XML-файлами; 
 * [gulp-newer](https://www.npmjs.com/package/gulp-newer) — дополнительный плагин к ```gulp-imagemin```, позволяет сжимать только новые изображения;
 * [gulp-plumber](https://www.npmjs.com/package/gulp-plumber) — оповещения в командной строке (например, ошибки в Sass/SCSS);
 * [gulp-debug](https://www.npmjs.com/package/gulp-debug) — отладка в терминале;
@@ -72,7 +71,6 @@ Gulppack is a very useful gulp build for your front-end projects. Compile SASS, 
 * [gulp-favicons](https://github.com/evilebottnawi/favicons) - favicons generator for your projects;
 * [gulp-svg-sprite](https://github.com/jkphl/gulp-svg-sprite) - create SVG sprites;
 * [gulp-replace](https://www.npmjs.com/package/gulp-replace) - a string replace plugin for gulp;
-* [gulp-cheerio](https://www.npmjs.com/package/gulp-cheerio) - a plugin for gulp which allows you to manipulate HTML and XML files; 
 * [gulp-newer](https://www.npmjs.com/package/gulp-newer) - piping the source files to newer before imagemin ensures that only those images that have changed are minified;
 * [gulp-plumber](https://www.npmjs.com/package/gulp-plumber) - notifications in your terminal (SCSS/Sass errors for example);
 * [gulp-debug](https://www.npmjs.com/package/gulp-debug) - debug Vinyl file streams to see what files are run through your Gulp pipeline;

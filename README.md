@@ -5,7 +5,7 @@ Gulppack - сборка для автоматизации задач в повс
 * [browser-sync](https://browsersync.io/docs/gulp) - живая перезагрузка веб-страницы при внесении изменений в файлы вашего проекта. Одна из опций — tunnel, которая выдаёт вам ссылку, чтобы любой желающий смог посмотреть вашу работу (в обход хостинга);
 * [gulp-autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer) — автоматически расставляет вендорные префиксы в CSS в соответствии с сервисом [Can I Use](https://caniuse.com/);
 * [gulp-babel](https://www.npmjs.com/package/gulp-babel) - использование ES6 с [Babel](https://babeljs.io/);
-* [gulp-uglify](https://www.npmjs.com/package/gulp-uglify) — минификация js-файлов;
+* [gulp-uglify](https://www.npmjs.com/package/gulp-uglify) — минификация JS-файлов;
 * [gulp-sass](https://www.npmjs.com/package/gulp-sass) — компиляция SCSS в CSS;
 * [gulp-clean-css](https://www.npmjs.com/package/gulp-clean-css) — минификация CSS-файлов;
 * [gulp-rename](https://www.npmjs.com/package/gulp-rename) — переименование файлов, добавление суффиксов и префиксов (например, добавление суффикса .min к минифицированным файлам);
@@ -39,7 +39,7 @@ Gulppack - сборка для автоматизации задач в повс
 * введите последнюю команду: ```gulp```.
 ![](https://i.imgur.com/iOYGCoG.png)
 
-Если вы всё сделали правильно, у вас должен открыться браузер с локальным сервером и работающим browser-sync. Теперь если вы внесёте изменения в файлы ```.html```, ```.sass```, ```.js```, браузер сам перезагрузит веб-страницу, а Gulp заново соберёт ваш проект в папке ```dest```.
+Если вы всё сделали правильно, у вас должен открыться браузер с локальным сервером и работающим browser-sync. Теперь если вы внесёте изменения в файлы ```.html```, ```.scss```, ```.js```, браузер сам перезагрузит веб-страницу, а Gulp заново соберёт ваш проект в папке ```dest```.
 
 ## Если в Windows возникает ошибка с тем, что команда gulp не найдена
 Модули ```npm```, такие как ```gulp```, не установлены в путях. Таким образом они не обнаруживаются при их запуске в командной строке.
@@ -95,7 +95,7 @@ Then using ```cmd``` in Windows or Terminal in Linux/macOS, please do the follow
 ![](https://i.imgur.com/iOYGCoG.png)
 
 Your web browser will open with local server and running browser-sync. Now if you make changes to the
-files ```.html```, ```.css``` or ```.js```, your web browser will reload the web page itself, and Gulp
+files ```.html```, ```.scss``` or ```.js```, your web browser will reload the web page itself, and Gulp
 will re-build your project in the ```dest``` folder.
 
 ## Error when running gulp command in Windows

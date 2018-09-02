@@ -15,6 +15,7 @@ Gulppack - сборка для автоматизации задач в повс
 * [gulp-favicons](https://github.com/evilebottnawi/favicons) — генератор фавиконок для вашего проекта;
 * [gulp-svg-sprite](https://github.com/jkphl/gulp-svg-sprite) - создание SVG-спрайтов;
 * [gulp-replace](https://www.npmjs.com/package/gulp-replace) - замена строк;
+* [gulp-rigger](https://www.npmjs.com/package/gulp-rigger) - позволяет вставлять содержимое из отдельных файлов в основной;
 * [gulp-newer](https://www.npmjs.com/package/gulp-newer) — дополнительный плагин к ```gulp-imagemin```, позволяет сжимать только новые изображения;
 * [gulp-plumber](https://www.npmjs.com/package/gulp-plumber) — оповещения в командной строке (например, ошибки в Sass/SCSS);
 * [gulp-debug](https://www.npmjs.com/package/gulp-debug) — отладка в терминале;
@@ -28,10 +29,10 @@ Gulppack - сборка для автоматизации задач в повс
 
 > Yarn - это современная альтернатива npm. Yarn работает с тем же файлом ```package.json``` и так же скачивает необходимые модули в папку ```node_modules```, но делает это намного быстрее.
 
-Далее, используя ```cmd``` в Windows или Терминал Linux/macOS, проделайте 
-следующие шаги: 
+Далее, используя ```cmd``` в Windows или Терминал Linux/macOS, проделайте
+следующие шаги:
 
-* скачайте сборку: ```git clone https://github.com/andreyalexeich/gulppack-scss.git```; 
+* скачайте сборку: ```git clone https://github.com/andreyalexeich/gulppack-scss.git```;
 * установите ```gulp``` глобально: ```npm i --global gulp-cli``` (если вы работаете с ```npm```) или ```yarn global add gulp-cli``` (если вы работаете с ```yarn```);
 * перейдите в скачанную папку со сборкой: ```cd gulppack```;
 * введите команду, которая скачает необходимые компоненты для корректной работы нашей сборки, указанные в файле ```package.json```: ```npm install --save-dev --save-exact``` (если вы работаете с ```npm```) либо введите команду ```yarn``` (если вы работаете с ```yarn```);
@@ -71,7 +72,8 @@ Gulppack is a very useful gulp build for your front-end projects. Compile SASS, 
 * [imagemin-jpeg-recompress](https://www.npmjs.com/package/imagemin-jpeg-recompress) - jpeg-recompress imagemin plugin;
 * [gulp-favicons](https://github.com/evilebottnawi/favicons) - favicons generator for your projects;
 * [gulp-svg-sprite](https://github.com/jkphl/gulp-svg-sprite) - create SVG sprites;
-* [gulp-replace](https://www.npmjs.com/package/gulp-replace) - a string replace plugin for gulp;
+* [gulp-replace](https://www.npmjs.com/package/gulp-replace) - a string replace plugin for Gulp;
+* [gulp-rigger](https://www.npmjs.com/package/gulp-rigger) - Rigger is a build time include engine for Javascript, CSS, CoffeeScript and in general any type of text file that you wish to might want to "include" other files into;
 * [gulp-newer](https://www.npmjs.com/package/gulp-newer) - piping the source files to newer before imagemin ensures that only those images that have changed are minified;
 * [gulp-plumber](https://www.npmjs.com/package/gulp-plumber) - notifications in your terminal (SCSS/Sass errors for example);
 * [gulp-debug](https://www.npmjs.com/package/gulp-debug) - debug Vinyl file streams to see what files are run through your Gulp pipeline;
@@ -84,9 +86,9 @@ Gulppack is a very useful gulp build for your front-end projects. Compile SASS, 
 
 > Yarn is a modern alternative to npm. Yarn works with the same ```package file.json``` and just downloads the required modules into the folder ```node_modules```, but does it much faster.
 
-Then using ```cmd``` in Windows or Terminal in Linux/macOS, please do the following: 
+Then using ```cmd``` in Windows or Terminal in Linux/macOS, please do the following:
 
-* download Gulppack: ```git clone https://github.com/andreyalexeich/gulppack-scss.git```; 
+* download Gulppack: ```git clone https://github.com/andreyalexeich/gulppack-scss.git```;
 * install ```gulp``` globally: ```npm install --global gulp-cli``` (if you are working with ```npm```) or ```yarn global add gulp-cli``` (if you are working with ```yarn```);
 * go to the folder: ```cd gulppack```;
 * enter the command that downloads the required components: ```npm i --save-dev --save-exact``` (if you are working with ```npm```) or enter ```yarn``` (if you are working with ```yarn```);

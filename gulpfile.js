@@ -14,11 +14,12 @@ global.$ = {
     favicons: require("gulp-favicons"),
     svgSprite: require("gulp-svg-sprite"),
     replace: require("gulp-replace"),
+    rigger: require("gulp-rigger"),
     newer: require("gulp-newer"),
     plumber: require("gulp-plumber"),
     debug: require("gulp-debug"),
     watch: require("gulp-watch"),
-    
+
     path: {
         tasks: require("./gulp/config.js")
     }

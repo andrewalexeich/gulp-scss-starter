@@ -36,6 +36,7 @@ Gulppack - сборка для автоматизации задач в повс
 * перейдите в скачанную папку со сборкой: ```cd gulppack```;
 * введите команду, которая скачает необходимые компоненты для корректной работы нашей сборки, указанные в файле ```package.json```: ```npm install --save-dev --save-exact``` (если вы работаете с ```npm```) либо введите команду ```yarn``` (если вы работаете с ```yarn```);
 * создайте фавиконки: ```gulp favicons```;
+* создайте спрайты: ```gulp svg```;
 * введите последнюю команду: ```gulp```.
 ![](https://i.imgur.com/iOYGCoG.png)
 
@@ -90,6 +91,7 @@ Then using ```cmd``` in Windows or Terminal in Linux/macOS, please do the follow
 * go to the folder: ```cd gulppack```;
 * enter the command that downloads the required components: ```npm i --save-dev --save-exact``` (if you are working with ```npm```) or enter ```yarn``` (if you are working with ```yarn```);
 * create favicons: ```gulp favicons```;
+* create sprites: ```gulp svg```;
 * run Gulp: ```gulp```.
 
 ![](https://i.imgur.com/iOYGCoG.png)

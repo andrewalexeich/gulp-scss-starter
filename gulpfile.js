@@ -14,7 +14,6 @@ global.$ = {
     favicons: require("gulp-favicons"),
     svgSprite: require("gulp-svg-sprite"),
     replace: require("gulp-replace"),
-    cheerio: require("gulp-cheerio"),
     newer: require("gulp-newer"),
     plumber: require("gulp-plumber"),
     debug: require("gulp-debug"),

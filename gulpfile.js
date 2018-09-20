@@ -7,6 +7,7 @@ global.$ = {
     uglify: require("gulp-uglify"),
     sass: require("gulp-sass"),
     cleanCSS: require("gulp-clean-css"),
+    sourcemaps: require("gulp-sourcemaps"),
     rename: require("gulp-rename"),
     imagemin: require("gulp-imagemin"),
     pngquant: require("imagemin-pngquant"),
@@ -31,6 +32,6 @@ $.path.tasks.forEach(function(taskPath) {
 
 // BUILD
 $.gulp.task("default", $.gulp.series(
-    $.gulp.parallel("html", "styles", "images", "svg", "scripts"),
+    $.gulp.parallel("html", "styles", "favicons", "images", "svg", "scripts"),
     $.gulp.parallel("watch", "serve")
 ));

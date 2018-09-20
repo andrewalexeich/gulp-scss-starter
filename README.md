@@ -56,7 +56,7 @@ Gulppack - сборка для автоматизации задач в повс
 
 # Gulppack. SCSS version
 
-Gulppack is a very useful gulp build for your front-end projects. Compile SASS, compress the files, optimize the pictures, write ES6. It reloads your browser automatically every time you save a file in a code editor. Don't care about tedious things, leave it to us!
+Gulppack is a very useful gulp build for your front-end projects. Compile SCSS, compress the files, optimize the pictures, write ES6. It reloads your browser automatically every time you save a file in a code editor. Don't care about tedious things, leave it to us!
 
 ## What includes:
 * [browser-sync](https://browsersync.io/docs/gulp) - live reloading your web page. Browsersync makes your browser testing workflow faster by synchronising URLs, interactions and code changes across multiple devices;

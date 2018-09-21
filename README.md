@@ -91,7 +91,7 @@ Then using ```cmd``` in Windows or Terminal in Linux/macOS, please do the follow
 * clone the repository: ```git clone https://github.com/andreyalexeich/gulppack-scss.git```;
 * install ```gulp``` globally: ```npm i``` (if you are working with ```npm```) or ```yarn global add gulp-cli``` (if you are working with ```yarn```);
 * go to the folder: ```cd gulppack-scss```;
-* enter the command that downloads the required components: ```npm i --save-dev --save-exact``` (if you are working with ```npm```) or enter ```yarn``` (if you are working with ```yarn```);
+* enter the command that downloads the required components: ```npm i``` (if you are working with ```npm```) or enter ```yarn``` (if you are working with ```yarn```);
 * run Gulp: ```gulp```.
 
 ![](https://i.imgur.com/iOYGCoG.png)

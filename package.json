@@ -4,18 +4,18 @@
     "author": "Andrey Gorokhov, Alexey Khabarovskii",
     "repository": {
         "type": "git",
-        "url": "https://github.com/andreyalexeich/gulppack-scss.git"
+        "url": "https://github.com/andreyalexeich/gulppack-pug.git"
     },
     "license": "MIT",
     "dependencies": {},
     "devDependencies": {
-        "gulp-babel": "^8.0.0",
-        "@babel/preset-env": "^7.1.0",
         "@babel/core": "^7.0.0",
-        "eslint": "^5.6.0",
+        "@babel/preset-env": "^7.1.0",
         "browser-sync": "^2.23.6",
+        "eslint": "^5.6.0",
         "gulp": "^4.0.0",
         "gulp-autoprefixer": "^5.0.0",
+        "gulp-babel": "^8.0.0",
         "gulp-clean": "^0.4.0",
         "gulp-clean-css": "^3.9.2",
         "gulp-debug": "^3.2.0",
@@ -24,7 +24,6 @@
         "gulp-load-plugins": "^1.5.0",
         "gulp-newer": "^1.4.0",
         "gulp-plumber": "^1.2.0",
-        "gulp-pug": "^4.0.1",
         "gulp-rename": "^1.2.2",
         "gulp-replace": "^0.6.1",
         "gulp-rigger": "^0.5.8",

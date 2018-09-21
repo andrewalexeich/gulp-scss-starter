@@ -88,7 +88,7 @@ Gulppack is a very useful gulp build for your front-end projects. Compile SCSS, 
 
 Then using ```cmd``` in Windows or Terminal in Linux/macOS, please do the following:
 
-* download Gulppack: ```git clone https://github.com/andreyalexeich/gulppack-scss.git```;
+* clone the repository: ```git clone https://github.com/andreyalexeich/gulppack-scss.git```;
 * install ```gulp``` globally: ```npm i``` (if you are working with ```npm```) or ```yarn global add gulp-cli``` (if you are working with ```yarn```);
 * go to the folder: ```cd gulppack-scss```;
 * enter the command that downloads the required components: ```npm i --save-dev --save-exact``` (if you are working with ```npm```) or enter ```yarn``` (if you are working with ```yarn```);
@@ -101,7 +101,7 @@ files ```.html```, ```.scss``` or ```.js```, your web browser will reload the we
 will re-build your project in the ```dest``` folder.
 
 ## Error when running gulp command in Windows
-The ```npm``` modules are not installed to the path. Thus are not found when you run them in the ```cmd```. If gulp has been installed globally, you can use the process below:
+The ```npm``` modules are not installed to the path. Thus they can't be found when you run them in the ```cmd```. If gulp has been installed globally, you can use the process below:
 * create an environmental variable called ```NODE_PATH```;
 * set it to: ```%AppData%\npm\node_modules``` or ```%AppData%\npm``` on Windows 8/10;
 * close ```cmd``` and re-open. Try again.

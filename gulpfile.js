@@ -6,7 +6,7 @@ global.$ = {
     babel: require("gulp-babel"),
     uglify: require("gulp-uglify"),
     sass: require("gulp-sass"),
-    cleanCSS: require("gulp-clean-css"),
+    mincss: require("gulp-clean-css"),
     sourcemaps: require("gulp-sourcemaps"),
     rename: require("gulp-rename"),
     imagemin: require("gulp-imagemin"),

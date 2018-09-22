@@ -1,2 +1,63 @@
 @import "./partials/normalize";
 @import "./partials/variables";
+@import "./partials/iconfont";
+
+h1, h2, h3, h4, p {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: #b4c6c64d;
+    font-family: "Helvetica", Arial, sans-serif;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.wrapper {
+    width: 100%;
+    max-width: 850px;
+    min-width: 320px;
+    margin: 0 auto;
+    padding: 0 40px;
+    &__title {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    &__subtitle {
+        font-size: 18px;
+        margin-bottom: 20px;
+        a {
+            color: cadetblue;
+            font-weight: 600;
+        }
+    }
+    &__icons {
+        max-width: 250px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        font-family: "icons";
+        font-size: 35px;
+        .icon-arrow {
+            color: tomato;
+        }
+        .icon-basket {
+            color: darkmagenta;
+        }
+        .icon-battery {
+            color: green;
+        }
+        .icon-chart {
+            color: orange;
+        }
+        .icon-login {
+            color: cadetblue;
+        }
+    }
+}

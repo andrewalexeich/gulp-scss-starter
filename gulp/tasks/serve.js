@@ -1,11 +1,12 @@
-module.exports = function() {
-    $.gulp.task("serve", function() {
-        return new Promise((res,rej) => {
-            $.bs.init({
+module.exports = function () {
+    $.gulp.task("serve", function () {
+        return new Promise((res, rej) => {
+            $.browsersync.init({
                 server: "./dest/",
-                tunnel: "sitedev"
+                tunnel: true,
+                port: 9000
             });
-        res();
+            res();
         });
     });
-};
+}

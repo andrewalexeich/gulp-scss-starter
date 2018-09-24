@@ -4,7 +4,7 @@
     "author": "Andrey Gorokhov, Alexey Khabarovskii",
     "repository": {
         "type": "git",
-        "url": "https://github.com/andreyalexeich/gulppack-pug.git"
+        "url": "https://github.com/andreyalexeich/gulppack-scss.git"
     },
     "license": "MIT",
     "dependencies": {},
@@ -18,12 +18,12 @@
         "gulp-babel": "^8.0.0",
         "gulp-clean": "^0.4.0",
         "gulp-clean-css": "^3.9.2",
+        "gulp-concat": "^2.6.1",
         "gulp-debug": "^3.2.0",
         "gulp-favicons": "^2.2.7",
         "gulp-iconfont": "^10.0.1",
         "gulp-iconfont-css": "^2.3.0",
         "gulp-imagemin": "^4.1.0",
-        "gulp-load-plugins": "^1.5.0",
         "gulp-newer": "^1.4.0",
         "gulp-plumber": "^1.2.0",
         "gulp-rename": "^1.2.2",

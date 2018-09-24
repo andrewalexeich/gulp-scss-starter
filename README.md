@@ -6,6 +6,7 @@ Gulppack - сборка для автоматизации задач в повс
 * [gulp-autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer) — автоматически расставляет вендорные префиксы в CSS в соответствии с сервисом [Can I Use](https://caniuse.com/);
 * [gulp-babel](https://www.npmjs.com/package/gulp-babel) - использование ES6 с [Babel](https://babeljs.io/);
 * [gulp-uglify](https://www.npmjs.com/package/gulp-uglify) — минификация JS-файлов;
+* [gulp-concat](https://www.npmjs.com/package/gulp-concat) - объединение файлов;
 * [gulp-sass](https://www.npmjs.com/package/gulp-sass) — компиляция SCSS в CSS;
 * [gulp-clean-css](https://www.npmjs.com/package/gulp-clean-css) — минификация CSS-файлов;
 * [gulp-sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps) - карта стилей;
@@ -19,9 +20,10 @@ Gulppack - сборка для автоматизации задач в повс
 * [gulp-replace](https://www.npmjs.com/package/gulp-replace) - замена строк;
 * [gulp-rigger](https://www.npmjs.com/package/gulp-rigger) - позволяет вставлять содержимое из отдельных файлов в основной;
 * [gulp-newer](https://www.npmjs.com/package/gulp-newer) — дополнительный плагин к ```gulp-imagemin```, позволяет сжимать только новые изображения;
-* [gulp-plumber](https://www.npmjs.com/package/gulp-plumber) — оповещения в командной строке (например, ошибки в Sass/SCSS);
+* [gulp-plumber](https://www.npmjs.com/package/gulp-plumber) — оповещения в командной строке (например, ошибки в SCSS);
 * [gulp-debug](https://www.npmjs.com/package/gulp-debug) — отладка в терминале;
-* [gulp-watch](https://www.npmjs.com/package/gulp-watch) — отслеживание изменений в ваших файлах проекта.
+* [gulp-watch](https://www.npmjs.com/package/gulp-watch) — отслеживание изменений в ваших файлах проекта;
+* [gulp-clean](https://www.npmjs.com/package/gulp-clean) — удаление файлов и папок.
 
 ## Как пользоваться?
 
@@ -64,6 +66,7 @@ Gulppack is a very useful gulp build for your front-end projects. Compile SCSS, 
 * [gulp-autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer) - parsing CSS and add vendor prefixes to rules by [Can I Use](https://caniuse.com/);
 * [gulp-babel](https://www.npmjs.com/package/gulp-babel) - use next generation JavaScript with [Babel](https://babeljs.io/);
 * [gulp-uglify](https://www.npmjs.com/package/gulp-uglify) - minifing JS files;
+* [gulp-concat](https://www.npmjs.com/package/gulp-concat) - concatenates files;
 * [gulp-sass](https://www.npmjs.com/package/gulp-sass) - compiling SCSS to CSS;
 * [gulp-clean-css](https://www.npmjs.com/package/gulp-clean-css) - minifing CSS files;
 * [gulp-sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps) - generating the sourcemaps;
@@ -79,7 +82,8 @@ Gulppack is a very useful gulp build for your front-end projects. Compile SCSS, 
 * [gulp-newer](https://www.npmjs.com/package/gulp-newer) - piping the source files to newer before imagemin ensures that only those images that have changed are minified;
 * [gulp-plumber](https://www.npmjs.com/package/gulp-plumber) - notifications in your terminal (SCSS/Sass errors for example);
 * [gulp-debug](https://www.npmjs.com/package/gulp-debug) - debug Vinyl file streams to see what files are run through your Gulp pipeline;
-* [gulp-watch](https://www.npmjs.com/package/gulp-watch) - file watcher.
+* [gulp-watch](https://www.npmjs.com/package/gulp-watch) - file watcher;
+* [gulp-clean](https://www.npmjs.com/package/gulp-clean) — removes files and folders.
 
 ## How to use:
 * Install one of the package managers (optional): [NodeJS](http://nodejs.org/en/) / [Yarn](https://yarnpkg.com/en/docs/install).

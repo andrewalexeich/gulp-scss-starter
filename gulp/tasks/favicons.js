@@ -1,7 +1,7 @@
 module.exports = function() {
     $.gulp.task("favicons", function() {
         return $.gulp.src("./src/img/favicons/*.{jpg,jpeg,png,gif}")
-            .pipe($.gp.favicons({
+            .pipe($.favicons({
                 icons: {
                     appleIcon: true,
                     favicons: true,

@@ -27,33 +27,24 @@ Gulppack - сборка для автоматизации задач в повс
 
 ## Как пользоваться?
 
-Установите один из менеджеров пакетов (на выбор): [NodeJS](https://nodejs.org/en/) / [Yarn](https://yarnpkg.com/en/docs/install).
-
-> NodeJS — это серверная платформа для работы с JavaScript через движок V8. JavaScript выполняет действие на стороне клиента, а Node — на сервере. С помощью Node можно писать полноценные приложения. Node умеет работать с внешними библиотеками, вызывать команды из кода на JavaScript и выполнять роль веб-сервера.
+Установите [Yarn](https://yarnpkg.com/en/docs/install).
 
 > Yarn - это современная альтернатива npm. Yarn работает с тем же файлом ```package.json``` и так же скачивает необходимые модули в папку ```node_modules```, но делает это намного быстрее.
 
-Далее, используя ```cmd``` в Windows или Терминал Linux/macOS, проделайте
-следующие шаги:
+Далее, используя ```cmd``` в Windows или Терминал Linux/macOS, проделайте следующие шаги:
 
 * скачайте сборку: ```git clone https://github.com/andreyalexeich/gulppack-scss.git```;
-* установите ```gulp``` глобально: ```npm i --global gulp-cli``` (если вы работаете с ```npm```) или ```yarn global add gulp-cli``` (если вы работаете с ```yarn```);
+* установите ```gulp``` глобально: ```yarn global add gulp-cli```;
 * перейдите в скачанную папку со сборкой: ```cd gulppack-scss```;
-* введите команду, которая скачает необходимые компоненты для корректной работы нашей сборки, указанные в файле ```package.json```: ```npm i``` (если вы работаете с ```npm```) либо введите команду ```yarn``` (если вы работаете с ```yarn```);
+* введите команду, которая скачает необходимые компоненты для корректной работы нашей сборки, указанные в файле ```package.json```: ```yarn```;
 * введите последнюю команду: ```gulp```.
+
 ![](https://i.imgur.com/iOYGCoG.png)
 
 Если вы всё сделали правильно, у вас должен открыться браузер с локальным сервером и работающим browser-sync. Теперь если вы внесёте изменения в файлы ```.html```, ```.scss```, ```.js```, браузер сам перезагрузит веб-страницу, а Gulp заново соберёт ваш проект в папке ```dest```.
 
-## Если в Windows возникает ошибка с тем, что команда gulp не найдена
-Модули ```npm```, такие как ```gulp```, не установлены в путях. Таким образом они не обнаруживаются при их запуске в командной строке.
-* Компьютер — Свойства — Защита системы — Дополнительно — Переменные среды;
-* В разделе Переменные среды выберите переменную среды PATH. Нажмите Изменить. Если переменной PATH не существует, нажмите Создать;
-* в имени переменной укажите ```NODE_PATH```;
-* в значении переменной укажите ```%AppData%\npm``` или ```%AppData%\npm\node_modules```;
-* закройте командную строку и попробуйте ещё раз.
-
-![Добавление переменных сред](https://pp.userapi.com/c834403/v834403892/c00bd/DgYTcUMrEoA.jpg).
+## Bower?
+Вместо [Bower](https://bower.io/) используйте yarn. Например, вам нужен [jQuery](https://jquery.com/) (уже используется в сборке в качестве примера), введите команду: ```yarn add jquery```, затем соберите: ```gulp vendor``` и запустите: ```gulp```. Вам остаётся подключить данную библиотеку в ваш ```.html```.
 
 ***
 
@@ -86,18 +77,16 @@ Gulppack is a very useful gulp build for your front-end projects. Compile SCSS, 
 * [gulp-clean](https://www.npmjs.com/package/gulp-clean) — removes files and folders.
 
 ## How to use:
-* Install one of the package managers (optional): [NodeJS](http://nodejs.org/en/) / [Yarn](https://yarnpkg.com/en/docs/install).
-
-> NodeJS is an open-source, cross-platform JavaScript run-time environment for executing JavaScript code server-side. Historically, JavaScript was used primarily for client-side scripting, in which scripts written in JavaScript are embedded in a webpage's HTML, to be run client-side by a JavaScript engine in the user's web browser. Node.js enables JavaScript to be used for server-side scripting, and runs scripts server-side to produce dynamic web page content before the page is sent to the user's web browser.
+* Install [Yarn](https://yarnpkg.com/en/docs/install).
 
 > Yarn is a modern alternative to npm. Yarn works with the same ```package file.json``` and just downloads the required modules into the folder ```node_modules```, but does it much faster.
 
 Then using ```cmd``` in Windows or Terminal in Linux/macOS, please do the following:
 
 * clone the repository: ```git clone https://github.com/andreyalexeich/gulppack-scss.git```;
-* install ```gulp``` globally: ```npm i``` (if you are working with ```npm```) or ```yarn global add gulp-cli``` (if you are working with ```yarn```);
+* install ```gulp``` globally: ```yarn global add gulp-cli```;
 * go to the folder: ```cd gulppack-scss```;
-* enter the command that downloads the required components: ```npm i``` (if you are working with ```npm```) or enter ```yarn``` (if you are working with ```yarn```);
+* enter the command that downloads the required components: ```yarn```;
 * run Gulp: ```gulp```.
 
 ![](https://i.imgur.com/iOYGCoG.png)
@@ -106,10 +95,5 @@ Your web browser will open with local server and running browser-sync. Now if yo
 files ```.html```, ```.scss``` or ```.js```, your web browser will reload the web page itself, and Gulp
 will re-build your project in the ```dest``` folder.
 
-## Error when running gulp command in Windows
-The ```npm``` modules are not installed to the path. Thus they can't be found when you run them in the ```cmd```. If gulp has been installed globally, you can use the process below:
-* create an environmental variable called ```NODE_PATH```;
-* set it to: ```%AppData%\npm\node_modules``` or ```%AppData%\npm``` on Windows 8/10;
-* close ```cmd``` and re-open. Try again.
-
-![](https://i.stack.imgur.com/ZEJxP.png).
+## Bower?
+Use yarn instead of [Bower](https://bower.io/). For example, you are need in [jQuery](https://jquery.com/) (already used in this project as an example), then using ```cmd``` in Windows or Terminal in Linux/macOS install it: ```yarn add jquery```, build it: ```gulp vendor``` and run: ```gulp```. All you have to do is connect this library to your ```.html```.

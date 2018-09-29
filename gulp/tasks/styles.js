@@ -1,6 +1,6 @@
 module.exports = function() {
     $.gulp.task("styles", function() {
-        return $.gulp.src("./src/styles/**/main.scss")
+        return $.gulp.src(["./src/styles/**/main.scss", "!./src/vendor/**/*.css"])
             .pipe($.plumber())
             .pipe($.sourcemaps.init())
             .pipe($.sass())

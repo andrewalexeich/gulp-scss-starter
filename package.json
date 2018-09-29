@@ -7,7 +7,9 @@
         "url": "https://github.com/andreyalexeich/gulppack-scss.git"
     },
     "license": "MIT",
-    "dependencies": {},
+    "dependencies": {
+        "jquery": "^3.3.1"
+    },
     "devDependencies": {
         "@babel/core": "^7.0.0",
         "@babel/preset-env": "^7.1.0",

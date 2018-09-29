@@ -1,6 +1,7 @@
 global.$ = {
     gulp: require("gulp"),
     browsersync: require("browser-sync").create(),
+    packageJson: require('./package.json'),
     autoprefixer: require("gulp-autoprefixer"),
     babel: require("gulp-babel"),
     uglify: require("gulp-uglify"),
@@ -33,7 +34,7 @@ $.path.tasks.forEach(function(taskPath) {
 });
 
 // BUILD
-$.gulp.task("default", $.gulp.series("clean", "iconfont",
+$.gulp.task("default", $.gulp.series("clean", "iconfont", "vendor",
     $.gulp.parallel("html", "styles", "favicons", "images", "scripts"),
     $.gulp.parallel("watch", "serve")
 ));

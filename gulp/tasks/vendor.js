@@ -7,6 +7,7 @@ module.exports = function() {
         return $.gulp.src(moduleFiles, {base: "./node_modules/"})
             .pipe($.gulp.dest("./src/libs/"))
             .pipe($.gulp.src(["./src/libs/**/*.css", "./src/libs/**/*.js"]))
-            .pipe($.gulp.dest("./dest/libs/"));
+            .pipe($.gulp.dest("./dest/libs/"))
+            .pipe($.debug({"title": "libs"}));
     });
 };

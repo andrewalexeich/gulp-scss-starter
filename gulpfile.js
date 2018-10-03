@@ -34,7 +34,7 @@ $.path.tasks.forEach(function(taskPath) {
 });
 
 // BUILD
-$.gulp.task("default", $.gulp.series("clean", "iconfont", "vendor",
-    $.gulp.parallel("html", "styles", "favicons", "images", "scripts"),
+$.gulp.task("default", $.gulp.series("clean", "iconfont", "libs",
+    $.gulp.parallel("html", "styles", "favicons", "images", "scripts", "server_conf"),
     $.gulp.parallel("watch", "serve")
 ));

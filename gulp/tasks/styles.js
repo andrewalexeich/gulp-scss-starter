@@ -4,7 +4,7 @@ module.exports = function() {
             .pipe($.plumber())
             .pipe($.sourcemaps.init())
             .pipe($.sass())
-            .pipe($.autoprefixer({browsers: ["last 10 versions"]}))
+            .pipe($.autoprefixer({browsers: ["last 12 versions", "> 1%", "ie 8", "ie 7"]}))
             .pipe($.mincss({compatibility: "ie8", level: {1: {specialComments: 0}}}))
             .pipe($.rename({suffix: ".min"}))
             .pipe($.replace("../../dest/", "../"))

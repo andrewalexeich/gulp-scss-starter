@@ -17,6 +17,7 @@ Gulppack - сборка для автоматизации задач в повс
 * [gulp-favicons](https://github.com/evilebottnawi/favicons) — генератор фавиконок для вашего проекта;
 * [gulp-iconfont](https://www.npmjs.com/package/gulp-iconfont) — генератор иконочного шрифта из SVG-изображений;
 * [gulp-iconfont-css](https://www.npmjs.com/package/gulp-iconfont-css) — генератор стилей для иконочного шрифта;
+* [gulp-svg-sprites](https://www.npmjs.com/package/gulp-svg-sprites) — создание SVG-спрайтов;
 * [gulp-replace](https://www.npmjs.com/package/gulp-replace) - замена строк;
 * [gulp-rigger](https://www.npmjs.com/package/gulp-rigger) - позволяет вставлять содержимое из отдельных файлов в основной;
 * [gulp-newer](https://www.npmjs.com/package/gulp-newer) — дополнительный плагин к ```gulp-imagemin```, позволяет сжимать только новые изображения;
@@ -68,6 +69,7 @@ Gulppack is a very useful gulp build for your front-end projects. Compile SCSS, 
 * [gulp-favicons](https://github.com/evilebottnawi/favicons) - favicons generator for your projects;
 * [gulp-iconfont](https://www.npmjs.com/package/gulp-iconfont) — generate iconic fonts from your SVG;
 * [gulp-iconfont-css](https://www.npmjs.com/package/gulp-iconfont-css) — generate styles for your iconic fonts;
+* [gulp-svg-sprites](https://www.npmjs.com/package/gulp-svg-sprites) — create SVG sprites;
 * [gulp-replace](https://www.npmjs.com/package/gulp-replace) - a string replace plugin for Gulp;
 * [gulp-rigger](https://www.npmjs.com/package/gulp-rigger) - Rigger is a build time include engine for Javascript, CSS, CoffeeScript and in general any type of text file that you wish to might want to "include" other files into;
 * [gulp-newer](https://www.npmjs.com/package/gulp-newer) - piping the source files to newer before imagemin ensures that only those images that have changed are minified;

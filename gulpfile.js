@@ -16,6 +16,7 @@ global.$ = {
     favicons: require("gulp-favicons"),
     iconfont: require("gulp-iconfont"),
     iconfontcss: require("gulp-iconfont-css"),
+	svgSprite: require("gulp-svg-sprites"),
     replace: require("gulp-replace"),
     rigger: require("gulp-rigger"),
     newer: require("gulp-newer"),
@@ -34,7 +35,7 @@ $.path.tasks.forEach(function(taskPath) {
 });
 
 // BUILD
-$.gulp.task("default", $.gulp.series("clean", "iconfont", "libs",
+$.gulp.task("default", $.gulp.series("clean", "sprite", "iconfont", "libs",
     $.gulp.parallel("html", "styles", "favicons", "images", "scripts", "server_conf"),
     $.gulp.parallel("watch", "serve")
 ));

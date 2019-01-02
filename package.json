@@ -7,9 +7,6 @@
 		"url": "https://github.com/andreyalexeich/gulppack-scss.git"
 	},
 	"license": "MIT",
-	"dependencies": {
-		"jquery": "^3.3.1"
-	},
 	"devDependencies": {
 		"@babel/core": "^7.0.0",
 		"@babel/preset-env": "^7.1.0",
@@ -23,9 +20,6 @@
 		"gulp-concat": "^2.6.1",
 		"gulp-debug": "^3.2.0",
 		"gulp-favicons": "^2.2.7",
-		"gulp-iconfont": "^10.0.1",
-		"gulp-iconfont-css": "^2.3.0",
-		"gulp-svg-sprites": "^4.1.2",
 		"gulp-imagemin": "^4.1.0",
 		"gulp-newer": "^1.4.0",
 		"gulp-plumber": "^1.2.0",
@@ -34,9 +28,13 @@
 		"gulp-rigger": "^0.5.8",
 		"gulp-sass": "^3.1.0",
 		"gulp-sourcemaps": "^2.6.4",
+		"gulp-svg-sprites": "^4.1.2",
 		"gulp-uglify": "^3.0.0",
 		"gulp-watch": "^5.0.0",
 		"imagemin-jpeg-recompress": "^5.1.0",
 		"imagemin-pngquant": "^5.0.1"
+	},
+	"dependencies": {
+		"slick-carousel": "^1.8.1"
 	}
 }

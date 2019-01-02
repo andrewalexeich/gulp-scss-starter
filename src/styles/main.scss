@@ -23,7 +23,7 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-	line-height: 34px;
+    line-height: 34px;
 }
 
 .wrapper {
@@ -47,22 +47,6 @@ body {
         margin: 0 auto;
         display: flex;
         justify-content: space-between;
-        font-family: "icons";
         font-size: 35px;
-        .icon-arrow {
-            color: tomato;
-        }
-        .icon-basket {
-            color: darkmagenta;
-        }
-        .icon-battery {
-            color: green;
-        }
-        .icon-chart {
-            color: orange;
-        }
-        .icon-login {
-            color: cadetblue;
-        }
     }
 }

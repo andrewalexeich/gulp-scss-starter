@@ -16,7 +16,6 @@ Gulppack - сборка для автоматизации задач в повс
 * [imagemin-jpeg-recompress](https://www.npmjs.com/package/imagemin-jpeg-recompress) — дополнение к gulp-imagemin для работы с JPG-изображениями;
 * [gulp-favicons](https://github.com/evilebottnawi/favicons) — генератор фавиконок для вашего проекта;
 * [gulp-svg-sprites](https://www.npmjs.com/package/gulp-svg-sprites) — создание SVG-спрайтов;
-* [gulp-replace](https://www.npmjs.com/package/gulp-replace) - замена строк;
 * [gulp-rigger](https://www.npmjs.com/package/gulp-rigger) - позволяет вставлять содержимое из отдельных файлов в основной;
 * [gulp-newer](https://www.npmjs.com/package/gulp-newer) — дополнительный плагин к ```gulp-imagemin```, позволяет сжимать только новые изображения;
 * [gulp-plumber](https://www.npmjs.com/package/gulp-plumber) — оповещения в командной строке (например, ошибки в SCSS/Sass);
@@ -45,6 +44,9 @@ Gulppack - сборка для автоматизации задач в повс
 ## Bower?
 Вместо [Bower](https://bower.io/) используйте yarn или npm. Подробнее [тут](https://medium.com/netscape/bye-bye-bower-or-how-to-migrate-from-bower-to-npm-and-webpack-4eb2e1121a50).
 
+## Нужен Pug + SCSS?
+Используйте [эту](https://github.com/andreyalexeich/gulppack-pug/) сборку.
+
 ***
 
 # Gulppack. SCSS version
@@ -66,7 +68,6 @@ Gulppack is a very useful gulp build for your front-end projects. Compile SCSS, 
 * [imagemin-jpeg-recompress](https://www.npmjs.com/package/imagemin-jpeg-recompress) - jpeg-recompress imagemin plugin;
 * [gulp-favicons](https://github.com/evilebottnawi/favicons) - favicons generator for your projects;
 * [gulp-svg-sprites](https://www.npmjs.com/package/gulp-svg-sprites) — create SVG sprites;
-* [gulp-replace](https://www.npmjs.com/package/gulp-replace) - a string replace plugin for Gulp;
 * [gulp-rigger](https://www.npmjs.com/package/gulp-rigger) - Rigger is a build time include engine for Javascript, CSS, CoffeeScript and in general any type of text file that you wish to might want to "include" other files into;
 * [gulp-newer](https://www.npmjs.com/package/gulp-newer) - piping the source files to newer before imagemin ensures that only those images that have changed are minified;
 * [gulp-plumber](https://www.npmjs.com/package/gulp-plumber) - notifications in your terminal (SCSS/Sass errors for example);
@@ -95,3 +96,6 @@ will re-build your project in the ```dest``` folder.
 
 ## Bower?
 Use yarn or npm instead of [Bower](https://bower.io/). See more [there](https://medium.com/netscape/bye-bye-bower-or-how-to-migrate-from-bower-to-npm-and-webpack-4eb2e1121a50).
+
+## Are you need in Pug + SCSS?
+Please use [this](https://github.com/andreyalexeich/gulppack-pug/) version.

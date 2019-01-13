@@ -24,7 +24,6 @@
 		"gulp-newer": "^1.4.0",
 		"gulp-plumber": "^1.2.0",
 		"gulp-rename": "^1.2.2",
-		"gulp-replace": "^0.6.1",
 		"gulp-rigger": "^0.5.8",
 		"gulp-sass": "^3.1.0",
 		"gulp-sourcemaps": "^2.6.4",

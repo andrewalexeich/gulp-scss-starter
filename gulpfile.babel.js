@@ -53,7 +53,7 @@ const paths = {
 // GENERAL
 export const cleanFiles = () => src(paths.build.clean, {read: false})
 	.pipe(clean())
-	.pipe(debug({"title": "clean"}));
+	.pipe(debug({"title": "Cleaning..."}));
 
 export const server = () => {
 	browsersync.init({
@@ -81,7 +81,7 @@ export const sprites = () => src(paths.src.sprites)
 		}
 	}))
 	.pipe(dest(paths.build.sprites))
-	.pipe(debug({"title": "sprite"}))
+	.pipe(debug({"title": "Sprites"}))
 	.on("end", browsersync.reload);
 
 export const favs = () => src(paths.src.favicons)
@@ -99,7 +99,7 @@ export const favs = () => src(paths.src.favicons)
 		}
 	}))
 	.pipe(dest(paths.build.favicons))
-	.pipe(debug({"title": "favicons"}));
+	.pipe(debug({"title": "Favicons"}));
 
 
 // DEV MODE
@@ -181,13 +181,15 @@ export const dev = series(cleanFiles, sprites, parallel(
 	favs
 ), parallel(watchDev, server));
 
-export const prod = series(cleanFiles, sprites, parallel(
+export const prod = series(
+	cleanFiles,
+	sprites,
 	serverConfig,
     htmlProd,
     stylesProd,
     scriptsProd,
     imagesProd,
 	favs
-));
+);
 
 export default dev;

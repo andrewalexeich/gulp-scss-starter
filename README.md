@@ -18,7 +18,6 @@ Gulppack - сборка для автоматизации задач в повс
 * [gulp-svg-sprites](https://www.npmjs.com/package/gulp-svg-sprites) — создание SVG-спрайтов;
 * [gulp-replace](https://www.npmjs.com/package/gulp-replace) - замена строк;
 * [gulp-rigger](https://www.npmjs.com/package/gulp-rigger) - позволяет вставлять содержимое из отдельных файлов в основной;
-* [gulp-newer](https://www.npmjs.com/package/gulp-newer) — дополнительный плагин к ```gulp-imagemin```, позволяет сжимать только новые изображения;
 * [gulp-plumber](https://www.npmjs.com/package/gulp-plumber) — оповещения в командной строке (например, ошибки в SCSS/Sass);
 * [gulp-debug](https://www.npmjs.com/package/gulp-debug) — отладка в терминале;
 * [gulp-watch](https://www.npmjs.com/package/gulp-watch) — отслеживание изменений в ваших файлах проекта;
@@ -72,7 +71,6 @@ Gulppack is a very useful gulp build for your front-end projects. Compile SCSS, 
 * [gulp-svg-sprites](https://www.npmjs.com/package/gulp-svg-sprites) — create SVG sprites;
 * [gulp-replace](https://www.npmjs.com/package/gulp-replace) - a string replace plugin for Gulp;
 * [gulp-rigger](https://www.npmjs.com/package/gulp-rigger) - Rigger is a build time include engine for Javascript, CSS, CoffeeScript and in general any type of text file that you wish to might want to "include" other files into;
-* [gulp-newer](https://www.npmjs.com/package/gulp-newer) - piping the source files to newer before imagemin ensures that only those images that have changed are minified;
 * [gulp-plumber](https://www.npmjs.com/package/gulp-plumber) - notifications in your terminal (SCSS/Sass errors for example);
 * [gulp-debug](https://www.npmjs.com/package/gulp-debug) - debug Vinyl file streams to see what files are run through your Gulp pipeline;
 * [gulp-watch](https://www.npmjs.com/package/gulp-watch) - file watcher;

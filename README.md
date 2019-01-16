@@ -30,13 +30,14 @@ Gulppack - сборка для автоматизации задач в повс
 
 > Yarn - это современная альтернатива npm. Yarn работает с тем же файлом ```package.json``` и так же скачивает необходимые модули в папку ```node_modules```, но делает это намного быстрее.
 
-Далее, используя ```cmd``` в Windows или Терминал Linux/macOS, проделайте следующие шаги:
+Далее, используя командную строку в Windows или Терминал Linux/macOS, проделайте следующие шаги:
 
 * скачайте сборку: ```git clone https://github.com/andreyalexeich/gulppack-scss.git```;
 * установите ```gulp``` глобально: ```yarn global add gulp-cli```;
 * перейдите в скачанную папку со сборкой: ```cd gulppack-scss```;
 * введите команду, которая скачает необходимые компоненты для корректной работы нашей сборки, указанные в файле ```package.json```: ```yarn```;
-* введите последнюю команду: ```gulp```.
+* введите команду: ```yarn run dev``` (режим разработки);
+* чтобы окончательно завершить проект, введите команду ```yarn run build```.
 
 ![](https://i.imgur.com/iOYGCoG.png)
 
@@ -88,7 +89,8 @@ Then using ```cmd``` in Windows or Terminal in Linux/macOS, please do the follow
 * install ```gulp``` globally: ```yarn global add gulp-cli```;
 * go to the folder: ```cd gulppack-scss```;
 * enter the command that downloads the required components: ```yarn```;
-* run Gulp: ```gulp```.
+* run Gulp: ```yarn run dev``` (dev mode);
+* build your project: ```yarn run build```.
 
 ![](https://i.imgur.com/iOYGCoG.png)
 

@@ -39,13 +39,13 @@ const paths = {
 		server_config: "./src/.htaccess"
 	},
 	build: {
-		clean: ["./dest/*", "./dest/.*"],
-		general: "./dest/",
-		styles: "./dest/styles/",
-		scripts: "./dest/js/",
-		favicons: "./dest/img/favicons/",
-		images: "./dest/img/",
-		sprites: "./dest/img/sprites/",
+		clean: ["./dist/*", "./dist/.*"],
+		general: "./dist/",
+		styles: "./dist/styles/",
+		scripts: "./dist/js/",
+		favicons: "./dist/img/favicons/",
+		images: "./dist/img/",
+		sprites: "./dist/img/sprites/",
 	}
 };
 
@@ -77,7 +77,7 @@ export const sprites = () => src(paths.src.sprites)
 		preview: false,
 		cssFile: "../../../src/styles/partials/_sprite.scss",
 		svg: {
-			sprite: "../../../dest/img/sprites/sprite.svg"
+			sprite: "../../../dist/img/sprites/sprite.svg"
 		}
 	}))
 	.pipe(dest(paths.build.sprites))
@@ -112,7 +112,7 @@ export const stylesDev = () => src(paths.src.styles)
 	.pipe(plumber())
 	.pipe(sourcemaps.init())
 	.pipe(sass())
-	.pipe(replace("../../dest/", "../"))
+	.pipe(replace("../../dist/", "../"))
 	.pipe(plumber.stop())
 	.pipe(sourcemaps.write("./maps/"))
 	.pipe(dest(paths.build.styles))
@@ -144,7 +144,7 @@ export const stylesProd = () => src(paths.src.styles)
 	.pipe(autoprefixer({browsers: ["last 12 versions", "> 1%", "ie 8", "ie 7"]}))
 	.pipe(mincss({compatibility: "ie8", level: {1: {specialComments: 0}}}))
 	.pipe(rename({suffix: ".min"}))
-	.pipe(replace("../../dest/", "../"))
+	.pipe(replace("../../dist/", "../"))
 	.pipe(plumber.stop())
 	.pipe(dest(paths.build.styles))
 	.pipe(debug({"title": "CSS files"}));

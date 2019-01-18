@@ -11,7 +11,7 @@ Gulppack - сборка для автоматизации задач в повс
 * [gulp-sass](https://www.npmjs.com/package/gulp-sass) — компиляция SCSS в CSS;
 * [gulp-clean-css](https://www.npmjs.com/package/gulp-clean-css) — минификация CSS-файлов;
 * [gulp-sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps) - карта стилей;
-* [gulp-rename](https://www.npmjs.com/package/gulp-rename) — переименование файлов, добавление суффиксов и префиксов (например, добавление суффикса .min к минифицированным файлам);
+* [gulp-rename](https://www.npmjs.com/package/gulp-rename) — переименование файлов, добавление суффиксов и префиксов (например, добавление суффикса ```.min``` к минифицированным файлам);
 * [gulp-imagemin](https://www.npmjs.com/package/gulp-imagemin) — сжатие изображений PNG, JPG, GIF и SVG (включая дополнительные плагины для оптимизации);
 * [gulp-favicons](https://github.com/evilebottnawi/favicons) — генератор фавиконок для вашего проекта;
 * [gulp-svg-sprites](https://www.npmjs.com/package/gulp-svg-sprites) — создание SVG-спрайтов;
@@ -40,7 +40,7 @@ Gulppack - сборка для автоматизации задач в повс
 
 ![](https://i.imgur.com/iOYGCoG.png)
 
-Если вы всё сделали правильно, у вас должен открыться браузер с локальным сервером и работающим browser-sync. Теперь если вы внесёте изменения в файлы ```.html```, ```.scss```, ```.js```, браузер сам перезагрузит веб-страницу, а Gulp заново соберёт ваш проект в папке ```dest```.
+Если вы всё сделали правильно, у вас должен открыться браузер с локальным сервером и работающим browser-sync. Теперь если вы внесёте изменения в файлы ```.html```, ```.scss```, ```.js```, браузер сам перезагрузит веб-страницу, а Gulp заново соберёт ваш проект в папке ```dist```.
 
 ## Bower?
 Вместо [Bower](https://bower.io/) используйте yarn или npm. Подробнее [тут](https://medium.com/netscape/bye-bye-bower-or-how-to-migrate-from-bower-to-npm-and-webpack-4eb2e1121a50).
@@ -81,7 +81,7 @@ Gulppack is a very useful gulp build for your front-end projects. Compile SCSS, 
 
 > Yarn is a modern alternative to npm. Yarn works with the same ```package file.json``` and just downloads the required modules into the folder ```node_modules```, but does it much faster.
 
-Then using ```cmd``` in Windows or Terminal in Linux/macOS, please do the following:
+Then using cmd in Windows or Terminal in Linux/macOS, please do the following:
 
 * clone the repository: ```git clone https://github.com/andreyalexeich/gulppack-scss.git```;
 * install ```gulp``` globally: ```yarn global add gulp-cli```;
@@ -94,7 +94,7 @@ Then using ```cmd``` in Windows or Terminal in Linux/macOS, please do the follow
 
 Your web browser will open with local server and running browser-sync. Now if you make changes to the
 files ```.html```, ```.scss``` or ```.js```, your web browser will reload the web page itself, and Gulp
-will re-build your project in the ```dest``` folder.
+will re-build your project in the ```dist``` folder.
 
 ## Bower?
 Use yarn or npm instead of [Bower](https://bower.io/). See more [there](https://medium.com/netscape/bye-bye-bower-or-how-to-migrate-from-bower-to-npm-and-webpack-4eb2e1121a50).

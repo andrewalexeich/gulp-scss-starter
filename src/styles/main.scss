@@ -1,6 +1,7 @@
-@import "partials/normalize";
-@import "partials/variables";
-@import "partials/sprite";
+@import "base/variables";
+@import "base/mixins";
+@import "vendor/normalize";
+@import "components/sprite";
 
 h1, h2, h3, h4, p {
     padding: 0;

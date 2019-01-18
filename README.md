@@ -2,6 +2,7 @@
 Gulppack - сборка для автоматизации задач в повседневной front-end разработке. Компилируйте SCSS, сжимайте файлы, оптимизируйте картинки, пишите на ES6. При  каждом сохранении файла в редакторе кода браузер автоматически перезагружает страницу. Не волнуйтесь о том, что вам придётся выполнять рутинную работу.
 
 ## Что включает в себя сборка?
+* [gulp-if](https://www.npmjs.com/package/gulp-if) - запуск заданий только тогда, когда это нужно;
 * [browser-sync](https://browsersync.io/docs/gulp) - живая перезагрузка веб-страницы при внесении изменений в файлы вашего проекта. Одна из опций — tunnel, которая выдаёт вам ссылку, чтобы любой желающий смог посмотреть вашу работу (в обход хостинга);
 * [gulp-autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer) — автоматически расставляет вендорные префиксы в CSS в соответствии с сервисом [Can I Use](https://caniuse.com/);
 * [gulp-babel](https://www.npmjs.com/package/gulp-babel) - использование ES6 с [Babel](https://babeljs.io/);
@@ -11,9 +12,7 @@ Gulppack - сборка для автоматизации задач в повс
 * [gulp-clean-css](https://www.npmjs.com/package/gulp-clean-css) — минификация CSS-файлов;
 * [gulp-sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps) - карта стилей;
 * [gulp-rename](https://www.npmjs.com/package/gulp-rename) — переименование файлов, добавление суффиксов и префиксов (например, добавление суффикса .min к минифицированным файлам);
-* [gulp-imagemin](https://www.npmjs.com/package/gulp-imagemin) — сжатие изображений PNG, JPG, GIF и SVG;
-* [imagemin-pngquant](https://www.npmjs.com/package/imagemin-pngquant) — дополнение к gulp-imagemin для работы с PNG-изображениями;
-* [imagemin-jpeg-recompress](https://www.npmjs.com/package/imagemin-jpeg-recompress) — дополнение к gulp-imagemin для работы с JPG-изображениями;
+* [gulp-imagemin](https://www.npmjs.com/package/gulp-imagemin) — сжатие изображений PNG, JPG, GIF и SVG (включая дополнительные плагины для оптимизации);
 * [gulp-favicons](https://github.com/evilebottnawi/favicons) — генератор фавиконок для вашего проекта;
 * [gulp-svg-sprites](https://www.npmjs.com/package/gulp-svg-sprites) — создание SVG-спрайтов;
 * [gulp-replace](https://www.npmjs.com/package/gulp-replace) - замена строк;
@@ -21,7 +20,8 @@ Gulppack - сборка для автоматизации задач в повс
 * [gulp-plumber](https://www.npmjs.com/package/gulp-plumber) — оповещения в командной строке (например, ошибки в SCSS/Sass);
 * [gulp-debug](https://www.npmjs.com/package/gulp-debug) — отладка в терминале;
 * [gulp-watch](https://www.npmjs.com/package/gulp-watch) — отслеживание изменений в ваших файлах проекта;
-* [gulp-clean](https://www.npmjs.com/package/gulp-clean) — удаление файлов и папок.
+* [gulp-clean](https://www.npmjs.com/package/gulp-clean) — удаление файлов и папок;
+* [yargs](https://www.npmjs.com/package/yargs) - получение аргументов командной строки в Node.js.
 
 ## Как пользоваться?
 
@@ -55,6 +55,7 @@ Gulppack - сборка для автоматизации задач в повс
 Gulppack is a very useful gulp build for your front-end projects. Compile SCSS, compress the files, optimize the pictures, write ES6. It reloads your browser automatically every time you save a file in a code editor. Don't care about tedious things, leave it to us!
 
 ## What includes:
+* [gulp-if](https://www.npmjs.com/package/gulp-if) - a ternary gulp plugin;
 * [browser-sync](https://browsersync.io/docs/gulp) - live reloading your web page. Browsersync makes your browser testing workflow faster by synchronising URLs, interactions and code changes across multiple devices;
 * [gulp-autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer) - parsing CSS and add vendor prefixes to rules by [Can I Use](https://caniuse.com/);
 * [gulp-babel](https://www.npmjs.com/package/gulp-babel) - use next generation JavaScript with [Babel](https://babeljs.io/);
@@ -64,9 +65,7 @@ Gulppack is a very useful gulp build for your front-end projects. Compile SCSS, 
 * [gulp-clean-css](https://www.npmjs.com/package/gulp-clean-css) - minifing CSS files;
 * [gulp-sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps) - generating the sourcemaps;
 * [gulp-rename](https://www.npmjs.com/package/gulp-rename) - renaming files, adding prefix, suffix;
-* [gulp-imagemin](https://www.npmjs.com/package/gulp-imagemin) - minify PNG, JPEG, GIF and SVG images;
-* [imagemin-pngquant](https://www.npmjs.com/package/imagemin-pngquant) - pngquant imagemin plugin;
-* [imagemin-jpeg-recompress](https://www.npmjs.com/package/imagemin-jpeg-recompress) - jpeg-recompress imagemin plugin;
+* [gulp-imagemin](https://www.npmjs.com/package/gulp-imagemin) - minify PNG, JPEG, GIF and SVG images (includes another plugins for optimization);
 * [gulp-favicons](https://github.com/evilebottnawi/favicons) - favicons generator for your projects;
 * [gulp-svg-sprites](https://www.npmjs.com/package/gulp-svg-sprites) — create SVG sprites;
 * [gulp-replace](https://www.npmjs.com/package/gulp-replace) - a string replace plugin for Gulp;
@@ -74,7 +73,8 @@ Gulppack is a very useful gulp build for your front-end projects. Compile SCSS, 
 * [gulp-plumber](https://www.npmjs.com/package/gulp-plumber) - notifications in your terminal (SCSS/Sass errors for example);
 * [gulp-debug](https://www.npmjs.com/package/gulp-debug) - debug Vinyl file streams to see what files are run through your Gulp pipeline;
 * [gulp-watch](https://www.npmjs.com/package/gulp-watch) - file watcher;
-* [gulp-clean](https://www.npmjs.com/package/gulp-clean) — removes files and folders.
+* [gulp-clean](https://www.npmjs.com/package/gulp-clean) — removes files and folders;
+* [yargs](https://www.npmjs.com/package/yargs) - a node.js library fer hearties tryin' ter parse optstrings.
 
 ## How to use:
 * Install [Yarn](https://yarnpkg.com/en/docs/install).

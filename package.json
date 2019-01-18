@@ -9,7 +9,7 @@
 	"license": "MIT",
 	"scripts": {
 		"dev": "gulp",
-		"build": "gulp prod"
+		"build": "gulp prod --production"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.0.0",
@@ -25,6 +25,7 @@
 		"gulp-concat": "^2.6.1",
 		"gulp-debug": "^3.2.0",
 		"gulp-favicons": "^2.2.7",
+		"gulp-if": "^2.0.2",
 		"gulp-imagemin": "^4.1.0",
 		"gulp-plumber": "^1.2.0",
 		"gulp-rename": "^1.2.2",
@@ -35,7 +36,11 @@
 		"gulp-svg-sprites": "^4.1.2",
 		"gulp-uglify": "^3.0.0",
 		"gulp-watch": "^5.0.0",
+		"imagemin-giflossy": "^5.1.10",
 		"imagemin-jpeg-recompress": "^5.1.0",
-		"imagemin-pngquant": "^5.0.1"
+		"imagemin-mozjpeg": "^8.0.0",
+		"imagemin-pngquant": "^5.0.1",
+		"imagemin-zopfli": "^6.0.0",
+		"yargs": "^12.0.5"
 	}
 }

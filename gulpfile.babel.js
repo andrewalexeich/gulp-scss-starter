@@ -16,6 +16,7 @@ import imageminPngquant from "imagemin-pngquant";
 import imageminZopfli from "imagemin-zopfli";
 import imageminMozjpeg from "imagemin-mozjpeg";
 import imageminGiflossy from "imagemin-giflossy";
+import imageminSvgo from "imagemin-svgo";
 import favicons from "gulp-favicons";
 import svgSprite from "gulp-svg-sprites";
 import replace from "gulp-replace";
@@ -149,19 +150,25 @@ export const images = () => src(paths.src.images)
 			more: true
 		}),
 		imageminMozjpeg({
+			progressive: true,
 			quality: 70
 		}),
-		imagemin.jpegtran({
-			progressive: true
-		}),
-		imagemin.svgo({
+		imageminSvgo({
 			plugins: [{
-				removeViewBox: true
+				removeViewBox: true,
+				removeComments: true,
+				removeEmptyAttrs: true,
+				removeEmptyText: true,
+				removeUnusedNS:true,
+				cleanupIDs: true,
+				collapseGroups: true
 			}]
 		})
 	])))
 	.pipe(dest(paths.build.images))
-	.pipe(debug({"title": "Images"}))
+	.pipe(debug({
+		"title": "Images"
+	}))
 	.on("end", browsersync.reload);
 
 export const sprites = () => src(paths.src.sprites)

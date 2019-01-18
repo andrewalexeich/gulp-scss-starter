@@ -65,7 +65,7 @@ Gulppack is a very useful gulp build for your front-end projects. Compile SCSS, 
 * [gulp-clean-css](https://www.npmjs.com/package/gulp-clean-css) - minifing CSS files;
 * [gulp-sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps) - generating the sourcemaps;
 * [gulp-rename](https://www.npmjs.com/package/gulp-rename) - renaming files, adding prefix, suffix;
-* [gulp-imagemin](https://www.npmjs.com/package/gulp-imagemin) - minify PNG, JPEG, GIF and SVG images (includes another plugins for optimization);
+* [gulp-imagemin](https://www.npmjs.com/package/gulp-imagemin) - minify PNG, JPEG, GIF and SVG images (includes plugins for optimization);
 * [gulp-favicons](https://github.com/evilebottnawi/favicons) - favicons generator for your projects;
 * [gulp-svg-sprites](https://www.npmjs.com/package/gulp-svg-sprites) — create SVG sprites;
 * [gulp-replace](https://www.npmjs.com/package/gulp-replace) - a string replace plugin for Gulp;

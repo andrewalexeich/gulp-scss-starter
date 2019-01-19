@@ -193,7 +193,9 @@ export const sprites = () => src(paths.src.sprites)
 		}
 	}))
 	.pipe(dest(paths.build.sprites))
-	.pipe(debug({"title": "Sprites"}))
+	.pipe(debug({
+		"title": "Sprites"
+	}))
 	.on("end", browsersync.reload);
 
 export const favs = () => src(paths.src.favicons)
@@ -211,7 +213,9 @@ export const favs = () => src(paths.src.favicons)
 		}
 	}))
 	.pipe(dest(paths.build.favicons))
-	.pipe(debug({"title": "Favicons"}));
+	.pipe(debug({
+		"title": "Favicons"
+	}));
 
 export const development = series(cleanFiles, sprites, parallel(html, styles, scripts, images, favs),
 	parallel(watchCode, server));

@@ -22,8 +22,7 @@
 ## Плагины
 * [gulp-if](https://www.npmjs.com/package/gulp-if) - запуск заданий только тогда, когда это нужно;
 * [browser-sync](https://browsersync.io/docs/gulp) - живая перезагрузка веб-страницы при внесении изменений в файлы вашего проекта;
-* [gulp-autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer) — автоматически расставляет вендорные префиксы в CSS в соответствии с сервисом [Can I Use](https://caniuse
-.com/);
+* [gulp-autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer) — автоматически расставляет вендорные префиксы в CSS в соответствии с сервисом [Can I Use](https://caniuse.com/);
 * [gulp-babel](https://www.npmjs.com/package/gulp-babel) - использование ES6 с [Babel](https://babeljs.io/);
 * [gulp-uglify](https://www.npmjs.com/package/gulp-uglify) — минификация JS-файлов;
 * [gulp-concat](https://www.npmjs.com/package/gulp-concat) - объединение файлов;
@@ -44,7 +43,7 @@
 
 ## Режим разработки
 
-#### Исходники
+### Исходники
 * HTML-файлы находятся в папке ```src/views```
     * компоненты (например, спрайты или формы) к HTML-файлам находятся в ```src/views/components```
     * остальные компоненты (например, шапка, футер) могут находиться в ```src/views/layouts```
@@ -57,13 +56,13 @@
     * векторные изображения для создания спрайтов находятся в ```src/img/icons/svg```
     * единичное изображение для генерации фавиконок находится в ```src/img/icons/favicon.png``` (данное изображение может иметь формат ```.jpg```, ```.png``` или ```.gif```)
     
-#### Сборка проекта в режиме разработки
+### Сборка проекта в режиме разработки
 ```yarn run dev```
 
 ## Окончательная сборка
 ```yarn run build```
 
-#### Готовые файлы
+### Готовые файлы
 * HTML-файлы находятся в папке ```dist/```;
 * минифицированные CSS-файлы находятся в папке ```dist/styles```;
 * минифицированные JS-файлы с поддержкой ES6 находятся в папке ```dist/js```;

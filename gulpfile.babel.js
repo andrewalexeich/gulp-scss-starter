@@ -188,7 +188,7 @@ export const sprites = () => src(paths.src.sprites)
 		preview: false,
 		cssFile: "../../../src/styles/components/_sprite.scss",
 		svg: {
-			sprite: "../../../dist/img/sprites/sprite.svg"
+			sprite: "../../../img/sprites/sprite.svg"
 		}
 	}))
 	.pipe(dest(paths.build.sprites))

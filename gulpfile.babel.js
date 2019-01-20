@@ -124,7 +124,6 @@ export const styles = () => src(paths.src.styles)
 	.pipe(gulpif(production, rename({
 		suffix: ".min"
 	})))
-	.pipe(replace("../../dist/", "../"))
 	.pipe(plumber.stop())
 	.pipe(gulpif(!production, sourcemaps.write("./maps/")))
 	.pipe(dest(paths.build.styles))

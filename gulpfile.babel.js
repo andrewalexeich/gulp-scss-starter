@@ -5,6 +5,9 @@ import gulpif from "gulp-if";
 import browsersync from "browser-sync";
 import autoprefixer from "gulp-autoprefixer";
 import babel from "gulp-babel";
+import browserify from "browserify";
+import source from "vinyl-source-stream";
+import buffer from "vinyl-buffer";
 import uglify from "gulp-uglify";
 import concat from "gulp-concat";
 import sass from "gulp-sass";
@@ -133,7 +136,13 @@ export const styles = () => src(paths.src.styles)
 	}))
 	.on("end", browsersync.reload);
 
-export const scripts = () => src(paths.src.scripts)
+export const scripts = () => browserify({
+		entries: "./src/js/main.js",
+		debug: true
+	})
+	.bundle()
+	.pipe(source("main.js"))
+	.pipe(buffer())
 	.pipe(gulpif(!production, sourcemaps.init()))
 	.pipe(babel())
 	.pipe(concat("main.js"))

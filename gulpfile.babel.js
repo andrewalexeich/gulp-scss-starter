@@ -9,7 +9,6 @@ import browserify from "browserify";
 import source from "vinyl-source-stream";
 import buffer from "vinyl-buffer";
 import uglify from "gulp-uglify";
-import concat from "gulp-concat";
 import sass from "gulp-sass";
 import mincss from "gulp-clean-css";
 import sourcemaps from "gulp-sourcemaps";
@@ -145,7 +144,6 @@ export const scripts = () => browserify({
 	.pipe(buffer())
 	.pipe(gulpif(!production, sourcemaps.init()))
 	.pipe(babel())
-	.pipe(concat("main.js"))
 	.pipe(gulpif(production, uglify()))
 	.pipe(gulpif(production, rename({
 		suffix: ".min"

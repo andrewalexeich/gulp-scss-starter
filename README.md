@@ -22,6 +22,7 @@
 ## Плагины
 * [gulp-if](https://www.npmjs.com/package/gulp-if) - запуск заданий только тогда, когда это нужно;
 * [browser-sync](https://browsersync.io/docs/gulp) - живая перезагрузка веб-страницы при внесении изменений в файлы вашего проекта;
+* [browserify](http://browserify.org/) - позволяет использовать ```require``` в браузере;
 * [gulp-autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer) — автоматически расставляет вендорные префиксы в CSS в соответствии с сервисом [Can I Use](https://caniuse.com/);
 * [gulp-babel](https://www.npmjs.com/package/gulp-babel) - использование ES6 с [Babel](https://babeljs.io/);
 * [gulp-uglify](https://www.npmjs.com/package/gulp-uglify) — минификация JS-файлов;
@@ -69,7 +70,21 @@
 * сжатые изображения находятся в папке ```dist/img```.
 
 ## Bower?
-Вместо [Bower](https://bower.io/) используйте yarn или npm. Подробнее [тут](https://medium.com/netscape/bye-bye-bower-or-how-to-migrate-from-bower-to-npm-and-webpack-4eb2e1121a50).
+Вместо [Bower](https://bower.io/) используйте Yarn или NPM вместе с [Browserify](http://browserify.org/). Например, чтобы подключить jQuery и итог вместе с Вашим кодом собрать в 
+бандл, необходимо перед запуском ```yarn run dev``` или ```yarn run build```:
+* скачать библиотеку: ```yarn add jquery```;
+* в ```src/js/main.js``` написать:
+```javascript
+const $ = require("../../node_modules/jquery/dist/jquery");
+
+$(document).ready(function() {
+	$("body").css({background: "#ececec"});
+});
+```
+
+В результате вы получите последнюю версию jQuery из NPM, которая будет скачана в папку ```node_modules``` в корневой директории проекта. Объект jQuery экспортируется в локальную 
+переменную ```const $``` вместо глобальной в ```window```, что особо удобно, если скрипт должен работать на сторонних сайтах, где уже может быть (или не быть) установлен jQuery 
+другой версии.
 
 ## Нужен Pug + SCSS?
 Используйте [эту](https://github.com/andreyalexeich/gulppack-pug/) сборку.

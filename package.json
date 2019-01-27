@@ -28,6 +28,7 @@
 		"gulp-if": "^2.0.2",
 		"gulp-imagemin": "^5.0.3",
 		"gulp-plumber": "^1.2.0",
+		"gulp-raster": "^0.2.0",
 		"gulp-rename": "^1.2.2",
 		"gulp-replace": "^0.6.1",
 		"gulp-rigger": "^0.5.8",

@@ -202,7 +202,7 @@ export const sprites = () => src(paths.src.sprites)
 
 export const svg2png = () => src(`${paths.build.sprites}**/*.svg`)
 	.pipe(raster())
-	.pipe(rename({ extname: '.png'}))
+	.pipe(rename({ extname: ".png"}))
 	.pipe(dest(paths.build.sprites));
 
 export const favs = () => src(paths.src.favicons)

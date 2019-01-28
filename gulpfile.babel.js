@@ -107,6 +107,7 @@ export const styles = () => src(paths.src.styles)
 	.pipe(gulpif(production, autoprefixer({
 		browsers: ["last 12 versions", "> 1%", "ie 8", "ie 7"]
 	})))
+	.pipe(gulpif(!production, browsersync.stream()))
 	.pipe(gulpif(production, mincss({
 		compatibility: "ie8", level: {
 			1: {
@@ -133,7 +134,7 @@ export const styles = () => src(paths.src.styles)
 	.pipe(debug({
 		"title": "CSS files"
 	}))
-	.on("end", browsersync.reload);
+	.on("end", () => production ? browsersync.reload : null);
 
 export const scripts = () => browserify({
 		entries: "./src/js/main.js",

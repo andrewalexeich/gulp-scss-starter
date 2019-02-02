@@ -4,6 +4,7 @@ import { src, dest, watch, parallel, series } from "gulp";
 import gulpif from "gulp-if";
 import browsersync from "browser-sync";
 import autoprefixer from "gulp-autoprefixer";
+import babel from "gulp-babel";
 import browserify from "browserify";
 import watchify from "watchify";
 import source from "vinyl-source-stream";
@@ -151,6 +152,7 @@ export const scripts = () => {
 			.pipe(source("main.js"))
 			.pipe(buffer())
 			.pipe(gulpif(!production, sourcemaps.init()))
+			.pipe(babel())
 			.pipe(gulpif(production, uglify()))
 			.pipe(gulpif(production, rename({
 				suffix: ".min"

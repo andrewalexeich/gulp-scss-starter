@@ -4,8 +4,8 @@ import { src, dest, watch, parallel, series } from "gulp";
 import gulpif from "gulp-if";
 import browsersync from "browser-sync";
 import autoprefixer from "gulp-autoprefixer";
-import babel from "gulp-babel";
 import browserify from "browserify";
+import watchify from "watchify";
 import source from "vinyl-source-stream";
 import buffer from "vinyl-buffer";
 import uglify from "gulp-uglify";
@@ -59,7 +59,6 @@ const paths = {
 		sprites: "./dist/img/sprites/",
 	}
 };
-
 
 export const server = () => {
 	browsersync.init({
@@ -136,25 +135,41 @@ export const styles = () => src(paths.src.styles)
 	}))
 	.on("end", () => production ? browsersync.reload : null);
 
-export const scripts = () => browserify({
+export const scripts = () => {
+	let bundler = browserify({
 		entries: "./src/js/main.js",
+		cache: { },
+		packageCache: { },
+		fullPaths: true,
 		debug: true
-	})
-	.bundle()
-	.pipe(source("main.js"))
-	.pipe(buffer())
-	.pipe(gulpif(!production, sourcemaps.init()))
-	.pipe(babel())
-	.pipe(gulpif(production, uglify()))
-	.pipe(gulpif(production, rename({
-		suffix: ".min"
-	})))
-	.pipe(gulpif(!production, sourcemaps.write("./maps/")))
-	.pipe(dest(paths.build.scripts))
-	.pipe(debug({
-		"title": "JS files"
-	}))
-	.on("end", browsersync.reload);
+	}).transform("babelify", {presets: ["@babel/preset-env"]});
+
+	const bundle = () => {
+		return bundler
+			.bundle()
+			.on('error', function () {})
+			.pipe(source("main.js"))
+			.pipe(buffer())
+			.pipe(gulpif(!production, sourcemaps.init()))
+			.pipe(gulpif(production, uglify()))
+			.pipe(gulpif(production, rename({
+				suffix: ".min"
+			})))
+			.pipe(gulpif(!production, sourcemaps.write("./maps/")))
+			.pipe(dest(paths.build.scripts))
+			.pipe(debug({
+				"title": "JS files"
+			}))
+			.on("end", browsersync.reload);
+	};
+
+	if(global.isWatching) {
+		bundler = watchify(bundler);
+		bundler.on('update', bundle);
+	}
+
+	return bundle();
+};
 
 export const images = () => src(paths.src.images)
 	.pipe(gulpif(production, imagemin([

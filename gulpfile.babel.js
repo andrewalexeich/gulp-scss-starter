@@ -19,10 +19,8 @@ import imageminPngquant from "imagemin-pngquant";
 import imageminZopfli from "imagemin-zopfli";
 import imageminMozjpeg from "imagemin-mozjpeg";
 import imageminGiflossy from "imagemin-giflossy";
-import imageminSvgo from "imagemin-svgo";
 import favicons from "gulp-favicons";
-import svgSprite from "gulp-svg-sprites";
-import raster from "gulp-raster";
+import svgSprite from "gulp-svg-sprite";
 import replace from "gulp-replace";
 import rigger from "gulp-rigger";
 import plumber from "gulp-plumber";
@@ -36,18 +34,20 @@ const production = !!argv.production;
 const paths = {
 	src: {
 		html: [
-			"./src/views/**/index.html",
-			"!./src/views/components/*.html"
+			"./src/views/**/*.html",
+			"!./src/views/components/*.html",
+			"!./src/views/modules/**/*.html",
+			"!./src/views/sections/**/*.html"
 		],
-		styles: "./src/styles/**/main.scss",
+		styles: "./src/styles/**/*.scss",
 		scripts: "./src/js/**/*.js",
-		favicons: "./src/img/icons/favicon.{jpg,jpeg,png,gif}",
+		favicons: "./src/img/favicon.{jpg,jpeg,png,gif}",
 		images: [
 			"./src/img/**/*.{jpg,jpeg,png,gif,svg}",
-			"!./src/img/icons/svg/*",
-			"!./src/img/icons/favicon.{jpg,jpeg,png,gif}"
+			"!./src/img/svg/*.svg",
+			"!./src/img/favicon.{jpg,jpeg,png,gif}"
 		],
-		sprites: "./src/img/icons/svg/*.svg",
+		sprites: "./src/img/svg/*.svg",
 		server_config: "./src/.htaccess"
 	},
 	build: {
@@ -191,16 +191,17 @@ export const images = () => src(paths.src.images)
 			progressive: true,
 			quality: 70
 		}),
-		imageminSvgo({
-			plugins: [{
-				removeViewBox: true,
-				removeComments: true,
-				removeEmptyAttrs: true,
-				removeEmptyText: true,
-				removeUnusedNS:true,
-				cleanupIDs: true,
-				collapseGroups: true
-			}]
+		imagemin.svgo({
+			plugins: [
+				{ removeViewBox: false },
+				{ removeUnusedNS: false },
+				{ removeUselessStrokeAndFill: false },
+				{ cleanupIDs: false },
+				{ removeComments: true },
+				{ removeEmptyAttrs: true },
+				{ removeEmptyText: true },
+				{ collapseGroups: true }
+			]
 		})
 	])))
 	.pipe(dest(paths.build.images))
@@ -211,12 +212,10 @@ export const images = () => src(paths.src.images)
 
 export const sprites = () => src(paths.src.sprites)
 	.pipe(svgSprite({
-		preview: false,
-		cssFile: "../../../src/styles/components/_sprite.scss",
-		svgPath: "../img/sprites/sprite.svg",
-		pngPath: "../img/sprites/sprite.png",
-		svg: {
-			sprite: "sprite.svg"
+		mode: {
+			stack: {
+				sprite: "../sprite.svg"
+			}
 		}
 	}))
 	.pipe(dest(paths.build.sprites))
@@ -224,11 +223,6 @@ export const sprites = () => src(paths.src.sprites)
 		"title": "Sprites"
 	}))
 	.on("end", browsersync.reload);
-
-export const svg2png = () => src(`${paths.build.sprites}**/*.svg`)
-	.pipe(raster())
-	.pipe(rename({ extname: ".png"}))
-	.pipe(dest(paths.build.sprites));
 
 export const favs = () => src(paths.src.favicons)
 	.pipe(favicons({
@@ -249,9 +243,9 @@ export const favs = () => src(paths.src.favicons)
 		"title": "Favicons"
 	}));
 
-export const development = series(cleanFiles, sprites, svg2png, parallel(html, styles, scripts, images, favs),
+export const development = series(cleanFiles,  parallel(html, styles, scripts, images, sprites, favs),
 	parallel(watchCode, server));
 
-export const prod = series(cleanFiles, sprites, svg2png, serverConfig, html, styles, scripts, images, favs);
+export const prod = series(cleanFiles,  serverConfig, html, styles, scripts, images, sprites, favs);
 
 export default development;

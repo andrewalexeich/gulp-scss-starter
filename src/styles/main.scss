@@ -1,8 +1,8 @@
-@import "base/variables";
-@import "base/mixins";
-@import "base/typography";
-@import "vendor/normalize";
-@import "components/sprite";
+@import "utils/variables";
+@import "utils/mixins";
+@import "utils/extends";
+@import "utils/fonts";
+@import "libs";
 
 h1, h2, h3, h4, p {
     padding: 0;
@@ -10,28 +10,29 @@ h1, h2, h3, h4, p {
 }
 
 code {
-	background: #d3dddd;
-	padding: 5px;
-	margin-right: 5px;
+    background: rgba(#000, 0.2);
+    padding: 5px;
+    margin-right: 5px;
 }
 
 body {
-    background: #c9e0e04d;
+    background: radial-gradient(ellipse at center, #3B414D 0%, #282C34 100%) no-repeat fixed;
     font-family: "Helvetica", Arial, sans-serif;
+    align-items: center;
+    text-align: center;
+    line-height: 34px;
+    color: #fff;
     width: 100%;
     height: 100%;
     position: fixed;
     display: flex;
     justify-content: center;
-    align-items: center;
-    text-align: center;
-    line-height: 34px;
 }
 
 .wrapper {
     width: 850px;
     margin: 0 auto;
-	padding: 0 40px;
+    padding: 0 40px;
     &__title {
         font-size: 24px;
         margin-bottom: 20px;
@@ -45,10 +46,12 @@ body {
         }
     }
     &__icons {
-        max-width: 250px;
-        margin: 0 auto;
+        max-width: 300px;
+        margin: 60px auto 0;
         display: flex;
         justify-content: space-between;
-        font-size: 35px;
+        .icon {
+            height: 70px;
+        }
     }
 }

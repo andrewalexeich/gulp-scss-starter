@@ -1,15 +1,32 @@
 {
 	"env": {
 		"browser": true,
-		"node": true,
-		"es6": true
+		"commonjs": true,
+		"es6": true,
+		"node": true
 	},
+	"extends": "eslint:recommended",
+	"parser": "babel-eslint",
 	"parserOptions": {
 		"ecmaVersion": 6,
 		"sourceType": "module"
 	},
-	"ecmaFeatures": {
-		"arrowFunctions": true,
-		"modules": true
+	"rules": {
+		"indent": [
+			"error",
+			"tab"
+		],
+		"linebreak-style": [
+			"error",
+			"unix"
+		],
+		"quotes": [
+			"error",
+			"double"
+		],
+		"semi": [
+			"error",
+			"always"
+		]
 	}
 }

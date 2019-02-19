@@ -96,4 +96,4 @@ $(document).ready(function() {
  отлаживать отдельные части пакета ровно так же, как вы и привыкли это делать с отдельными файлами.
 
 ## Нужен Pug + SCSS?
-Используйте [эту](https://github.com/andreyalexeich/gulppack-pug/) сборку.
+Используйте [эту](https://github.com/andreyalexeich/gulp-pug-starter/) сборку.

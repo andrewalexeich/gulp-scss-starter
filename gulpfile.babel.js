@@ -63,6 +63,7 @@ const paths = {
 
 export const server = () => {
 	browsersync.init({
+		injectChanges: true,
 		server: paths.build.general,
 		port: 9000,
 		tunnel: true,
@@ -134,7 +135,7 @@ export const styles = () => src(paths.src.styles)
 	.pipe(debug({
 		"title": "CSS files"
 	}))
-	.on("end", () => production ? browsersync.reload : null);
+	.pipe(browsersync.stream());
 
 export const scripts = () => {
 	let bundler = browserify({
@@ -148,7 +149,7 @@ export const scripts = () => {
 	const bundle = () => {
 		return bundler
 			.bundle()
-			.on('error', function () {})
+			.on("error", function () {})
 			.pipe(source("main.js"))
 			.pipe(buffer())
 			.pipe(gulpif(!production, sourcemaps.init()))
@@ -167,7 +168,7 @@ export const scripts = () => {
 
 	if(global.isWatching) {
 		bundler = watchify(bundler);
-		bundler.on('update', bundle);
+		bundler.on("update", bundle);
 	}
 
 	return bundle();

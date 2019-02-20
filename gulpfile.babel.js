@@ -71,7 +71,7 @@ export const server = () => {
 };
 
 export const watchCode = () => {
-	watch(paths.src.html, html);
+	watch(paths.src.html[0], html);
 	watch(paths.src.styles, styles);
 	watch(paths.src.scripts, scripts);
 	watch(paths.src.images, images);

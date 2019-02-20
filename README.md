@@ -1,4 +1,4 @@
-# Gulppack. Версия с SCSS
+# gulp-scss-starter
 
 ## Особенности
 * сборка предназначена для автоматизации задач в повседневной front-end разработке;
@@ -21,7 +21,7 @@
 Если вы всё сделали правильно, у вас должен открыться браузер с локальным сервером и работающим ```browser-sync```.
 
 ## Плагины
-* [browserify](http://browserify.org/) - использование ```require``` в браузере и проводить сборку зависимостей;
+* [browserify](http://browserify.org/) - использование ```require``` в браузере и проведение сборки зависимостей;
 * [babelify](https://github.com/babel/babelify) - транспайлер [Babel](https://babeljs.io/) для ```browserify```;
 * [watchify](https://github.com/browserify/watchify) - отслеживание изменений для ```browserify```;
 * [eslint](https://eslint.org/) - линтер для JS-файлов;

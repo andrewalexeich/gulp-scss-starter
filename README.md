@@ -4,7 +4,8 @@
 * сборка предназначена для автоматизации задач в повседневной front-end разработке;
 * автоматическая перезагрузка страницы в браузере с использованием [Browsersync](https://www.browsersync.io/);
 * использование препроцессора [SCSS](https://sass-lang.com/);
-* использование транспайлера [Babel](https://babeljs.io/) для поддержки современного JavaScript (ES6) в браузерах.
+* использование транспайлера [Babel](https://babeljs.io/) для поддержки современного JavaScript (ES6) в браузерах;
+* использование CSS-сетки [smart-grid](https://github.com/dmitry-lavrik/smart-grid) для быстрой адаптивной вёрстки.
 
 ## Установка
 Установите [Yarn](https://yarnpkg.com/en/docs/install).
@@ -30,6 +31,7 @@
 * [gulp-babel](https://www.npmjs.com/package/gulp-babel) - использование ES6 с [Babel](https://babeljs.io/);
 * [gulp-uglify](https://www.npmjs.com/package/gulp-uglify) — минификация JS-файлов;
 * [gulp-sass](https://www.npmjs.com/package/gulp-sass) — компиляция SCSS в CSS;
+* [gulp-group-css-media-queries](https://www.npmjs.com/package/gulp-group-css-media-queries) - группировка ```@media```;
 * [gulp-clean-css](https://www.npmjs.com/package/gulp-clean-css) — минификация CSS-файлов;
 * [gulp-sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps) - карта стилей;
 * [gulp-rename](https://www.npmjs.com/package/gulp-rename) — переименование файлов, добавление суффиксов и префиксов (например, добавление суффикса ```.min``` к минифицированным файлам);
@@ -93,6 +95,10 @@ $(document).ready(function() {
 
 В данном коде мы определяем зависимости, затем Browserify собирает их в один файл. Также Browserify умеет создавать sourcemaps до компрессии, поэтому не смотря на конкатенацию, вы сможете
  отлаживать отдельные части пакета ровно так же, как вы и привыкли это делать с отдельными файлами.
+ 
+ ## CSS-сетка smart-grid
+ В данный сборщик включена CSS-сетка [smart-grid](https://github.com/dmitry-lavrik/smart-grid) от [Дмитрия Лаврика](https://dmitrylavrik.ru/), позволяющая избавиться от 
+ лишних классов в разметке и ускоряющая адаптивную вёрстку. Конфигурация уже настроена в соответствии с сеткой [Bootstrap](https://getbootstrap.com/).
 
 ## Нужен Pug + SCSS?
 Используйте [эту](https://github.com/andreyalexeich/gulp-pug-starter/) сборку.

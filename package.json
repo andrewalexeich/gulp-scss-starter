@@ -27,6 +27,7 @@
 		"gulp-clean-css": "^3.9.2",
 		"gulp-debug": "^3.2.0",
 		"gulp-favicons": "^2.2.7",
+		"gulp-group-css-media-queries": "^1.2.2",
 		"gulp-if": "^2.0.2",
 		"gulp-imagemin": "^5.0.3",
 		"gulp-plumber": "^1.2.0",
@@ -49,7 +50,8 @@
 		"yargs": "^12.0.5"
 	},
 	"dependencies": {
-		"normalize.css": "^8.0.1"
+		"normalize.css": "^8.0.1",
+		"smart-grid": "^2.1.2"
 	},
 	"browserify": {
 		"transform": [

@@ -30,28 +30,27 @@ body {
 }
 
 .wrapper {
-    width: 850px;
-    margin: 0 auto;
-    padding: 0 40px;
-    &__title {
-        font-size: 24px;
-        margin-bottom: 20px;
-    }
-    &__subtitle {
-        font-size: 18px;
-        margin-bottom: 20px;
-        a {
-            color: cadetblue;
-            font-weight: 600;
-        }
-    }
-    &__icons {
-        max-width: 300px;
-        margin: 60px auto 0;
-        display: flex;
-        justify-content: space-between;
-        .icon {
-            height: 70px;
-        }
-    }
+	width: 100%;
+	@include wrapper();
+	&__title {
+		font-size: 24px;
+		margin-bottom: 20px;
+	}
+	&__subtitle {
+		font-size: 18px;
+		margin-bottom: 20px;
+		a {
+			color: cadetblue;
+			font-weight: 600;
+		}
+	}
+	&__icons {
+		max-width: 300px;
+		margin: 60px auto 0;
+		display: flex;
+		justify-content: space-between;
+		.icon {
+			height: 70px;
+		}
+	}
 }

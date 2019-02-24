@@ -52,12 +52,12 @@
 ### Исходники
 * HTML-файлы находятся в папке ```src/views```
 	* компоненты (кнопки, инпуты, чекбоксы и т.д.): ```src/views/components```
-	* основные компоненты (шапка и футер): ```src/views/modules```
+	* инклюды (шапка, футер, etc): ```src/views/includes```
 	* страницы: ```src/views/pages```
 	* секции: ```src/views/sections```
 * SCSS-файлы находятся в папке ```src/styles```
 	* стили компонентов (кнопки, инпуты, чекбоксы и т.д.): ```src/styles/components```
-	* стили основных компонентов (шапка и футер): ```src/styles/modules```
+	* инклюды (шапка, футер, etc): ```src/styles/includes```
 	* стили секций: ```src/styles/sections```
 	* переменные, миксины, наследуемые свойства, стили шрифтов: ```src/styles/utils```
 	* сторонние библиотеки (от других разработчиков): ```src/styles/_libs.scss```
@@ -96,9 +96,8 @@ $(document).ready(function() {
 В данном коде мы определяем зависимости, затем Browserify собирает их в один файл. Также Browserify умеет создавать sourcemaps до компрессии, поэтому не смотря на конкатенацию, вы сможете
  отлаживать отдельные части пакета ровно так же, как вы и привыкли это делать с отдельными файлами.
  
- ## CSS-сетка smart-grid
- В данный сборщик включена CSS-сетка [smart-grid](https://github.com/dmitry-lavrik/smart-grid) от [Дмитрия Лаврика](https://dmitrylavrik.ru/), позволяющая избавиться от 
- лишних классов в разметке и ускоряющая адаптивную вёрстку. Конфигурация уже настроена в соответствии с сеткой [Bootstrap](https://getbootstrap.com/).
+## CSS-сетка smart-grid
+В данный сборщик включена CSS-сетка [smart-grid](https://github.com/dmitry-lavrik/smart-grid) от [Дмитрия Лаврика](https://dmitrylavrik.ru/), позволяющая избавиться от лишних классов в разметке и ускоряющая адаптивную вёрстку. Конфигурация уже настроена в соответствии с сеткой [Bootstrap](https://getbootstrap.com/).
 
 ## Нужен Pug + SCSS?
 Используйте [эту](https://github.com/andreyalexeich/gulp-pug-starter/) сборку.

@@ -32,6 +32,10 @@ body {
 .wrapper {
 	width: 100%;
 	@include wrapper();
+	@include sm(max-width, 510px);
+	@include md(max-width, 690px);
+	@include lg(max-width, 930px);
+	@include xl(max-width, 1110px);
 	&__title {
 		font-size: 24px;
 		margin-bottom: 20px;

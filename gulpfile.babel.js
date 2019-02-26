@@ -114,7 +114,6 @@ export const smartGrid = cb => {
 		offset: "30px", // gutter width
 		mobileFirst: true,
 		container: {
-			maxWidth: "1110px",
 			fields: "15px"
 		},
 		breakPoints: {
@@ -129,6 +128,9 @@ export const smartGrid = cb => {
 			},
 			lg: {
 				width: "992px"
+			},
+			xl: {
+				width: "1200px"
 			}
 		}
 	});

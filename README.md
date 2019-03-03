@@ -36,7 +36,6 @@
 * [gulp-sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps) - карта стилей;
 * [gulp-rename](https://www.npmjs.com/package/gulp-rename) — переименование файлов, добавление суффиксов и префиксов (например, добавление суффикса ```.min``` к минифицированным файлам);
 * [gulp-imagemin](https://www.npmjs.com/package/gulp-imagemin) — сжатие изображений PNG, JPG, GIF и SVG (включая дополнительные плагины для оптимизации);
-* [gulp-webp](https://www.npmjs.com/package/gulp-webp) - конвертация изображений в современный формат WebP;
 * [gulp-favicons](https://github.com/evilebottnawi/favicons) — генератор фавиконок для вашего проекта;
 * [gulp-if](https://www.npmjs.com/package/gulp-if) - запуск заданий только тогда, когда это нужно;
 * [gulp-svg-sprite](https://www.npmjs.com/package/gulp-svg-sprite) — создание SVG-спрайтов;
@@ -96,10 +95,6 @@ $(document).ready(function() {
 
 В данном коде мы определяем зависимости, затем Browserify собирает их в один файл. Также Browserify умеет создавать sourcemaps до компрессии, поэтому не смотря на конкатенацию, вы сможете
  отлаживать отдельные части пакета ровно так же, как вы и привыкли это делать с отдельными файлами.
- 
- ## WebP 
- WebP — формат графики, разработанный Google в 2010. Он был создан как альтернатива PNG и JPG и отличается от них гораздо меньшим размером при том же качестве изображения. 
- Подробнее [тут](https://vk.com/@vk_it-webp).
  
 ## CSS-сетка smart-grid
 В данный сборщик включена CSS-сетка [smart-grid](https://github.com/dmitry-lavrik/smart-grid) от [Дмитрия Лаврика](https://dmitrylavrik.ru/), позволяющая избавиться от лишних классов в разметке и ускоряющая адаптивную вёрстку. Конфигурация уже настроена в соответствии с сеткой [Bootstrap](https://getbootstrap.com/).

@@ -99,7 +99,7 @@ $(document).ready(function() {
  
 ## WebP 
 WebP — формат графики, разработанный Google в 2010. Он был создан как альтернатива PNG и JPG и отличается от них гораздо меньшим размером при том же качестве изображения. 
-Подробнее [тут](https://habr.com/ru/post/275735/).
+Подробнее [тут](https://vk.com/@vk_it-webp).
 
 ## CSS-сетка smart-grid
 В данный сборщик включена CSS-сетка [smart-grid](https://github.com/dmitry-lavrik/smart-grid) от [Дмитрия Лаврика](https://dmitrylavrik.ru/), позволяющая избавиться от лишних классов в разметке и ускоряющая адаптивную вёрстку. Конфигурация уже настроена в соответствии с сеткой [Bootstrap](https://getbootstrap.com/).

@@ -63,6 +63,11 @@ const argv = yargs.argv,
 			dist: "./dist/img/",
 			watch: "./src/img/**/*.{jpg,jpeg,png,gif,svg}"
 		},
+		webp: {
+			src: "./src/img/**/*_webp.{jpg,jpeg,png}",
+			dist: "./dist/img/",
+			watch: "./src/img/**/*_webp.{jpg,jpeg,png}"
+		},
 		sprites: {
 			src: "./src/img/svg/*.svg",
 			dist: "./dist/img/sprites/",
@@ -93,6 +98,7 @@ export const watchCode = () => {
 	gulp.watch(paths.styles.watch, styles);
 	gulp.watch(paths.scripts.watch, scripts);
 	gulp.watch(paths.images.watch, images);
+	gulp.watch(paths.webp.watch, webpimages);
 	gulp.watch(paths.sprites.watch, sprites);
 };
 
@@ -263,13 +269,13 @@ export const images = () => gulp.src(paths.images.src)
 	}))
 	.on("end", browsersync.reload);
 
-export const webpimages = () => gulp.src(paths.images.src)
+export const webpimages = () => gulp.src(paths.webp.src)
 	.pipe(webp(imageminWebp({
 		lossless: true,
 		quality: 75,
 		alphaQuality: 75
 	})))
-	.pipe(gulp.dest(paths.images.dist))
+	.pipe(gulp.dest(paths.webp.dist))
 	.pipe(debug({
 		"title": "WebP images"
 	}));

@@ -81,7 +81,7 @@ const argv = yargs.argv,
 			src: "./src/.htaccess",
 			dist: "./dist/"
 		}
-};
+	};
 
 export const server = () => {
 	browsersync.init({

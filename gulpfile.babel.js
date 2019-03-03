@@ -1,6 +1,6 @@
 "use strict";
 
-import { src, dest, watch, parallel, series } from "gulp";
+import gulp from "gulp";
 import gulpif from "gulp-if";
 import browsersync from "browser-sync";
 import autoprefixer from "gulp-autoprefixer";
@@ -20,6 +20,8 @@ import imageminPngquant from "imagemin-pngquant";
 import imageminZopfli from "imagemin-zopfli";
 import imageminMozjpeg from "imagemin-mozjpeg";
 import imageminGiflossy from "imagemin-giflossy";
+import imageminWebp from "imagemin-webp";
+import webp from "gulp-webp";
 import favicons from "gulp-favicons";
 import svgSprite from "gulp-svg-sprite";
 import replace from "gulp-replace";
@@ -29,52 +31,57 @@ import debug from "gulp-debug";
 import clean from "gulp-clean";
 import yargs from "yargs";
 
-const argv = yargs.argv;
-const production = !!argv.production;
-const smartgrid = require("smart-grid");
+const argv = yargs.argv,
+	production = !!argv.production,
+	smartgrid = require("smart-grid"),
 
-const paths = {
-	views: {
-		src: [
-			"./src/views/index.html",
-			"./src/views/pages/*.html"
-		],
-		dist: "./dist/",
-		watch: "./src/views/**/*.html"
-	},
-	styles: {
-		src: "./src/styles/main.scss",
-		dist: "./dist/styles/",
-		watch: "./src/styles/**/*.scss"
-	},
-	scripts: {
-		src: "./src/js/main.js",
-		dist: "./dist/js/",
-		watch: "./src/js/**/*.js"
-	},
-	images: {
-		src: [
-			"./src/img/**/*.{jpg,jpeg,png,gif,svg}",
-			"!./src/img/svg/*.svg",
-			"!./src/img/favicon.{jpg,jpeg,png,gif}"
-		],
-		dist: "./dist/img/",
-		watch: "./src/img/**/*.{jpg,jpeg,png,gif,svg}"
-	},
-	sprites: {
-		src: "./src/img/svg/*.svg",
-		dist: "./dist/img/sprites/",
-		watch: "./src/img/svg/*.svg"
-	},
-	favicons: {
-		src: "./src/img/favicon.{jpg,jpeg,png,gif}",
-		dist: "./dist/img/favicons/",
-	},
-	server_config: {
-		src: "./src/.htaccess",
-		dist: "./dist/"
-	}
-};
+	paths = {
+		views: {
+			src: [
+				"./src/views/index.html",
+				"./src/views/pages/*.html"
+			],
+			dist: "./dist/",
+			watch: "./src/views/**/*.html"
+		},
+		styles: {
+			src: "./src/styles/main.scss",
+			dist: "./dist/styles/",
+			watch: "./src/styles/**/*.scss"
+		},
+		scripts: {
+			src: "./src/js/main.js",
+			dist: "./dist/js/",
+			watch: "./src/js/**/*.js"
+		},
+		images: {
+			src: [
+				"./src/img/**/*.{jpg,jpeg,png,gif,svg}",
+				"!./src/img/svg/*.svg",
+				"!./src/img/favicon.{jpg,jpeg,png,gif}"
+			],
+			dist: "./dist/img/",
+			watch: "./src/img/**/*.{jpg,jpeg,png,gif,svg}"
+		},
+		webp: {
+			src: "./src/img/**/*_webp.{jpg,jpeg,png}",
+			dist: "./dist/img/",
+			watch: "./src/img/**/*_webp.{jpg,jpeg,png}"
+		},
+		sprites: {
+			src: "./src/img/svg/*.svg",
+			dist: "./dist/img/sprites/",
+			watch: "./src/img/svg/*.svg"
+		},
+		favicons: {
+			src: "./src/img/favicon.{jpg,jpeg,png,gif}",
+			dist: "./dist/img/favicons/",
+		},
+		server_config: {
+			src: "./src/.htaccess",
+			dist: "./dist/"
+		}
+	};
 
 export const server = () => {
 	browsersync.init({
@@ -87,21 +94,22 @@ export const server = () => {
 };
 
 export const watchCode = () => {
-	watch(paths.views.watch, views);
-	watch(paths.styles.watch, styles);
-	watch(paths.scripts.watch, scripts);
-	watch(paths.images.watch, images);
-	watch(paths.sprites.watch, sprites);
+	gulp.watch(paths.views.watch, views);
+	gulp.watch(paths.styles.watch, styles);
+	gulp.watch(paths.scripts.watch, scripts);
+	gulp.watch(paths.images.watch, images);
+	gulp.watch(paths.webp.watch, webpimages);
+	gulp.watch(paths.sprites.watch, sprites);
 };
 
-export const cleanFiles = () => src("./dist/**/", {read: false})
+export const cleanFiles = () => gulp.src("./dist/**/", {read: false})
 	.pipe(clean())
 	.pipe(debug({
 		"title": "Cleaning..."
 	}));
 
-export const serverConfig = () => src(paths.server_config.src)
-	.pipe(dest(paths.server_config.dist))
+export const serverConfig = () => gulp.src(paths.server_config.src)
+	.pipe(gulp.dest(paths.server_config.dist))
 	.pipe(debug({
 		"title": "Server config"
 	}));
@@ -137,17 +145,17 @@ export const smartGrid = cb => {
 	cb();
 };
 
-export const views = () => src(paths.views.src)
+export const views = () => gulp.src(paths.views.src)
 	.pipe(rigger())
 	.pipe(gulpif(production, replace("main.css", "main.min.css")))
 	.pipe(gulpif(production, replace("main.js", "main.min.js")))
-	.pipe(dest(paths.views.dist))
+	.pipe(gulp.dest(paths.views.dist))
 	.pipe(debug({
 		"title": "HTML files"
 	}))
 	.on("end", browsersync.reload);
 
-export const styles = () => src(paths.styles.src)
+export const styles = () => gulp.src(paths.styles.src)
 	.pipe(gulpif(!production, sourcemaps.init()))
 	.pipe(plumber())
 	.pipe(sass())
@@ -177,7 +185,7 @@ export const styles = () => src(paths.styles.src)
 	})))
 	.pipe(plumber.stop())
 	.pipe(gulpif(!production, sourcemaps.write("./maps/")))
-	.pipe(dest(paths.styles.dist))
+	.pipe(gulp.dest(paths.styles.dist))
 	.pipe(debug({
 		"title": "CSS files"
 	}))
@@ -209,7 +217,7 @@ export const scripts = () => {
 				suffix: ".min"
 			})))
 			.pipe(gulpif(!production, sourcemaps.write("./maps/")))
-			.pipe(dest(paths.scripts.dist))
+			.pipe(gulp.dest(paths.scripts.dist))
 			.pipe(debug({
 				"title": "JS files"
 			}))
@@ -224,7 +232,7 @@ export const scripts = () => {
 	return bundle();
 };
 
-export const images = () => src(paths.images.src)
+export const images = () => gulp.src(paths.images.src)
 	.pipe(gulpif(production, imagemin([
 		imageminGiflossy({
 			optimizationLevel: 3,
@@ -255,13 +263,24 @@ export const images = () => src(paths.images.src)
 			]
 		})
 	])))
-	.pipe(dest(paths.images.dist))
+	.pipe(gulp.dest(paths.images.dist))
 	.pipe(debug({
 		"title": "Images"
 	}))
 	.on("end", browsersync.reload);
 
-export const sprites = () => src(paths.sprites.src)
+export const webpimages = () => gulp.src(paths.webp.src)
+	.pipe(webp(imageminWebp({
+		lossless: true,
+		quality: 75,
+		alphaQuality: 75
+	})))
+	.pipe(gulp.dest(paths.webp.dist))
+	.pipe(debug({
+		"title": "WebP images"
+	}));
+
+export const sprites = () => gulp.src(paths.sprites.src)
 	.pipe(svgSprite({
 		mode: {
 			stack: {
@@ -269,13 +288,13 @@ export const sprites = () => src(paths.sprites.src)
 			}
 		}
 	}))
-	.pipe(dest(paths.sprites.dist))
+	.pipe(gulp.dest(paths.sprites.dist))
 	.pipe(debug({
 		"title": "Sprites"
 	}))
 	.on("end", browsersync.reload);
 
-export const favs = () => src(paths.favicons.src)
+export const favs = () => gulp.src(paths.favicons.src)
 	.pipe(favicons({
 		icons: {
 			appleIcon: true,
@@ -289,14 +308,15 @@ export const favs = () => src(paths.favicons.src)
 			coast: false
 		}
 	}))
-	.pipe(dest(paths.favicons.dist))
+	.pipe(gulp.dest(paths.favicons.dist))
 	.pipe(debug({
 		"title": "Favicons"
 	}));
 
-export const development = series(cleanFiles, smartGrid, parallel(views, styles, scripts, images, sprites, favs),
-	parallel(watchCode, server));
+export const development = gulp.series(cleanFiles, smartGrid,
+	gulp.parallel(views, styles, scripts, images, webpimages, sprites, favs),
+	gulp.parallel(watchCode, server));
 
-export const prod = series(cleanFiles, smartGrid, serverConfig, views, styles, scripts, images, sprites, favs);
+export const prod = gulp.series(cleanFiles, smartGrid, serverConfig, views, styles, scripts, images, webpimages, sprites, favs);
 
 export default development;

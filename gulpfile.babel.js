@@ -1,14 +1,11 @@
 "use strict";
 
+import webpack from "webpack";
+import webpackStream from "webpack-stream";
 import gulp from "gulp";
 import gulpif from "gulp-if";
 import browsersync from "browser-sync";
 import autoprefixer from "gulp-autoprefixer";
-import babel from "gulp-babel";
-import browserify from "browserify";
-import watchify from "watchify";
-import source from "vinyl-source-stream";
-import buffer from "vinyl-buffer";
 import uglify from "gulp-uglify";
 import sass from "gulp-sass";
 import groupmediaqueries from "gulp-group-css-media-queries";
@@ -31,7 +28,8 @@ import debug from "gulp-debug";
 import clean from "gulp-clean";
 import yargs from "yargs";
 
-const argv = yargs.argv,
+const webpackConfig = require("./webpack.config.js"),
+	argv = yargs.argv,
 	production = !!argv.production,
 	smartgrid = require("smart-grid"),
 
@@ -50,9 +48,9 @@ const argv = yargs.argv,
 			watch: "./src/styles/**/*.scss"
 		},
 		scripts: {
-			src: "./src/js/main.js",
+			src: "./src/index.js",
 			dist: "./dist/js/",
-			watch: "./src/js/**/*.js"
+			watch: "./src/**/*.js"
 		},
 		images: {
 			src: [
@@ -91,9 +89,7 @@ export const server = () => {
 		tunnel: true,
 		notify: true
 	});
-};
 
-export const watchCode = () => {
 	gulp.watch(paths.views.watch, views);
 	gulp.watch(paths.styles.watch, styles);
 	gulp.watch(paths.scripts.watch, scripts);
@@ -191,46 +187,19 @@ export const styles = () => gulp.src(paths.styles.src)
 	}))
 	.pipe(browsersync.stream());
 
-export const scripts = () => {
-	let bundler = browserify({
-		entries: paths.scripts.src,
-		cache: { },
-		packageCache: { },
-		fullPaths: true,
-		debug: true
-	}).transform("babelify", {
-		presets: [
-			"@babel/preset-env"
-		]
-	});
-
-	const bundle = () => {
-		return bundler
-			.bundle()
-			.on("error", function () {})
-			.pipe(source("main.js"))
-			.pipe(buffer())
-			.pipe(gulpif(!production, sourcemaps.init()))
-			.pipe(babel())
-			.pipe(gulpif(production, uglify()))
-			.pipe(gulpif(production, rename({
-				suffix: ".min"
-			})))
-			.pipe(gulpif(!production, sourcemaps.write("./maps/")))
-			.pipe(gulp.dest(paths.scripts.dist))
-			.pipe(debug({
-				"title": "JS files"
-			}))
-			.on("end", browsersync.reload);
-	};
-
-	if(global.isWatching) {
-		bundler = watchify(bundler);
-		bundler.on("update", bundle);
-	}
-
-	return bundle();
-};
+export const scripts = () => gulp.src(paths.scripts.src)
+	.pipe(webpackStream(webpackConfig), webpack)
+	.pipe(gulpif(!production, sourcemaps.init()))
+	.pipe(gulpif(production, uglify()))
+	.pipe(gulpif(production, rename({
+		suffix: ".min"
+	})))
+	.pipe(gulpif(!production, sourcemaps.write("./maps/")))
+	.pipe(gulp.dest(paths.scripts.dist))
+	.pipe(debug({
+		"title": "JS files"
+	}))
+	.on("end", browsersync.reload);
 
 export const images = () => gulp.src(paths.images.src)
 	.pipe(gulpif(production, imagemin([
@@ -315,7 +284,7 @@ export const favs = () => gulp.src(paths.favicons.src)
 
 export const development = gulp.series(cleanFiles, smartGrid,
 	gulp.parallel(views, styles, scripts, images, webpimages, sprites, favs),
-	gulp.parallel(watchCode, server));
+	gulp.parallel(server));
 
 export const prod = gulp.series(cleanFiles, smartGrid, serverConfig, views, styles, scripts, images, webpimages, sprites, favs);
 

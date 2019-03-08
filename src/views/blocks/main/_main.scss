@@ -1,0 +1,9 @@
+.main {
+	text-align: center;
+	@include col();
+	@include size-xs(12);
+
+	code {
+		margin: 0 5px;
+	}
+}

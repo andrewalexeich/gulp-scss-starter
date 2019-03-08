@@ -36,17 +36,17 @@ const webpackConfig = require("./webpack.config.js"),
 		views: {
 			src: [
 				"./src/views/index.html",
-				"./src/views/pages/*.html"
+				"./src/pages/*.html"
 			],
 			dist: "./dist/",
-			watch: "./src/views/**/*.html"
+			watch: "./src/**/*.html"
 		},
 		styles: {
 			src: "./src/styles/main.scss",
 			dist: "./dist/styles/",
 			watch: [
 				"./src/styles/**/*.scss",
-				"./src/views/**/*.scss"
+				"./src/**/*.scss"
 			]
 		},
 		scripts: {
@@ -67,6 +67,11 @@ const webpackConfig = require("./webpack.config.js"),
 			src: "./src/img/**/*_webp.{jpg,jpeg,png}",
 			dist: "./dist/img/",
 			watch: "./src/img/**/*_webp.{jpg,jpeg,png}"
+		},
+		fonts: {
+			src: "./src/fonts/**/*.{ttf,otf,woff,woff2}",
+			dist: "./dist/fonts/",
+			watch: "./src/fonts/**/*.{ttf,otf,woff,woff2}"
 		},
 		favicons: {
 			src: "./src/img/favicon.{jpg,jpeg,png,gif}",
@@ -247,6 +252,12 @@ export const webpimages = () => gulp.src(paths.webp.src)
 		"title": "WebP images"
 	}));
 
+export const fonts = () => gulp.src(paths.fonts.src)
+	.pipe(gulp.dest(paths.webp.dist))
+	.pipe(debug({
+		"title": "Fonts"
+	}));
+
 export const favs = () => gulp.src(paths.favicons.src)
 	.pipe(favicons({
 		icons: {
@@ -267,9 +278,9 @@ export const favs = () => gulp.src(paths.favicons.src)
 	}));
 
 export const development = gulp.series(cleanFiles, smartGrid,
-	gulp.parallel(views, styles, scripts, images, webpimages, favs),
+	gulp.parallel(views, styles, scripts, images, webpimages, fonts, favs),
 	gulp.parallel(server));
 
-export const prod = gulp.series(cleanFiles, smartGrid, serverConfig, views, styles, scripts, images, webpimages, favs);
+export const prod = gulp.series(cleanFiles, smartGrid, serverConfig, views, styles, scripts, images, webpimages, fonts, favs);
 
 export default development;

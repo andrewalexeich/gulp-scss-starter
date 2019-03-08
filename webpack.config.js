@@ -23,7 +23,7 @@ module.exports = {
 	},
 	resolve: {
 		alias: {
-			"%blocks%": path.resolve(__dirname, "src/views/blocks")
+			"%blocks%": path.resolve(__dirname, "src/blocks")
 		}
 	}
 };

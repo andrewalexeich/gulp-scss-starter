@@ -1,2 +1,2 @@
-import "./views/blocks/header/header.js";
-import "./views/blocks/footer/footer.js";
+import "%blocks%/header/header.js";
+import "%blocks%/footer/footer.js";

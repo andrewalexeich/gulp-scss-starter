@@ -1,3 +1,5 @@
+const path = require("path");
+
 module.exports = {
 	mode: "none",
 	output: {
@@ -18,5 +20,10 @@ module.exports = {
 				}
 			}
 		]
+	},
+	resolve: {
+		alias: {
+			"%blocks%": path.resolve(__dirname, "src/views/blocks")
+		}
 	}
 };

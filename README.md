@@ -26,6 +26,7 @@
 ## Плагины
 * [browser-sync](https://browsersync.io/docs/gulp) - живая перезагрузка веб-страницы при внесении изменений в файлы вашего проекта
 * [webpack-stream](https://github.com/shama/webpack-stream) - интеграция Webpack с Gulp
+* [bem-tools](https://github.com/bem-tools) - инструменты для работы с файлами по методологии БЭМ
 * [eslint](https://eslint.org/) - линтер для JS-файлов
 * [gulp-autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer) — автоматически расставляет вендорные префиксы в CSS в соответствии с сервисом [Can I Use](https://caniuse.com/)
 * [gulp-babel](https://www.npmjs.com/package/gulp-babel) - использование ES6 с [Babel](https://babeljs.io/)

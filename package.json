@@ -17,6 +17,8 @@
 		"@babel/register": "^7.0.0",
 		"babel-eslint": "^10.0.1",
 		"babel-loader": "^8.0.5",
+		"bem-tools-core": "bem-tools/bem-tools-core",
+		"bem-tools-create": "bem-tools/bem-tools-create",
 		"browser-sync": "^2.23.6",
 		"eslint": "^5.13.0",
 		"gulp": "^4.0.0",

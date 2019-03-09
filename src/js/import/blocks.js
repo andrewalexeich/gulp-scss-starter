@@ -1,3 +1,3 @@
-import "%modules%/header/header.js";
-import "%modules%/footer/footer.js";
-import "%modules%/main/main.js";
+import "%blocks%/header/header.js";
+import "%blocks%/footer/footer.js";
+import "%blocks%/main/main.js";

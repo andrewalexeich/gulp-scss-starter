@@ -63,10 +63,11 @@
 <IfModule mod_expires.c>
 	ExpiresActive On
 	ExpiresDefault "access plus 1 week"
-	ExpiresByType image/jpg "access plus 1 year"
-	ExpiresByType image/jpeg "access plus 1 year"
-	ExpiresByType image/gif "access plus 1 year"
-	ExpiresByType image/png "access plus 1 year"
+	ExpiresByType image/jpg "access plus 1 month"
+	ExpiresByType image/jpeg "access plus 1 month"
+	ExpiresByType image/gif "access plus 1 month"
+	ExpiresByType image/png "access plus 1 month"
+	ExpiresByType image/webp "access plus 1 month"
 	ExpiresByType image/svg+xml "access plus 1 month"
 	ExpiresByType text/cache-manifest "access plus 0 seconds"
 	ExpiresByType text/xml "access plus 0 seconds"
@@ -108,8 +109,8 @@
 
 #Alternative caching using Apache's "mod_headers", if it's installed
 <IfModule mod_headers.c>
-	<FilesMatch "\.(ico|js|css|gif|png|jpg|jpeg|txt|html|htm)$">
-		Header set Cache-Control "max-age=2592000, public"
+	<FilesMatch "\.(ico|js|css|gif|png|jpg|jpeg|webp|txt|html|htm)$">
+		Header set Cache-Control "max-age=31536000, public"
 	</FilesMatch>
 </IfModule>
 

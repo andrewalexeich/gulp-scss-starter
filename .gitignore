@@ -5,6 +5,8 @@
 .Trashes
 .idea
 .vscode
+.pnp.js
+.pnp
 ehthumbs.db
 Thumbs.db
 _config.yml

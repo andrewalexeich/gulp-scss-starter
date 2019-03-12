@@ -66,7 +66,8 @@ gulp-scss-starter
 ├── gulpfile.babel.js
 ├── webpack.config.js
 ├── package.json
-├── .babelrc
+├── .babelrc.js
+├── .bemrc.js
 ├── .eslintrc.json
 └── .gitignore
 ```

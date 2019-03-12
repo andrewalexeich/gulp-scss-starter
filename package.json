@@ -11,6 +11,9 @@
 		"dev": "gulp",
 		"build": "gulp prod --production"
 	},
+	"installConfig": {
+		"pnp": true
+	},
 	"devDependencies": {
 		"@babel/core": "^7.0.0",
 		"@babel/preset-env": "^7.1.0",
@@ -20,7 +23,6 @@
 		"bem-tools-core": "bem-tools/bem-tools-core",
 		"bem-tools-create": "bem-tools/bem-tools-create",
 		"browser-sync": "^2.23.6",
-		"eslint": "^5.13.0",
 		"gulp": "^4.0.0",
 		"gulp-autoprefixer": "^5.0.0",
 		"gulp-clean": "^0.4.0",

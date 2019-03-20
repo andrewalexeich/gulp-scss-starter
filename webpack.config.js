@@ -1,10 +1,10 @@
 const path = require("path");
 
 module.exports = {
-	mode: "none",
 	output: {
-		filename: "main.js"
+		filename: "[name].js"
 	},
+
 	module: {
 		rules: [
 			{
@@ -21,9 +21,23 @@ module.exports = {
 			}
 		]
 	},
+
 	resolve: {
 		alias: {
 			"%blocks%": path.resolve(__dirname, "src/blocks")
+		}
+	},
+
+	optimization: {
+		splitChunks: {
+			cacheGroups: {
+				vendors: {
+					test: /[\\/]node_modules[\\/]/,
+					name: "vendor",
+					chunks: "all",
+					minChunks: 1
+				}
+			}
 		}
 	}
 };

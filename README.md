@@ -23,31 +23,6 @@
 Если вы всё сделали правильно, у вас должен открыться браузер с локальным сервером.
 Режим сборки предполагает оптимизацию проекта: сжатие изображений, минифицирование CSS и JS-файлов для загрузки на сервер.
 
-## Плагины
-* [browser-sync](https://browsersync.io/docs/gulp) - живая перезагрузка веб-страницы при внесении изменений в файлы вашего проекта
-* [webpack-stream](https://github.com/shama/webpack-stream) - интеграция Webpack с Gulp
-* [bem-tools](https://github.com/bem-tools) - инструменты для работы с файлами по методологии БЭМ
-* [eslint](https://eslint.org/) - линтер для JS-файлов
-* [gulp-autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer) — автоматически расставляет вендорные префиксы в CSS в соответствии с сервисом [Can I Use](https://caniuse.com/)
-* [gulp-uglify](https://www.npmjs.com/package/gulp-uglify) — минификация JS-файлов
-* [gulp-sass](https://www.npmjs.com/package/gulp-sass) — компиляция SCSS в CSS
-* [gulp-group-css-media-queries](https://www.npmjs.com/package/gulp-group-css-media-queries) - группировка ```@media```
-* [gulp-clean-css](https://www.npmjs.com/package/gulp-clean-css) — минификация CSS-файлов
-* [gulp-sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps) - карта стилей
-* [gulp-rename](https://www.npmjs.com/package/gulp-rename) — переименование файлов, добавление суффиксов и префиксов (например, добавление суффикса ```.min``` к минифицированным файлам)
-* [gulp-imagemin](https://www.npmjs.com/package/gulp-imagemin) — сжатие изображений PNG, JPG, GIF и SVG (включая дополнительные плагины для оптимизации)
-* [gulp-webp](https://www.npmjs.com/package/gulp-webp) - конвертация изображений в современный формат WebP
-* [gulp-favicons](https://github.com/evilebottnawi/favicons) — генератор фавиконок для вашего проекта
-* [gulp-if](https://www.npmjs.com/package/gulp-if) - запуск заданий только тогда, когда это нужно
-* [gulp-svg-sprite](https://www.npmjs.com/package/gulp-svg-sprite) — создание SVG-спрайтов
-* [gulp-replace](https://www.npmjs.com/package/gulp-replace) - замена строк
-* [gulp-rigger](https://www.npmjs.com/package/gulp-rigger) - позволяет вставлять содержимое из отдельных файлов в основной
-* [gulp-plumber](https://www.npmjs.com/package/gulp-plumber) — оповещения в командной строке (например, ошибки в SCSS/Sass)
-* [gulp-debug](https://www.npmjs.com/package/gulp-debug) — отладка в терминале
-* [gulp-watch](https://www.npmjs.com/package/gulp-watch) — отслеживание изменений в ваших файлах проекта
-* [gulp-clean](https://www.npmjs.com/package/gulp-clean) — удаление файлов и папок
-* [yargs](https://www.npmjs.com/package/yargs) - получение аргументов командной строки в Node.js.
-
 ## Файловая структура
 
 ```

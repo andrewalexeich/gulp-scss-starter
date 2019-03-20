@@ -11,9 +11,6 @@
 		"dev": "gulp",
 		"build": "gulp prod --production"
 	},
-	"installConfig": {
-		"pnp": true
-	},
 	"devDependencies": {
 		"@babel/core": "^7.0.0",
 		"@babel/preset-env": "^7.1.0",
@@ -38,7 +35,6 @@
 		"gulp-rigger": "^0.5.8",
 		"gulp-sass": "^3.1.0",
 		"gulp-sourcemaps": "^2.6.4",
-		"gulp-uglify": "^3.0.0",
 		"gulp-watch": "^5.0.0",
 		"gulp-webp": "^4.0.1",
 		"imagemin-giflossy": "^5.1.10",

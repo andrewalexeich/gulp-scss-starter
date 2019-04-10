@@ -26,18 +26,5 @@ module.exports = {
 		alias: {
 			"%blocks%": path.resolve(__dirname, "src/blocks")
 		}
-	},
-
-	optimization: {
-		splitChunks: {
-			cacheGroups: {
-				vendors: {
-					test: /[\\/]node_modules[\\/]/,
-					name: "vendor",
-					chunks: "all",
-					minChunks: 1
-				}
-			}
-		}
 	}
 };

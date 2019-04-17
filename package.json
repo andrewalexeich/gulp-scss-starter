@@ -12,9 +12,9 @@
 		"build": "gulp prod --production"
 	},
 	"devDependencies": {
-		"@babel/core": "^7.0.0",
-		"@babel/preset-env": "^7.1.0",
-		"@babel/register": "^7.0.0",
+		"@babel/core": "^7.4.3",
+		"@babel/preset-env": "^7.4.3",
+		"@babel/register": "^7.4.0",
 		"babel-eslint": "^10.0.1",
 		"babel-loader": "^8.0.5",
 		"bem-tools-core": "bem-tools/bem-tools-core",
@@ -41,11 +41,11 @@
 		"imagemin-giflossy": "^5.1.10",
 		"imagemin-jpeg-recompress": "^5.1.0",
 		"imagemin-mozjpeg": "^8.0.0",
-		"imagemin-pngquant": "^5.0.1",
+		"imagemin-pngquant": "^7.0.0",
 		"imagemin-webp": "^5.0.0",
 		"imagemin-zopfli": "^6.0.0",
 		"sort-css-media-queries": "^1.4.3",
-		"webpack": "^4.29.6",
+		"webpack": "^4.30.0",
 		"webpack-stream": "^5.2.1",
 		"yargs": "^12.0.5"
 	},

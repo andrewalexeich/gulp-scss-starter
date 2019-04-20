@@ -3,7 +3,7 @@
 
 Если вам нравится то, что я делаю, был бы рад поддержке в виде любой суммы :beer:
 
-[<img src="https://img.shields.io/badge/На_пиво-Visa%2C%20Mastercard-blue.svg">](https://money.yandex.ru/to/410012412398919)
+[<img src="https://img.shields.io/badge/На_пиво-Visa%2C%20Mastercard-blue.svg">](https://paypal.me/andreyalexeich?locale.x=ru_RU)
 
 ## Особенности
 * сборка предназначена для автоматизации задач в повседневной front-end разработке

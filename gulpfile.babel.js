@@ -6,10 +6,11 @@ import gulp from "gulp";
 import gulpif from "gulp-if";
 import browsersync from "browser-sync";
 import autoprefixer from "gulp-autoprefixer";
-import uglify from "gulp-uglify";
 import sass from "gulp-sass";
-import groupmediaqueries from "gulp-group-css-media-queries";
+import mqpacker from "css-mqpacker";
+import sortCSSmq from "sort-css-media-queries";
 import mincss from "gulp-clean-css";
+import postcss from "gulp-postcss";
 import sourcemaps from "gulp-sourcemaps";
 import rename from "gulp-rename";
 import imagemin from "gulp-imagemin";
@@ -86,10 +87,13 @@ const webpackConfig = require("./webpack.config.js"),
 		}
 	};
 
+webpackConfig.mode = production ? "production" : "development";
+webpackConfig.devtool = production ? false : "cheap-eval-source-map";
+
 export const server = () => {
 	browsersync.init({
 		server: "./dist/",
-		tunnel: true,
+		tunnel: false,
 		notify: true
 	});
 
@@ -160,7 +164,11 @@ export const styles = () => gulp.src(paths.styles.src)
 	.pipe(gulpif(!production, sourcemaps.init()))
 	.pipe(plumber())
 	.pipe(sass())
-	.pipe(groupmediaqueries())
+	.pipe(postcss([
+		mqpacker({
+			sort: sortCSSmq
+		})
+	]))
 	.pipe(gulpif(production, autoprefixer({
 		browsers: ["last 12 versions", "> 1%", "ie 8", "ie 7"]
 	})))
@@ -194,17 +202,14 @@ export const styles = () => gulp.src(paths.styles.src)
 
 export const scripts = () => gulp.src(paths.scripts.src)
 	.pipe(webpackStream(webpackConfig), webpack)
-	.pipe(gulpif(!production, sourcemaps.init()))
-	.pipe(gulpif(production, uglify()))
 	.pipe(gulpif(production, rename({
 		suffix: ".min"
 	})))
-	.pipe(gulpif(!production, sourcemaps.write("./maps/")))
 	.pipe(gulp.dest(paths.scripts.dist))
 	.pipe(debug({
 		"title": "JS files"
 	}))
-	.on("end", browsersync.reload);
+.on("end", browsersync.reload);
 
 export const images = () => gulp.src(paths.images.src)
 	.pipe(gulpif(production, imagemin([
@@ -215,7 +220,7 @@ export const images = () => gulp.src(paths.images.src)
 		}),
 		imageminPngquant({
 			speed: 5,
-			quality: 75
+			quality: [0.6, 0.8]
 		}),
 		imageminZopfli({
 			more: true
@@ -255,7 +260,7 @@ export const webpimages = () => gulp.src(paths.webp.src)
 	}));
 
 export const fonts = () => gulp.src(paths.fonts.src)
-	.pipe(gulp.dest(paths.webp.dist))
+	.pipe(gulp.dest(paths.fonts.dist))
 	.pipe(debug({
 		"title": "Fonts"
 	}));

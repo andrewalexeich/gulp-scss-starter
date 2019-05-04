@@ -1,6 +1,10 @@
 ![gulp-scss-starter](https://i.imgur.com/0AG0txq.png)
 # gulp-scss-starter
 
+Если вам нравится то, что я делаю, был бы рад поддержке в виде любой суммы :beer:
+
+[<img src="https://img.shields.io/badge/На_пиво-Visa%2C%20Mastercard-blue.svg">](https://paypal.me/andreyalexeich?locale.x=ru_RU)
+
 ## Особенности
 * сборка предназначена для автоматизации задач в повседневной front-end разработке
 * использование препроцессора [SCSS](https://sass-lang.com/)
@@ -14,7 +18,7 @@
 > Yarn - это современная альтернатива npm. Yarn работает с тем же файлом ```package.json``` и так же скачивает необходимые модули в папку ```node_modules```, но делает это намного быстрее.
 
 * скачайте сборку: ```git clone https://github.com/andreyalexeich/gulp-scss-starter.git```
-* установите ```gulp``` и ```eslint``` глобально: ```yarn global add gulp-cli eslint```
+* установите ```gulp```, ```eslint``` и ```bem-tools-core``` глобально: ```yarn global add gulp-cli eslint bem-tools-core```
 * перейдите в скачанную папку со сборкой: ```cd gulp-scss-starter```
 * скачайте необходимые зависимости: ```yarn```
 * чтобы начать работу, введите команду: ```yarn run dev``` (режим разработки)
@@ -22,31 +26,6 @@
 
 Если вы всё сделали правильно, у вас должен открыться браузер с локальным сервером.
 Режим сборки предполагает оптимизацию проекта: сжатие изображений, минифицирование CSS и JS-файлов для загрузки на сервер.
-
-## Плагины
-* [browser-sync](https://browsersync.io/docs/gulp) - живая перезагрузка веб-страницы при внесении изменений в файлы вашего проекта
-* [webpack-stream](https://github.com/shama/webpack-stream) - интеграция Webpack с Gulp
-* [bem-tools](https://github.com/bem-tools) - инструменты для работы с файлами по методологии БЭМ
-* [eslint](https://eslint.org/) - линтер для JS-файлов
-* [gulp-autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer) — автоматически расставляет вендорные префиксы в CSS в соответствии с сервисом [Can I Use](https://caniuse.com/)
-* [gulp-uglify](https://www.npmjs.com/package/gulp-uglify) — минификация JS-файлов
-* [gulp-sass](https://www.npmjs.com/package/gulp-sass) — компиляция SCSS в CSS
-* [gulp-group-css-media-queries](https://www.npmjs.com/package/gulp-group-css-media-queries) - группировка ```@media```
-* [gulp-clean-css](https://www.npmjs.com/package/gulp-clean-css) — минификация CSS-файлов
-* [gulp-sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps) - карта стилей
-* [gulp-rename](https://www.npmjs.com/package/gulp-rename) — переименование файлов, добавление суффиксов и префиксов (например, добавление суффикса ```.min``` к минифицированным файлам)
-* [gulp-imagemin](https://www.npmjs.com/package/gulp-imagemin) — сжатие изображений PNG, JPG, GIF и SVG (включая дополнительные плагины для оптимизации)
-* [gulp-webp](https://www.npmjs.com/package/gulp-webp) - конвертация изображений в современный формат WebP
-* [gulp-favicons](https://github.com/evilebottnawi/favicons) — генератор фавиконок для вашего проекта
-* [gulp-if](https://www.npmjs.com/package/gulp-if) - запуск заданий только тогда, когда это нужно
-* [gulp-svg-sprite](https://www.npmjs.com/package/gulp-svg-sprite) — создание SVG-спрайтов
-* [gulp-replace](https://www.npmjs.com/package/gulp-replace) - замена строк
-* [gulp-rigger](https://www.npmjs.com/package/gulp-rigger) - позволяет вставлять содержимое из отдельных файлов в основной
-* [gulp-plumber](https://www.npmjs.com/package/gulp-plumber) — оповещения в командной строке (например, ошибки в SCSS/Sass)
-* [gulp-debug](https://www.npmjs.com/package/gulp-debug) — отладка в терминале
-* [gulp-watch](https://www.npmjs.com/package/gulp-watch) — отслеживание изменений в ваших файлах проекта
-* [gulp-clean](https://www.npmjs.com/package/gulp-clean) — удаление файлов и папок
-* [yargs](https://www.npmjs.com/package/yargs) - получение аргументов командной строки в Node.js.
 
 ## Файловая структура
 
@@ -106,7 +85,7 @@ gulp-scss-starter
 	* изображение для генерации фавиконок должно находиться в папке ```src/img``` и иметь размер не менее ```100px x 100px```
 * все сторонние библиотеки устанавливаются в папку ```node_modules```
 	* для их загрузки воспользуйтеcь командой ```yarn add package_name```
-	* для подключения JS-файлов библиотек импортируйте их в JS-файл БЭМ-блока (то есть тот БЭМ-блок, который использует скрипт), например:
+	* для подключения JS-файлов библиотек импортируйте их в начале JS-файла БЭМ-блока (то есть тот БЭМ-блок, который использует скрипт), например:
 	```javascript 
 	import $ from "jquery";
 	```

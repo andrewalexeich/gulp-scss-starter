@@ -3,7 +3,7 @@
 
 Если вам нравится то, что я делаю, был бы рад поддержке в виде любой суммы :beer:
 
-[<img src="https://img.shields.io/badge/На_пиво-Visa%2C%20Mastercard-blue.svg">](https://paypal.me/andreyalexeich?locale.x=ru_RU)
+[<img src="https://img.shields.io/badge/%D0%9D%D0%B0%20%D0%BF%D0%B8%D0%B2%D0%BE-5536%209137%205288%201934-informational.svg?style=for-the-badge">](https://www.tinkoff.ru/cardtocard/)
 
 ## Особенности
 * сборка предназначена для автоматизации задач в повседневной front-end разработке
@@ -17,7 +17,7 @@
 
 > Yarn - это современная альтернатива npm. Yarn работает с тем же файлом ```package.json``` и так же скачивает необходимые модули в папку ```node_modules```, но делает это намного быстрее.
 
-* скачайте сборку: ```git clone https://github.com/andreyalexeich/gulp-scss-starter.git```
+* скачайте сборку с помощью [Git](https://git-scm.com/downloads): ```git clone https://github.com/andreyalexeich/gulp-scss-starter.git```
 * установите ```gulp```, ```eslint``` и ```bem-tools-core``` глобально: ```yarn global add gulp-cli eslint bem-tools-core```
 * перейдите в скачанную папку со сборкой: ```cd gulp-scss-starter```
 * скачайте необходимые зависимости: ```yarn```

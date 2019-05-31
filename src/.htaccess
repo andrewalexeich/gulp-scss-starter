@@ -75,7 +75,6 @@ AddType text/vtt .vtt
 		AddOutputFilterByType DEFLATE application/atom+xml
 		AddOutputFilterByType DEFLATE application/json
 		AddOutputFilterByType DEFLATE application/ld+json
-		AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
 		AddOutputFilterByType DEFLATE application/x-font-woff
 		AddOutputFilterByType DEFLATE application/font-woff2
 

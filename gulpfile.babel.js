@@ -23,7 +23,7 @@ import imageminWebp from "imagemin-webp";
 import webp from "gulp-webp";
 import favicons from "gulp-favicons";
 import replace from "gulp-replace";
-import rigger from "gulp-rigger";
+import include from "gulp-file-include";
 import plumber from "gulp-plumber";
 import debug from "gulp-debug";
 import clean from "gulp-clean";
@@ -37,7 +37,7 @@ const webpackConfig = require("./webpack.config.js"),
 	paths = {
 		views: {
 			src: [
-				"./src/views/index.html",
+				"./src/index.html",
 				"./src/pages/*.html"
 			],
 			dist: "./dist/",
@@ -94,7 +94,7 @@ const webpackConfig = require("./webpack.config.js"),
 	};
 
 webpackConfig.mode = production ? "production" : "development";
-webpackConfig.devtool = production ? false : "cheap-eval-source-map";
+webpackConfig.devtool = production ? false : "source-map";
 
 export const server = () => {
 	browsersync.init({
@@ -158,7 +158,10 @@ export const smartGrid = cb => {
 };
 
 export const views = () => gulp.src(paths.views.src)
-	.pipe(rigger())
+	.pipe(include({
+		prefix: "@@",
+		basepath: "@file"
+	}))
 	.pipe(gulpif(production, replace("main.css", "main.min.css")))
 	.pipe(gulpif(production, replace("main.js", "main.min.js")))
 	.pipe(gulp.dest(paths.views.dist))

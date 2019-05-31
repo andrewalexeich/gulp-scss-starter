@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>New Page</title>
+		<title>gulp-scss-starter</title>
 		<meta name="theme-color" content="#c9e0e04d">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -38,9 +38,19 @@
 		</style>
 	</head>
 	<body>
-		@@include(../blocks/header/header.html)
-		<h1>New Page</h1>
-		@@include(../blocks/footer/footer.html)
+		@@include("./blocks/header/header.html")
+		<div class="container">
+			<div class="main">
+				<picture class="main__img">
+					<source class="img-responsive" srcset="../img/pic_webp.webp" type="image/webp">
+					<img class="img-responsive" src="img/pic_webp.png" alt="">
+				</picture>
+				<div class="main__text">
+					<p>Чтобы начать работу, удалите эту заглушку в файле <code>src/index.html</code>
+				</div>
+			</div>
+		</div>
+		@@include("./blocks/footer/footer.html")
 		<script src="./js/main.js"></script>
 	</body>
 </html>

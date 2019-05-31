@@ -38,7 +38,7 @@ gulp-scss-starter
 │   ├── js
 │   ├── pages
 │   ├── styles
-│   ├── views
+│   ├── index.html
 │   └── .htaccess
 ├── gulpfile.babel.js
 ├── webpack.config.js
@@ -64,7 +64,7 @@ gulp-scss-starter
 	* JS-файлы: ```src/js```
 	* страницы сайта: ```src/pages```
 	* SCSS-файлы: ```src/styles```
-	* HTML-файлы: ```src/views```
+	* главная страница: ```src/index.html```
 	* конфигурационный файл веб-сервера Apache с настройками [gzip](https://habr.com/ru/post/221849/) (сжатие без потерь): ```src/.htaccess```
 * Папка ```dist``` - папка, из которой запускается локальный сервер для разработки (при запуске ```yarn run dev```)
 

@@ -1,5 +1,5 @@
 <IfModule mod_headers.c>
-	<FilesMatch "\.(js|css|gif|png|jpe?g|pdf|xml|oga|ogg|m4a|ogv|mp4|m4v|webm|svg|svgz|eot|ttf|otf|woff|woff2|ico|webp|appcache|manifest|htc|crx|oex|xpi|safariextz|vcf)$">
+	<FilesMatch "\.(js|css|gif|png|jpe?g|pdf|xml|oga|ogg|m4a|ogv|mp4|m4v|webm|svg|svgz|woff|woff2|ico|webp|appcache|manifest|htc|crx|oex|xpi|safariextz|vcf)$">
 		Header unset X-UA-Compatible
 	</FilesMatch>
 </IfModule>
@@ -14,7 +14,7 @@
 </IfModule>
 
 <IfModule mod_headers.c>
-	<FilesMatch "\.(ttf|otf|eot|woff|woff2)$">
+	<FilesMatch "\.(woff|woff2)$">
 		Header set Access-Control-Allow-Origin "*"
 	</FilesMatch>
 </IfModule>
@@ -22,11 +22,11 @@
 AddType application/javascript .js .jsonp
 AddType application/json .json
 
-# Аудио
+# Audio
 AddType audio/ogg .oga .ogg
 AddType audio/mp4 .m4a .f4a .f4b
 
-# Видео
+# Video
 AddType video/ogg .ogv
 AddType video/mp4 .mp4 .m4v .f4v .f4p
 AddType video/webm .webm
@@ -36,14 +36,11 @@ AddType video/x-flv .flv
 AddType     image/svg+xml .svg
 AddEncoding gzip .svgz
 
-# Веб-шрифты
-AddType application/vnd.ms-fontobject .eot
-AddType application/x-font-ttf .ttf
-AddType font/opentype .otf
+# Fonts
 AddType application/x-font-woff .woff
 AddType application/font-woff2 .woff2
 
-# Остальное
+# Other
 AddType image/x-icon .ico
 AddType image/webp .webp
 AddType text/cache-manifest .appcache .manifest
@@ -79,9 +76,6 @@ AddType text/vtt .vtt
 		AddOutputFilterByType DEFLATE application/json
 		AddOutputFilterByType DEFLATE application/ld+json
 		AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
-		AddOutputFilterByType DEFLATE application/x-font-ttf
-		AddOutputFilterByType DEFLATE application/x-font-truetype
-		AddOutputFilterByType DEFLATE application/x-font-opentype
 		AddOutputFilterByType DEFLATE application/x-font-woff
 		AddOutputFilterByType DEFLATE application/font-woff2
 
@@ -116,10 +110,10 @@ AddType text/vtt .vtt
 	ExpiresDefault "access plus 2 days"
 
 	# HTML
-	ExpiresByType text/html "access plus 1 minute"
+	ExpiresByType text/html "access plus 1 second"
 
 	# CSS
-	ExpiresByType text/css "access plus 1 hour"
+	ExpiresByType text/css "access plus 1 month"
 
 	# JavaScript
 	ExpiresByType application/javascript "access plus 1 month"
@@ -153,16 +147,13 @@ AddType text/vtt .vtt
 	ExpiresByType image/jpeg "access plus 1 month"
 	ExpiresByType image/jpg "access plus 1 month"
 	ExpiresByType image/png "access plus 1 month"
-	ExpiresByType image/svg+xml "access plus 6 months"
+	ExpiresByType image/svg+xml "access plus 1 month"
 	ExpiresByType image/webp "access plus 1 month"
 	ExpiresByType video/mp4 "access plus 1 month"
 	ExpiresByType video/ogg "access plus 1 month"
 	ExpiresByType video/webm "access plus 1 month"
 
 	# Fonts
-	ExpiresByType application/x-font-ttf "access plus 1 year"
-	ExpiresByType application/x-font-truetype "access plus 1 year"
-	ExpiresByType application/x-font-opentype "access plus 1 year"
 	ExpiresByType application/x-font-woff "access plus 1 year"
 	ExpiresByType application/font-woff2 "access plus 1 year"
 
@@ -172,23 +163,18 @@ AddType text/vtt .vtt
 
 # Alternative caching using Apache's "mod_headers", if it's installed
 <IfModule mod_headers.c>
-	# 5 min - HTML
+	# 1 sec - HTML
 	<FilesMatch "\.(html|htm)$">
-		Header set Cache-Control "max-age=60"
+		Header set Cache-Control "max-age=1"
 	</FilesMatch>
 
-	# 1 hour - CSS
-	<FilesMatch "\.(css|txt)$">
-		Header set Cache-Control "max-age=3600"
-	</FilesMatch>
-
-	# 1 month - Media, JS
-	<FilesMatch "\.(bmp|gif|jpg|jpeg|png|webp|mp4|ogg|webm|js)$">
+	# 1 month - Media, JS, CSS
+	<FilesMatch "\.(bmp|gif|jpg|jpeg|png|svg|webp|mp4|ogg|webm|js|css)$">
 		Header set Cache-Control "max-age=2592000, public"
 	</FilesMatch>
 
 	# 1 year - Favicon, fonts
-	<FilesMatch "\.(ico|otf|ttf|eot|svg|woff|woff2)$">
+	<FilesMatch "\.(ico|woff|woff2)$">
 		Header set Cache-Control "max-age=31536000, public"
 	</FilesMatch>
 

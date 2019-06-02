@@ -1,5 +1,6 @@
-![gulp-scss-starter](https://i.imgur.com/0AG0txq.png)
-# gulp-scss-starter
+<p align="center">
+<img width="600" height="225" src="https://i.imgur.com/sNFWDb5.png">
+</p>
 
 Если вам нравится то, что я делаю, был бы рад поддержке в виде любой суммы :beer:
 
@@ -31,6 +32,7 @@
 ```
 gulp-scss-starter
 ├── dist
+├── gulp-tasks
 ├── src
 │   ├── blocks
 │   ├── fonts
@@ -67,6 +69,7 @@ gulp-scss-starter
 	* главная страница: ```src/index.html```
 	* конфигурационный файл веб-сервера Apache с настройками [gzip](https://habr.com/ru/post/221849/) (сжатие без потерь): ```src/.htaccess```
 * Папка ```dist``` - папка, из которой запускается локальный сервер для разработки (при запуске ```yarn run dev```)
+* Папка ```gulp-tasks``` - папка с Gulp-тасками
 
 ## Рекомендации по использованию
 * придерживайтесь изначальной структуры папок и файлов

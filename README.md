@@ -1,10 +1,10 @@
-<p align="center">
-<img width="600" height="225" src="https://i.imgur.com/sNFWDb5.png">
-</p>
+![Uses](https://img.shields.io/badge/%D0%98%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D1%83%D0%B5%D1%82%D1%81%D1%8F-HTML%2C%20SCSS%2C%20ES6-informational.svg)
+![GitHub release](https://img.shields.io/github/release/andreyalexeich/gulp-pug-starter.svg?style=flat-square)
+![David](https://img.shields.io/david/andreyalexeich/gulp-scss-starter.svg?style=flat-square)
+![GitHub stars](https://img.shields.io/github/stars/andreyalexeich/gulp-scss-starter.svg?style=social)
+![GitHub watchers](https://img.shields.io/github/watchers/andreyalexeich/gulp-scss-starter.svg?style=social)
 
-Если вам нравится то, что я делаю, был бы рад поддержке в виде любой суммы :beer:
-
-[<img src="https://img.shields.io/badge/%D0%9D%D0%B0%20%D0%BF%D0%B8%D0%B2%D0%BE-5536%209137%205288%201934-informational.svg?style=for-the-badge">](https://www.tinkoff.ru/cardtocard/)
+# gulp-scss-starter
 
 ## Особенности
 * сборка предназначена для автоматизации задач в повседневной front-end разработке
@@ -151,6 +151,9 @@ gulp-scss-starter
 
 ## Нужен SCSS + Pug?
 Используйте [эту](https://github.com/andreyalexeich/gulp-pug-starter/) сборку.
+
+## Нравится проект?
+Сообщайте мне о [багах](https://github.com/andreyalexeich/gulp-scss-starter/issues), ставьте звёздочку в правом верхнем углу, задонатьте мне на пиво :beer:
 
 ## Контакты
 * ВКонтакте: [@andreyalexeich](https://vk.com/andreyalexeich)

@@ -4,10 +4,8 @@ import gulp from "gulp";
 import gulpif from "gulp-if";
 import rename from "gulp-rename";
 import sass from "gulp-sass";
-import mqpacker from "css-mqpacker";
-import sortCSSmq from "sort-css-media-queries";
 import mincss from "gulp-clean-css";
-import postcss from "gulp-postcss";
+import groupmedia from "gulp-group-css-media-queries";
 import autoprefixer from "gulp-autoprefixer";
 import sourcemaps from "gulp-sourcemaps";
 import plumber from "gulp-plumber";
@@ -23,11 +21,7 @@ gulp.task("styles", () => {
         .pipe(gulpif(!production, sourcemaps.init()))
         .pipe(plumber())
         .pipe(sass())
-        .pipe(postcss([
-            mqpacker({
-                sort: sortCSSmq
-            })
-        ]))
+        .pipe(groupmedia())
         .pipe(gulpif(production, autoprefixer({
             browsers: ["last 12 versions", "> 1%", "ie 8", "ie 7"]
         })))

@@ -1,13 +1,8 @@
 "use strict";
 
 import gulp from "gulp";
-import clean from "gulp-clean";
-import debug from "gulp-debug";
+import del from "del";
 
 gulp.task("clean", () => {
-    return gulp.src("./dist/*", {read: false})
-        .pipe(clean())
-        .pipe(debug({
-            "title": "Cleaning..."
-        }));
+    return del(["./dist/*"]);
 });

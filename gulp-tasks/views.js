@@ -11,7 +11,7 @@ const argv = yargs.argv,
     production = !!argv.production;
 
 gulp.task("views", () => {
-    return gulp.src(["./src/index.html", "./src/pages/*.html"])
+    return gulp.src(["./src/views/index.html", "./src/views/pages/*.html"])
         .pipe(include({
             prefix: "@@",
             basepath: "@file"

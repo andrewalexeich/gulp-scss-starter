@@ -1,6 +1,8 @@
-@import "libs";
 @import "helpers/variables";
 @import "helpers/mixins";
-@import "general/fonts";
-@import "general/base";
+@import "helpers/functions";
+@import "vendor/normalize";
+@import "vendor/smart-grid";
+@import "base/fonts";
+@import "base/general";
 @import "../blocks/blocks";

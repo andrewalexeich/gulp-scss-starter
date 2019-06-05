@@ -1,0 +1,330 @@
+{
+    "syntax": "scss",
+    "plugins": [
+        "stylelint-order",
+        "stylelint-selector-bem-pattern"
+    ],
+    "rules": {
+        "indentation": 4,
+        "plugin/selector-bem-pattern": [
+            {
+                "implicitComponents": true,
+                "componentName": "[-a-z]+",
+                "componentSelectors": {
+                    "initial": "^(\\.{componentName}(__[a-z]+|--[-a-z0-9]+|__[-a-z]+--[-a-z0-9]+|.[-a-z]+|__[a-z]+.[-a-z]+)?)$",
+                    "combined": "^.+$"
+                },
+                "ignoreSelectors": [
+                    "^\\.(no-)?js(-modal-open)?$",
+                    "a(\\[[a-z]+|:[a-z]+)?",
+                    "h[1-6]",
+                    "pre",
+                    "blockquote",
+                    "thead",
+                    "tr",
+                    "img",
+                    "img",
+                    "p",
+                    "table",
+                    "^&:empty",
+                    "#{\\$[-a-z]+}__[-a-z]+",
+                    "^\\*$"
+                ],
+            },
+            {
+                "severity": "warning",
+                "message": "Селектор не из имени файла или БЭМ-ошибка"
+            }
+        ],
+        "order/order": [
+            "custom-properties", {
+                "type": "at-rule",
+                "name": "include"
+            },
+            "declarations", {
+                "type": "at-rule",
+                "name": "media"
+            },
+            {
+                "type": "rule",
+                "selector": "^&:\\w+$"
+            },
+            {
+                "type": "rule",
+                "selector": "^\\.[-_a-zA-Z0-9]+"
+            },
+            {
+                "type": "rule",
+                "selector": "^&__[-a-z0-9]+"
+            },
+            {
+                "type": "rule",
+                "selector": "^&--[-a-z0-9]+"
+            }
+        ],
+        "order/properties-order": [
+            [{
+                "properties": [
+                    "content",
+                    "box-sizing",
+                    "display",
+                    "flex",
+                    "flex-wrap",
+                    "flex-basis",
+                    "flex-direction",
+                    "flex-flow",
+                    "flex-grow",
+                    "flex-shrink",
+                    "align-content",
+                    "align-items",
+                    "align-self",
+                    "justify-content",
+                    "order",
+                    "grid",
+                    "grid-area",
+                    "grid-auto-*",
+                    "grid-column",
+                    "grid-column-*",
+                    "grid-gap",
+                    "grid-row",
+                    "grid-row-*",
+                    "grid-template",
+                    "grid-template-*",
+                    "position",
+                    "z-index",
+                    "top",
+                    "right",
+                    "bottom",
+                    "left",
+                    "width",
+                    "min-width",
+                    "max-width",
+                    "height",
+                    "min-height",
+                    "max-height",
+                    "overflow",
+                    "overflow-*",
+                    "margin",
+                    "margin-*",
+                    "border",
+                    "border-*",
+                    "padding",
+                    "padding-*",
+                ]
+            },
+                {
+                    "properties": [
+                        "transform",
+                        "transform-*",
+                        "backface-visibility",
+                        "perspective",
+                        "perspective-origin",
+                        "transition",
+                        "transition-*",
+                        "animation",
+                        "animation-*",
+                    ],
+                }
+            ]],
+        "color-hex-case": ["lower", {
+            "severity": "warning",
+            "message": "HEX-цвета нужно указывать строчными буквами"
+        }],
+        "color-named": ["never", {
+            "message": "Цвета ключевыми словами нельзя писать"
+        }],
+        "color-no-invalid-hex": [true, {
+            "message": "Ошибка в написании HEX-цвета"
+        }],
+
+        "no-duplicate-at-import-rules": [true, {
+            "message": "Не должно быть повторного импорта файла"
+        }],
+        "no-duplicate-selectors": [true, {
+            "message": "Один и тот же селектор не должен дублироваться"
+        }],
+        "no-extra-semicolons": [true, {
+            "message": "Две точки с запятой подряд не должны быть"
+        }],
+
+        "font-family-name-quotes": ["always-where-recommended", {
+            "message": "Название шрифта следует брать в кавычки"
+        }],
+        "font-family-no-duplicate-names": [true, {
+            "message": "Нельзя дублировать один и тот же шрифт"
+        }],
+        "font-family-no-missing-generic-family-keyword": [true, {
+            "message": "Необходимо указывать sans-serif или serif"
+        }],
+        "font-weight-notation": ["numeric", {
+            "message": "Необходимо указывать плотность шрифта цифрой",
+            ignore: ["relative"]
+        }],
+
+        "number-no-trailing-zeros": [true, {
+            "message": "Лишний (необязательный) нуль в дроби"
+        }],
+
+        "declaration-colon-space-after": ["always-single-line", {
+            "message": "Следует ставить один пробел после двоеточия"
+        }],
+        "declaration-colon-space-before": ["never", {
+            "message": "Не следует ставить пробел перед двоеточием"
+        }],
+        "declaration-no-important": [true, {
+            "severity": "warning",
+            "message": "Применяйте !important с осторожностью"
+        }],
+        "declaration-block-no-duplicate-properties": [true, {
+            "message": "Правила не должны повторяться"
+        }],
+        "declaration-block-no-shorthand-property-overrides": [true, {
+            "message": "Это свойство перебивает другое"
+        }],
+        "declaration-block-semicolon-newline-after": ["always", {
+            "message": "После точки с запятой необходим перенос"
+        }],
+        "declaration-block-single-line-max-declarations": [1, {
+            "message": "На одной строке должно быть одно правило"
+        }],
+        "declaration-block-trailing-semicolon": ["always", {
+            "message": "Каждое свойство должно заканчиваться точкой с запятой"
+        }],
+        "declaration-block-semicolon-newline-before": ["never-multi-line", {
+            "message": "Перенос перед символом ; недопустим"
+        }],
+        "declaration-block-semicolon-space-before": ["never", {
+            "message": "Пробел перед символом ; недопустим"
+        }],
+
+        "block-closing-brace-empty-line-before": ["never", {
+            "message": "Перед «}» не должно быть пустой строки"
+        }],
+        "block-closing-brace-newline-after": ["always", {
+            "message": "После «}» не должно быть переноса"
+        }],
+        "block-closing-brace-newline-before": ["always", {
+            "message": "Перед «}» должен быть перенос"
+        }],
+        "block-opening-brace-newline-after": ["always", {
+            "message": "После «{» должен быть перенос"
+        }],
+        "block-opening-brace-space-before": ["always", {
+            "message": "Перед «{» должен быть один пробел"
+        }],
+
+        "property-case": ["lower", {
+            "message": "Значения свойств следует писать строчными буквами"
+        }],
+        "property-no-unknown": [true, {
+            "message": "Такого свойства не существует"
+        }],
+
+        "unit-case": ["lower", {
+            "message": "Единицы измерения следует писать строчными надобно"
+        }],
+        "unit-no-unknown": [true, {
+            "message": "Не существует таких единиц измерения"
+        }],
+
+        "value-keyword-case": ["lower", {
+            "message": "Значения свойств следует писать строчными буквами",
+            "ignoreProperties": ["/font-/", ]
+        }],
+        "value-list-comma-space-after": ["always-single-line", {
+            "message": "Необходим пробел в значениях после запятой"
+        }],
+        "value-list-comma-space-before": ["never", {
+            "message": "В значениях перед запятой пробел запрещен"
+        }],
+        "value-list-comma-newline-after": ["always-multi-line", {
+            "message": "Значения свойств должны быть без переносов"
+        }],
+        "value-list-comma-newline-before": ["never-multi-line", {
+            "message": "Значения свойств должны быть без переносов"
+        }],
+
+        "string-no-newline": [true, {
+            "message": "В строчных данных не должно быть переносов"
+        }],
+        "string-quotes": ["double", {
+            "message": "В проекте двойные кавычки"
+        }],
+
+        "selector-attribute-operator-blacklist": [["id"], {
+            "message": "Для стилизации ID использовать нельзя"
+        }],
+        "selector-pseudo-class-case": ["lower", {
+            "message": "Псевдоклассы необходимо писать строчными буквами"
+        }],
+        "selector-pseudo-class-no-unknown": [true, {
+            "message": "Такого псевдокласса не существует"
+        }],
+        "selector-pseudo-class-parentheses-space-inside": ["never", {
+            "message": "Внутри скобок в псевдоселекторах не должно быть пробелов"
+        }],
+        "selector-pseudo-element-case": ["lower", {
+            "message": "Псевдоэлементы необходимо писать строчными буквами"
+        }],
+        "selector-pseudo-element-no-unknown": [true, {
+            "message": "Такого псевдоэлемента не существует"
+        }],
+        "selector-type-case": ["lower", {
+            "message": "Селекторы необходимо писать строчными буквами"
+        }],
+        "selector-type-no-unknown": [true, {
+            "message": "Такого селектора не существует"
+        }],
+        "selector-max-empty-lines": [0, {
+            "message": "Пустые строки в селекторах недопустимы"
+        }],
+        "selector-list-comma-newline-after": ["always", {
+            "message": "После запятой необходим перенос строки"
+        }],
+        "selector-list-comma-newline-before": ["never-multi-line", {
+            "message": "Перед запятой не должно быть переноса строки"
+        }],
+        "selector-list-comma-space-after": ["always-single-line", {
+            "message": "После запятой должен быть пробел"
+        }],
+        "selector-list-comma-space-before": ["never", {
+            "message": "Перед запятой не должно быть пробела"
+        }],
+        "selector-descendant-combinator-no-non-space": [true, {
+            "message": "Комбинированные селекторы нужно отделять одним пробелом"
+        }],
+
+        "length-zero-no-unit": [true, {
+            "message": "Единицы измерения не указываются, если значение равно нулю"
+        }],
+
+        "function-comma-space-after": ["always", {
+            "message": "После запятой необходим пробел"
+        }],
+        "function-comma-space-before": ["never", {
+            "message": "Перед запятой пробела быть не должно"
+        }],
+        "function-comma-newline-before": ["never-multi-line", {
+            "message": "Перед переносом запятой быть не должно"
+        }],
+        "function-comma-newline-after": ["never-multi-line", {
+            "message": "После переноса запятой быть не должно"
+        }],
+        "function-parentheses-newline-inside": ["never-multi-line", {
+            "message": "После переноса скобки быть не должно"
+        }],
+        "function-max-empty-lines": [0, {
+            "message": "Пустых строк не должно быть в функциях"
+        }],
+        "function-name-case": ["lower", {
+            "message": "Имена функций следует писать строчными буквами"
+        }],
+        "function-whitespace-after": ["always", {
+            "message": "Должны быть пробелы между функциями"
+        }],
+
+        "media-feature-parentheses-space-inside": ["never", {
+            "message": "Пробелы после «(» и перед «)» использовать нельзя"
+        }]
+    }
+}

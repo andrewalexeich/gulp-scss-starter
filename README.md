@@ -115,6 +115,7 @@ blocks
 * шрифты находятся в папке ```src/fonts```
     * используйте [форматы](https://caniuse.com/#search=woff) ```.woff``` и ```.woff2```
     * шрифты подключаются в файл ```src/styles/base/_fonts.scss```
+    * сконвертировать локальные шрифты можно с помощью [данного сервиса](https://onlinefontconverter.com/)
 
 ### Изображения 
 * изображения находятся в папке ```src/img```
@@ -129,6 +130,7 @@ blocks
     import $ from "jquery";
     ```
     * для подключения стилевых файлов библиотек импортируйте их в файл ```src/styles/main.scss```
+    * JS-файлы и стилевые файлы библиотек самостоятельно изменять нельзя
 
 ## CSS-сетка smart-grid
 В сборщик включена CSS-сетка [smart-grid](https://github.com/dmitry-lavrik/smart-grid) от [Дмитрия Лаврика](https://dmitrylavrik.ru/). Она позволяет избавиться от 

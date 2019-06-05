@@ -1,25 +1,26 @@
-<p align="center">
-<img width="600" height="225" src="https://i.imgur.com/sNFWDb5.png">
-</p>
-
-Если вам нравится то, что я делаю, был бы рад поддержке в виде любой суммы :beer:
-
-[<img src="https://img.shields.io/badge/%D0%9D%D0%B0%20%D0%BF%D0%B8%D0%B2%D0%BE-5536%209137%205288%201934-informational.svg?style=for-the-badge">](https://www.tinkoff.ru/cardtocard/)
+# gulp-scss-starter
+![Uses](https://img.shields.io/badge/uses-HTML%2C%20SCSS%2C%20ES6-informational.svg)
+<a href="https://www.tinkoff.ru/cardtocard/">
+<img src="https://camo.githubusercontent.com/7a6205263a4d822fb5cbf5b8537cad5fb84b1e6b/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f646f6e617465253230746f2532306d652d353533362532303931333725323035323838253230313933342d696e666f726d6174696f6e616c2e7376673f75726c3d68747470733a2f2f7777772e74696e6b6f66662e72752f63617264746f636172642f">
+</a>
+![GitHub release](https://img.shields.io/github/release/andreyalexeich/gulp-scss-starter.svg)
+![David](https://img.shields.io/david/andreyalexeich/gulp-scss-starter.svg)
+![GitHub stars](https://img.shields.io/github/stars/andreyalexeich/gulp-scss-starter.svg?style=social)
+![GitHub watchers](https://img.shields.io/github/watchers/andreyalexeich/gulp-scss-starter.svg?style=social)
 
 ## Особенности
-* сборка предназначена для автоматизации задач в повседневной front-end разработке
-* использование препроцессора [SCSS](https://sass-lang.com/)
-* использование транспайлера [Babel](https://babeljs.io/) для поддержки современного JavaScript (ES6) в браузерах
-* использование [Webpack](https://webpack.js.org/) для сборки JavaScript-модулей
-* использование CSS-сетки [smart-grid](https://github.com/dmitry-lavrik/smart-grid) для быстрой адаптивной вёрстки
+* именование классов по [БЭМ](https://ru.bem.info/)
+* используется БЭМ-структура
+* используется препроцессор [SCSS](https://sass-lang.com/)
+* используется транспайлер [Babel](https://babeljs.io/) для поддержки современного JavaScript (ES6) в браузерах
+* используется [Webpack](https://webpack.js.org/) для сборки JavaScript-модулей
+* используется CSS-сетка [smart-grid](https://github.com/dmitry-lavrik/smart-grid) на основе Bootstrap для быстрой адаптивной вёрстки
+* используется жёсткий кодгайд
 
 ## Установка
-* установите [Yarn](https://yarnpkg.com/en/docs/install)
-
-> Yarn - это современная альтернатива npm. Yarn работает с тем же файлом ```package.json``` и так же скачивает необходимые модули в папку ```node_modules```, но делает это намного быстрее.
-
+* установите [NodeJS](https://nodejs.org/en/) (если требуется) и [Yarn](https://yarnpkg.com/en/docs/install)
 * скачайте сборку с помощью [Git](https://git-scm.com/downloads): ```git clone https://github.com/andreyalexeich/gulp-scss-starter.git```
-* установите ```gulp```, ```eslint``` и ```bem-tools-core``` глобально: ```yarn global add gulp-cli eslint bem-tools-core```
+* установите ```gulp``` глобально: ```yarn global add gulp-cli```
 * перейдите в скачанную папку со сборкой: ```cd gulp-scss-starter```
 * скачайте необходимые зависимости: ```yarn```
 * чтобы начать работу, введите команду: ```yarn run dev``` (режим разработки)
@@ -38,9 +39,8 @@ gulp-scss-starter
 │   ├── fonts
 │   ├── img
 │   ├── js
-│   ├── pages
 │   ├── styles
-│   ├── index.html
+│   ├── views
 │   └── .htaccess
 ├── gulpfile.babel.js
 ├── webpack.config.js
@@ -48,55 +48,87 @@ gulp-scss-starter
 ├── .babelrc.js
 ├── .bemrc.js
 ├── .eslintrc.json
+├── .stylelintrc
+├── .stylelintignore
 └── .gitignore
 ```
 
 * Корень папки:
-	* ```.babelrc.js``` — настройки Babel
-	* ```.bemrc.js``` — настройки БЭМ
-	* ```.eslintrc.json``` — настройки ESLint
-	* ```.gitignore``` – запрет на отслеживание файлов Git'ом
-	* ```gulpfile.babel.js``` — настройки Gulp
-	* ```webpack.config.js``` — настройки Webpack
-	* ```package.json``` — список зависимостей
+    * ```.babelrc.js``` — настройки Babel
+    * ```.bemrc.js``` — настройки БЭМ
+    * ```.eslintrc.json``` — настройки ESLint
+    * ```.gitignore``` – запрет на отслеживание файлов Git'ом
+    * ```.stylelintrc``` — настройки Stylelint
+    * ```.stylelintignore``` – запрет на отслеживание файлов Stylelint'ом
+    * ```gulpfile.babel.js``` — настройки Gulp
+    * ```webpack.config.js``` — настройки Webpack
+    * ```package.json``` — список зависимостей
 * Папка ```src``` - используется во время разработки:
-	* БЭМ-блоки: ```src/blocks```
-	* шрифты: ```src/fonts```
-	* изображения: ```src/img```
-	* JS-файлы: ```src/js```
-	* страницы сайта: ```src/pages```
-	* SCSS-файлы: ```src/styles```
-	* главная страница: ```src/index.html```
-	* конфигурационный файл веб-сервера Apache с настройками [gzip](https://habr.com/ru/post/221849/) (сжатие без потерь): ```src/.htaccess```
+    * БЭМ-блоки: ```src/blocks```
+    * шрифты: ```src/fonts```
+    * изображения: ```src/img```
+    * JS-файлы: ```src/js```
+    * страницы сайта: ```src/views/pages```
+    * SCSS-файлы: ```src/styles```
+    * HTML-файлы: ```src/views```
+    * конфигурационный файл веб-сервера Apache с настройками [gzip](https://habr.com/ru/post/221849/) (сжатие без потерь): ```src/.htaccess```
 * Папка ```dist``` - папка, из которой запускается локальный сервер для разработки (при запуске ```yarn run dev```)
 * Папка ```gulp-tasks``` - папка с Gulp-тасками
 
-## Рекомендации по использованию
-* придерживайтесь изначальной структуры папок и файлов
-* придерживайтесь компонентного подхода к разработке сайтов
-	* каждый БЭМ-блок имеет свою папку внутри ```src/blocks/```
-	* папка одного БЭМ-блока содержит в себе один HTML-файл, один SCSS-файл и один JS-файл (если у блока используется скрипт)
-	* HTML-файл блока импортируется в файл главной страницы ```src/views/index.html``` (или в необходимый файл страницы, откуда будет вызываться блок) с помощью директивы ```@@include```
-	* SCSS-файл блока импортируется в файл ```src/blocks/_blocks.scss```
-	* JS-файл блока импортируется в ```src/js/import/blocks.js```
-* из всех SCSS-файлов компилируется только ```main.scss```. Остальные стилевые файлы импортируются в него
-* страницы сайта находятся в папке ```src/pages```
-	* главная страница: ```src/views/index.html```
-* шрифты находятся в папке ```src/fonts```
-* изображения находятся в папке ```src/img```
-	* изображение для генерации фавиконок должно находиться в папке ```src/img``` и иметь размер не менее ```180px x 180px```
-* все сторонние библиотеки устанавливаются в папку ```node_modules```
-	* для их загрузки воспользуйтеcь командой ```yarn add package_name```
-	* для подключения JS-файлов библиотек импортируйте их в начале JS-файла БЭМ-блока (то есть тот БЭМ-блок, который использует скрипт), например:
-	```javascript 
-	import $ from "jquery";
-	```
-	* для подключения стилевых файлов библиотек импортируйте их в файл ```src/styles/_libs.scss```
-* в вёрстку подключаются только минифицированные CSS и JS-файлы.
+## Команды
+* ```yarn run lint:style```: проверить SCSS-файлы (для VSCode необходимо установить [плагин](https://marketplace.visualstudio.com/items?itemName=shinnn.stylelint). Для WebStorm или PHPStorm необходимо включить Stylelint в ```Languages & Frameworks - Style Sheets - Stylelint```. Ошибки будут исправлены автоматически при сохранении файла)
+* ```yarn run dev```: запуск сервера для разработки проекта
+* ```yarn run build```: собрать проект с оптимизацией без запуска сервера
+* ```yarn run build views```: собрать HTML-файлы
+* ```yarn run build styles```: скомпилировать SCSS-файлы
+* ```yarn run build scripts```: собрать JS-файлы
+* ```yarn run build images```: собрать изображения
+* ```yarn run build webp```: сконвертировать изображения в формат ```.webp```
+* ```yarn run build sprites```: собрать спрайты
+* ```yarn run build fonts```: собрать шрифты
+* ```yarn run build favicons```: собрать фавиконки
+* ```yarn run build gzip```: собрать конфигурацию Apache
 
-## БЭМ
-В сборке используется компонентный подход к разработке сайтов по методолгии БЭМ, когда каждый БЭМ-блок имеет свою папку, внутри которой находятся один HTML-файл, один SCSS-файл 
-и один JS-файл (если у блока используется скрипт). Чтобы вручную не создавать соответствующие папку и файлы, достаточно в консоли написать ```bem create my-block``` для создания папки БЭМ-блока, где ```my-block``` - имя БЭМ-блока.
+## Рекомендации по использованию
+### Компонентный подход к разработке сайтов
+* каждый БЭМ-блок имеет свою папку внутри ```src/blocks/modules```
+* папка одного БЭМ-блока содержит в себе один HTML-файл, один SCSS-файл и один JS-файл (если у блока используется скрипт)
+    * HTML-файл блока импортируется в файл ```src/views/index.html``` (или в необходимый файл страницы, откуда будет вызываться блок)
+    * SCSS-файл блока импортируется в файл ```src/blocks/modules/_modules.scss```
+    * JS-файл блока импортируется в ```src/js/import/modules.js```
+
+Пример структуры папки с БЭМ-блоком:
+```
+blocks
+├── header
+│   ├── header.html
+│   ├── header.js
+│   ├── header.scss
+```
+Чтобы вручную не создавать соответствующие папку и файлы, достаточно в консоли прописать команду ```bem create my-block``` - для создания папки БЭМ-блока, где ```my-block``` - имя БЭМ-блока
+
+### Страницы проекта
+* страницы проекта находятся в папке ```src/views/pages```
+    * главная страница: ```src/views/index.html```
+
+### Шрифты
+* шрифты находятся в папке ```src/fonts```
+    * используйте [форматы](https://caniuse.com/#search=woff) ```.woff``` и ```.woff2```
+    * шрифты подключаются в файл ```src/styles/base/_fonts.scss```
+
+### Изображения 
+* изображения находятся в папке ```src/img```
+    * изображение для генерации фавиконок должно находиться в папке ```src/img``` и иметь размер не менее ```180px x 180px```
+    * изображения автоматически конвертируются в формат ```.webp```. Подробная информация по использованию [тут](https://vk.com/@vk_it-webp).
+
+### Сторонние библиотеки
+* все сторонние библиотеки устанавливаются в папку ```node_modules```
+    * для их загрузки воспользуйтеcь командой ```yarn add package_name```
+    * для подключения JS-файлов библиотек импортируйте их в самом начале JS-файла БЭМ-блока (то есть тот БЭМ-блок, который использует скрипт), например: 
+    ```javascript 
+    import $ from "jquery";
+    ```
+    * для подключения стилевых файлов библиотек импортируйте их в файл ```src/styles/main.scss```
 
 ## CSS-сетка smart-grid
 В сборщик включена CSS-сетка [smart-grid](https://github.com/dmitry-lavrik/smart-grid) от [Дмитрия Лаврика](https://dmitrylavrik.ru/). Она позволяет избавиться от 
@@ -146,11 +178,11 @@ gulp-scss-starter
 }
 ```
 
-## WebP 
-В сборщик включена поддержка WebP. WebP — это формат графики, разработанный Google в 2010 году. Он был создан как альтернатива PNG и JPG и отличается от них гораздо меньшим размером при том же качестве изображения. Подробная информация по использованию [тут](https://vk.com/@vk_it-webp).
-
 ## Нужен SCSS + Pug?
-Используйте [эту](https://github.com/andreyalexeich/gulp-pug-starter/) сборку.
+Используйте [эту](https://github.com/andreyalexeich/gulp-pug-sta********rter/) сборку.
+
+## Нравится проект?
+Сообщайте мне о [багах](https://github.com/andreyalexeich/gulp-pug-starter/issues), ставьте звёздочку в правом верхнем углу, [задонатьте](https://www.tinkoff.ru/cardtocard/) мне на пиво :beer:
 
 ## Контакты
 * ВКонтакте: [@andreyalexeich](https://vk.com/andreyalexeich)

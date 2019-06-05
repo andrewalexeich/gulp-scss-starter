@@ -9,7 +9,17 @@
     "license": "MIT",
     "scripts": {
         "dev": "gulp",
-        "build": "gulp prod --production"
+        "build": "gulp prod --production",
+        "build views": "gulp views",
+        "build styles": "gulp styles",
+        "build scripts": "gulp scripts",
+        "build images": "gulp images",
+        "build webp": "gulp webp",
+        "build sprites": "gulp sprites",
+        "build fonts": "gulp fonts",
+        "build favicons": "gulp favicons",
+        "build gzip": "gulp gzip",
+        "lint:style": "stylelint \"src/**/*.scss\" --syntax=scss"
     },
     "devDependencies": {
         "@babel/core": "^7.4.3",

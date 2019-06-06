@@ -3,7 +3,10 @@
 ._*
 .Spotlight-V100
 .Trashes
+.idea
 .vscode
+.github
+.env
 ehthumbs.db
 Thumbs.db
 _config.yml

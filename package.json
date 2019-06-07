@@ -19,7 +19,8 @@
         "build fonts": "gulp fonts",
         "build favicons": "gulp favicons",
         "build gzip": "gulp gzip",
-        "lint:style": "stylelint \"src/**/*.scss\" --syntax=scss"
+        "lint:style": "stylelint \"src/**/*.scss\" --syntax=scss",
+        "lint:style --fix": "stylelint \"src/**/*.scss\" --syntax=scss --fix"
     },
     "devDependencies": {
         "@babel/core": "^7.4.3",

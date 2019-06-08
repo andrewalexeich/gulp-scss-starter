@@ -1,5 +1,6 @@
 "use strict";
 
+import { paths } from "../gulpfile.babel";
 import gulp from "gulp";
 import gulpif from "gulp-if";
 import rename from "gulp-rename";
@@ -17,7 +18,7 @@ const argv = yargs.argv,
     production = !!argv.production;
 
 gulp.task("styles", () => {
-    return gulp.src("./src/styles/main.scss")
+    return gulp.src(paths.styles.src)
         .pipe(gulpif(!production, sourcemaps.init()))
         .pipe(plumber())
         .pipe(sass())
@@ -47,7 +48,7 @@ gulp.task("styles", () => {
         })))
         .pipe(plumber.stop())
         .pipe(gulpif(!production, sourcemaps.write("./maps/")))
-        .pipe(gulp.dest("./dist/styles/"))
+        .pipe(gulp.dest(paths.styles.dist))
         .pipe(debug({
             "title": "CSS files"
         }))

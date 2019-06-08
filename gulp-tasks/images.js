@@ -1,5 +1,6 @@
 "use strict";
 
+import { paths } from "../gulpfile.babel";
 import gulp from "gulp";
 import gulpif from "gulp-if";
 import imagemin from "gulp-imagemin";
@@ -15,7 +16,7 @@ const argv = yargs.argv,
     production = !!argv.production;
 
 gulp.task("images", () => {
-    return gulp.src(["./src/img/**/*.{jpg,jpeg,png,gif,tiff,svg}", "!./src/img/svg/*.svg", "!./src/img/favicon.{jpg,jpeg,png,gif}"])
+    return gulp.src(paths.images.src)
         .pipe(gulpif(production, imagemin([
             imageminGiflossy({
                 optimizationLevel: 3,
@@ -31,7 +32,7 @@ gulp.task("images", () => {
             }),
             imageminMozjpeg({
                 progressive: true,
-                quality: 70
+                quality: 90
             }),
             imagemin.svgo({
                 plugins: [
@@ -46,7 +47,7 @@ gulp.task("images", () => {
                 ]
             })
         ])))
-        .pipe(gulp.dest("./dist/img/"))
+        .pipe(gulp.dest(paths.images.dist))
         .pipe(debug({
             "title": "Images"
         }))

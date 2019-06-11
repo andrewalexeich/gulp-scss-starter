@@ -183,7 +183,7 @@ blocks
 ```
 
 ## Нужен SCSS + Pug?
-Используйте [эту](https://github.com/andreyalexeich/gulp-pug-sta********rter/) сборку.
+Используйте [эту](https://github.com/andreyalexeich/gulp-pug-starter/) сборку.
 
 ## Нравится проект?
 Сообщайте мне о [багах](https://github.com/andreyalexeich/gulp-pug-starter/issues), ставьте звёздочку в правом верхнем углу, [задонатьте](https://www.tinkoff.ru/cardtocard/) мне на пиво :beer:

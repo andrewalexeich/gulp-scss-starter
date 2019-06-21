@@ -1,1 +1,1 @@
-import "./import/blocks.js";
+import "./import/modules.js";

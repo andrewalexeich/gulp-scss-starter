@@ -102,10 +102,11 @@ gulp-scss-starter
 Пример структуры папки с БЭМ-блоком:
 ```
 blocks
-├── header
-│   ├── header.html
-│   ├── header.js
-│   ├── header.scss
+├── modules
+│   ├──header
+│   │   ├── header.html
+│   │   ├── header.js
+│   │   ├── header.scss
 ```
 Чтобы вручную не создавать соответствующие папку и файлы, достаточно в консоли прописать команду ```bem create my-block``` - для создания папки БЭМ-блока, где ```my-block``` - имя БЭМ-блока
 

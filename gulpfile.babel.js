@@ -34,21 +34,20 @@ const requireDir = require("require-dir"),
         images: {
             src: [
                 "./src/img/**/*.{jpg,jpeg,png,gif,tiff,svg}",
-                "!./src/img/svg/*.svg",
-                "!./src/img/favicon.{jpg,jpeg,png,gif}"
+                "!./src/img/favicon/*.{jpg,jpeg,png,gif,tiff}"
             ],
             dist: "./dist/img/",
-            watch: "./src/img/**/*.{jpg,jpeg,png,gif,svg}"
+            watch: "./src/img/**/*.{jpg,jpeg,png,gif,svg,tiff}"
         },
         webp: {
             src: [
                 "./src/img/**/*.{jpg,jpeg,png,tiff}",
-                "!./src/img/favicon.{jpg,jpeg,png,gif}"
+                "!./src/img/favicon/*.{jpg,jpeg,png,gif,tiff}"
             ],
             dist: "./dist/img/",
             watch: [
                 "./src/img/**/*.{jpg,jpeg,png,tiff}",
-                "!./src/img/favicon.{jpg,jpeg,png,gif}"
+                "!./src/img/favicon/*.{jpg,jpeg,png,gif,tiff}"
             ]
         },
         sprites: {
@@ -62,7 +61,7 @@ const requireDir = require("require-dir"),
             watch: "./src/fonts/**/*.{woff,woff2}"
         },
         favicons: {
-            src: "./src/img/favicon.{jpg,jpeg,png,gif}",
+            src: "./src/img/favicon/*.{jpg,jpeg,png,gif}",
             dist: "./dist/img/favicons/",
         },
         gzip: {

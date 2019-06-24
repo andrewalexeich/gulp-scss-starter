@@ -1,7 +1,13 @@
 # gulp-scss-starter
 ![Uses](https://img.shields.io/badge/uses-HTML%2C%20SCSS%2C%20ES6-informational.svg)
 <a href="https://www.tinkoff.ru/cardtocard/">
-<img src="https://camo.githubusercontent.com/7a6205263a4d822fb5cbf5b8537cad5fb84b1e6b/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f646f6e617465253230746f2532306d652d353533362532303931333725323035323838253230313933342d696e666f726d6174696f6e616c2e7376673f75726c3d68747470733a2f2f7777772e74696e6b6f66662e72752f63617264746f636172642f">
+<img src="https://img.shields.io/badge/%D0%97%D0%B0%D0%B4%D0%BE%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BD%D0%B0%20%D0%BF%D0%B8%D0%B2%D0%BE-%D0%9D%D0%B0%20%D0%BA%D0%B0%D1%80%D1%82%D1%83%20--%205536%209137%205288%201934-important.svg">
+</a>
+<a href="https://qiwi.com/p/79651095450/">
+<img src="https://img.shields.io/badge/%D0%97%D0%B0%D0%B4%D0%BE%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BD%D0%B0%20%D0%BF%D0%B8%D0%B2%D0%BE-Qiwi-orange.svg">
+</a>
+<a href="https://www.paypal.me/andreyalexeich/">
+<img src="https://img.shields.io/badge/%D0%97%D0%B0%D0%B4%D0%BE%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BD%D0%B0%20%D0%BF%D0%B8%D0%B2%D0%BE-PayPal-informational.svg">
 </a>
 ![GitHub release](https://img.shields.io/github/release/andreyalexeich/gulp-scss-starter.svg)
 ![David](https://img.shields.io/david/andreyalexeich/gulp-scss-starter.svg)

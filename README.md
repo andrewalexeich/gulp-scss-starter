@@ -4,7 +4,7 @@
 ![Libraries.io dependency status for GitHub repo](https://img.shields.io/librariesio/github/andreyalexeich/gulp-scss-starter.svg?color=brightgreen)
 ![GitHub stars](https://img.shields.io/github/stars/andreyalexeich/gulp-scss-starter.svg?style=social)
 ![GitHub watchers](https://img.shields.io/github/watchers/andreyalexeich/gulp-scss-starter.svg?style=social)
-<a href="https://qiwi.com/p/79651095450/">
+<a href="https://www.qiwi.com/n/ANDREYALEXEICH">
 <img src="https://img.shields.io/badge/%D0%97%D0%B0%D0%B4%D0%BE%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BD%D0%B0%20%D0%BF%D0%B8%D0%B2%D0%BE-Qiwi-orange.svg">
 </a>
 <a href="https://www.paypal.me/andreyalexeich/">
@@ -207,7 +207,10 @@ entry: {
 Используйте [эту](https://github.com/andreyalexeich/gulp-pug-sta********rter/) сборку.
 
 ## Нравится проект?
-Сообщайте мне о [багах](https://github.com/andreyalexeich/gulp-pug-starter/issues), ставьте звёздочку в правом верхнем углу, [задонатьте](https://www.tinkoff.ru/cardtocard/) мне на пиво :beer:
+Сообщайте мне о [багах](https://github.com/andreyalexeich/gulp-pug-starter/issues), ставьте звёздочку в правом верхнем углу, мне на пиво :beer:
+* [На Qiwi](https://www.qiwi.com/n/ANDREYALEXEICH)
+* [На PayPal](https://www.paypal.me/andreyalexeich)
+* [На карту - 5536 9137 5288 1934](https://www.tinkoff.ru/cardtocard/)
 
 ## Контакты
 * ВКонтакте: [@andreyalexeich](https://vk.com/andreyalexeich)

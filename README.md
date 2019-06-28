@@ -1,7 +1,8 @@
 # gulp-scss-starter
 
 ![GitHub release](https://img.shields.io/github/release/andreyalexeich/gulp-scss-starter.svg)
-![Libraries.io dependency status for GitHub repo](https://img.shields.io/librariesio/github/andreyalexeich/gulp-scss-starter.svg?color=brightgreen)
+[![dependencies Status](https://david-dm.org/andreyalexeich/gulp-pug-starter/status.svg)](https://david-dm.org/andreyalexeich/gulp-pug-starter)
+[![devDependencies Status](https://david-dm.org/andreyalexeich/gulp-pug-starter/dev-status.svg)](https://david-dm.org/andreyalexeich/gulp-pug-starter?type=dev)
 ![GitHub stars](https://img.shields.io/github/stars/andreyalexeich/gulp-scss-starter.svg?style=social)
 ![GitHub watchers](https://img.shields.io/github/watchers/andreyalexeich/gulp-scss-starter.svg?style=social)
 <a href="https://www.qiwi.com/n/ANDREYALEXEICH">

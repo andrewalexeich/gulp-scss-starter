@@ -24,7 +24,8 @@ gulp.task("styles", () => {
         .pipe(sass())
         .pipe(groupmedia())
         .pipe(gulpif(production, autoprefixer({
-            browsers: ["last 12 versions", "> 1%", "ie 8", "ie 7"]
+            cascade: false,
+            grid: true
         })))
         .pipe(gulpif(production, mincss({
             compatibility: "ie8", level: {

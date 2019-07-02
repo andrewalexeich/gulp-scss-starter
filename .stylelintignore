@@ -1,1 +1,2 @@
-src/styles/vendor/*.scss
+./src/styles/vendor/import/*.scss
+./src/styles/base/*.scss

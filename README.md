@@ -205,7 +205,7 @@ entry: {
 ```
 
 ## Нужен SCSS + Pug?
-Используйте [эту](https://github.com/andreyalexeich/gulp-pug-sta********rter/) сборку.
+Используйте [эту](https://github.com/andreyalexeich/gulp-pug-starter/) сборку.
 
 ## Нравится проект?
 Сообщайте мне о [багах](https://github.com/andreyalexeich/gulp-scss-starter/issues), ставьте звёздочку в правом верхнем углу, задонатьте мне на пиво :beer:

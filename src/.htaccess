@@ -1,5 +1,5 @@
 # Error 404 
-ErrorDocument 404 /views/404.html
+ErrorDocument 404 /404.html
 
 <IfModule mod_headers.c>
     <FilesMatch "\.(js|css|gif|png|jpe?g|pdf|xml|oga|ogg|m4a|ogv|mp4|m4v|webm|svg|svgz|woff|woff2|ico|webp|appcache|manifest|htc|crx|oex|xpi|safariextz|vcf)$">

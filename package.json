@@ -19,8 +19,10 @@
         "build:fonts": "gulp fonts --production",
         "build:favicons": "gulp favicons --production",
         "build:gzip": "gulp gzip --production",
-        "lint:style": "stylelint \"src/**/*.scss\" --syntax=scss",
-        "lint:style --fix": "stylelint \"src/**/*.scss\" --syntax=scss --fix"
+        "lint:styles": "stylelint \"src/**/*.scss\" --syntax=scss",
+        "lint:styles --fix": "stylelint \"src/**/*.scss\" --syntax=scss --fix",
+        "lint:scripts": "eslint --color ./src/blocks",
+        "lint:scripts --fix": "eslint --fix --color ./src/blocks"
     },
     "devDependencies": {
         "@babel/core": "^7.4.3",
@@ -49,12 +51,14 @@
         "gulp-svg-sprite": "^1.5.0",
         "gulp-watch": "^5.0.0",
         "gulp-webp": "^4.0.1",
+        "husky": "^4.2.1",
         "imagemin-giflossy": "^5.1.10",
         "imagemin-jpeg-recompress": "^6.0.0",
         "imagemin-mozjpeg": "^8.0.0",
         "imagemin-pngquant": "^8.0.0",
         "imagemin-webp": "^5.0.0",
         "imagemin-zopfli": "^6.0.0",
+        "lint-staged": "^10.0.3",
         "require-dir": "^1.2.0",
         "stylelint": "^10.0.1",
         "stylelint-order": "^3.0.0",
@@ -65,5 +69,18 @@
     },
     "dependencies": {
         "smart-grid": "^2.1.2"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "!(_*).scss": [
+            "stylelint --fix --color --config ./.stylelintrc"
+        ],
+        "*.js": [
+            "eslint --fix --color"
+        ]
     }
 }

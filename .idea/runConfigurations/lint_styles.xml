@@ -1,9 +1,9 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="lint:style --fix" type="js.build_tools.npm" nameIsGenerated="true">
+  <configuration default="false" name="lint:styles" type="js.build_tools.npm" nameIsGenerated="true">
     <package-json value="$PROJECT_DIR$/package.json" />
     <command value="run" />
     <scripts>
-      <script value="lint:style --fix" />
+      <script value="lint:styles" />
     </scripts>
     <node-interpreter value="project" />
     <envs />

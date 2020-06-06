@@ -166,7 +166,6 @@ entry: {
 
 ## :yellow_heart: Нравится проект?
 Сообщайте мне о [багах](https://github.com/andreyalexeich/gulp-scss-starter/issues), ставьте звёздочку в правом верхнем углу, задонатьте мне на пиво :beer:
-* [На Qiwi](https://www.qiwi.com/n/ANDREYALEXEICH)
 * [На PayPal](https://www.paypal.me/andreyalexeich)
 * [На карту - 5536 9137 5288 1934](https://www.tinkoff.ru/cardtocard/)
 

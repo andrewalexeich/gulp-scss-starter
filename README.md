@@ -5,9 +5,6 @@
 [![devDependencies Status](https://david-dm.org/andreyalexeich/gulp-scss-starter/dev-status.svg)](https://david-dm.org/andreyalexeich/gulp-scss-starter?type=dev)
 ![GitHub stars](https://img.shields.io/github/stars/andreyalexeich/gulp-scss-starter.svg?style=social)
 ![GitHub watchers](https://img.shields.io/github/watchers/andreyalexeich/gulp-scss-starter.svg?style=social)
-<a href="https://www.qiwi.com/n/ANDREYALEXEICH">
-<img src="https://img.shields.io/badge/%D0%97%D0%B0%D0%B4%D0%BE%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BD%D0%B0%20%D0%BF%D0%B8%D0%B2%D0%BE-Qiwi-orange.svg">
-</a>
 <a href="https://www.paypal.me/andreyalexeich/">
 <img src="https://img.shields.io/badge/%D0%97%D0%B0%D0%B4%D0%BE%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BD%D0%B0%20%D0%BF%D0%B8%D0%B2%D0%BE-PayPal-informational.svg">
 </a>
@@ -15,7 +12,7 @@
 <img src="https://img.shields.io/badge/%D0%97%D0%B0%D0%B4%D0%BE%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BD%D0%B0%20%D0%BF%D0%B8%D0%B2%D0%BE-%D0%9D%D0%B0%20%D0%BA%D0%B0%D1%80%D1%82%D1%83%20--%205536%209137%205288%201934-informational.svg">
 </a>
 
-## Особенности
+## :fire: Особенности
 * именование классов по [БЭМ](https://ru.bem.info/)
 * используется БЭМ-структура
 * используется препроцессор [SCSS](https://sass-lang.com/)
@@ -25,7 +22,7 @@
 * используется жёсткий кодгайд
 * используется проверка кода на ошибки перед коммитом
 
-## Установка
+## :hammer_and_wrench: Установка
 * установите [NodeJS](https://nodejs.org/en/) (если требуется) и [Yarn](https://yarnpkg.com/en/docs/install)
 * скачайте сборку с помощью [Git](https://git-scm.com/downloads): ```git clone https://github.com/andreyalexeich/gulp-scss-starter.git```
 * установите ```gulp``` глобально: ```yarn global add gulp-cli```
@@ -37,7 +34,7 @@
 
 Если вы всё сделали правильно, у вас должен открыться браузер с локальным сервером. Режим сборки предполагает оптимизацию проекта: сжатие изображений, минифицирование CSS и JS-файлов для загрузки на сервер.
 
-## Файловая структура
+## :open_file_folder: Файловая структура
 
 ```
 gulp-scss-starter
@@ -84,7 +81,7 @@ gulp-scss-starter
 * Папка ```dist``` - папка, из которой запускается локальный сервер для разработки (при запуске ```yarn run dev```)
 * Папка ```gulp-tasks``` - папка с Gulp-тасками
 
-## Команды
+## :keyboard: Команды
 * ```yarn run lint:styles``` - проверить SCSS-файлы. Для VSCode необходимо установить [плагин](https://marketplace.visualstudio.com/items?itemName=shinnn.stylelint). Для WebStorm
 или PHPStorm необходимо включить Stylelint в ```Languages & Frameworks - Style Sheets - Stylelint``` (ошибки будут исправлены автоматически при сохранении файла)
 * ```yarn run lint:styles --fix``` - исправить ошибки в SCSS-файлах
@@ -102,7 +99,7 @@ gulp-scss-starter
 * ```yarn run build:favicons``` - собрать фавиконки
 * ```yarn run build:gzip``` - собрать конфигурацию Apache
 
-## Рекомендации по использованию
+## :bulb: Рекомендации по использованию
 ### Компонентный подход к разработке сайтов
 * каждый БЭМ-блок имеет свою папку внутри ```src/blocks/modules```
 * папка одного БЭМ-блока содержит в себе один HTML-файл, один SCSS-файл и один JS-файл (если у блока используется скрипт)
@@ -160,63 +157,19 @@ entry: {
 ```
 * подключить скомпилированные js-файлы на необходимых страницах
 
-## CSS-сетка smart-grid
+## :hash: CSS-сетка smart-grid
 В сборщик включена CSS-сетка [smart-grid](https://github.com/dmitry-lavrik/smart-grid) от [Дмитрия Лаврика](https://dmitrylavrik.ru/). Она позволяет избавиться от
-лишних классов в разметке за счёт использования примесей в SCSS и ускоряет адаптивную вёрстку. Конфигурация уже настроена в соответствии с сеткой [Bootstrap](https://getbootstrap.com/). Пример использования:
+лишних классов в разметке за счёт использования примесей в SCSS и ускоряет адаптивную вёрстку. Конфигурация уже настроена в соответствии с сеткой [Bootstrap](https://getbootstrap.com/). Инструкция по использованию [здесь](https://grid4web.ru/basics).
 
-**SCSS**
-```scss
-.items{
-    @include row-flex();
-    @include md(justify-content, center);
-
-    .item{
-        @include col();
-        @include size(3);
-        @include size-md(5);
-        @include size-xs(10);
-    }
-}
-```
-**Результат**
-```css
-.items {
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: -15px;
-    margin-right: -15px;
-}
-.items .item {
-    box-sizing: border-box;
-    margin-left: 15px;
-    margin-right: 15px;
-    word-wrap: break-word;
-    width: calc(100% / 12 * 3 - 30px);
-}
-@media screen and (max-width: 992px) {
-    .items {
-        justify-content: center;
-    }
-    .items .item {
-        width: calc(100% / 12 * 5 - 30px);
-    }
-}
-@media screen and (max-width: 576px) {
-    .items .item {
-        width: calc(100% / 12 * 10 - 30px);
-    }
-}
-```
-
-## Нужен SCSS + Pug?
+## :point_right: Нужен SCSS + Pug?
 Используйте [эту](https://github.com/andreyalexeich/gulp-pug-starter/) сборку.
 
-## Нравится проект?
+## :yellow_heart: Нравится проект?
 Сообщайте мне о [багах](https://github.com/andreyalexeich/gulp-scss-starter/issues), ставьте звёздочку в правом верхнем углу, задонатьте мне на пиво :beer:
 * [На Qiwi](https://www.qiwi.com/n/ANDREYALEXEICH)
 * [На PayPal](https://www.paypal.me/andreyalexeich)
 * [На карту - 5536 9137 5288 1934](https://www.tinkoff.ru/cardtocard/)
 
-## Контакты
+## :envelope: Контакты
 * ВКонтакте: [@andreyalexeich](https://vk.com/andreyalexeich)
 * Telegram: [@andreyalexeich](https://t-do.ru/andreyalexeich)

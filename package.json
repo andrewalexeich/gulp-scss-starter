@@ -22,7 +22,9 @@
         "lint:styles": "stylelint \"src/**/*.scss\" --syntax=scss",
         "lint:styles --fix": "stylelint \"src/**/*.scss\" --syntax=scss --fix",
         "lint:scripts": "eslint --color ./src/blocks",
-        "lint:scripts --fix": "eslint --fix --color ./src/blocks"
+        "lint:scripts --fix": "eslint --fix --color ./src/blocks",
+        "bem -с": "bem create $* -l source/blocks/components",
+        "bem -m": "bem create $* -l source/blocks/modules"
     },
     "devDependencies": {
         "@babel/core": "^7.4.3",

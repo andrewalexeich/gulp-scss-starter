@@ -98,6 +98,8 @@ gulp-scss-starter
 * ```yarn run build:fonts``` - собрать шрифты
 * ```yarn run build:favicons``` - собрать фавиконки
 * ```yarn run build:gzip``` - собрать конфигурацию Apache
+* ```yarn run bem-m``` - добавить БЭМ блок в modules
+* ```yarn run bem-c``` - добавить БЭМ блок в components
 
 ## :bulb: Рекомендации по использованию
 ### Компонентный подход к разработке сайтов

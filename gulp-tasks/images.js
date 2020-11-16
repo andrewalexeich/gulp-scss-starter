@@ -53,5 +53,5 @@ gulp.task("images", () => {
         .pipe(debug({
             "title": "Images"
         }))
-        .on("end", browsersync.reload);
+        .pipe(browsersync.stream());
 });

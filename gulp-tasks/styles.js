@@ -53,5 +53,5 @@ gulp.task("styles", () => {
         .pipe(debug({
             "title": "CSS files"
         }))
-        .pipe(browsersync.stream());
+        .on("end", browsersync.reload);
 });

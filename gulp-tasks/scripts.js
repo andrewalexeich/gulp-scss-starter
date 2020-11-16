@@ -27,5 +27,5 @@ gulp.task("scripts", () => {
         .pipe(debug({
             "title": "JS files"
         }))
-        .on("end", browsersync.reload);
+        .pipe(browsersync.stream());
 });

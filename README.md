@@ -23,7 +23,7 @@
 * используется проверка кода на ошибки перед коммитом
 
 ## :hammer_and_wrench: Установка
-* установите [NodeJS](https://nodejs.org/en/) (если требуется) и [Yarn](https://yarnpkg.com/en/docs/install)
+* установите [NodeJS](https://nodejs.org/en/) ***12-ой версии*** (на новых версиях NodeJS имеются проблемы с установкой некоторых пакетов) и [Yarn](https://yarnpkg.com/en/docs/install)
 * скачайте сборку с помощью [Git](https://git-scm.com/downloads): ```git clone https://github.com/andreyalexeich/gulp-scss-starter.git```
 * установите ```gulp``` глобально: ```yarn global add gulp-cli```
 * установите ```bem-tools-core``` глобально: ```yarn global add bem-tools-core```

@@ -1,0 +1,43 @@
+.use {
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 94px;
+    padding-bottom: 95px;
+    width: 1015px;
+  }
+  &__main {
+    width: 445px;
+    height: 250px;
+  }
+  &__title {
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 43px;
+    color: #000000;
+    padding-top: 14px;
+    padding-bottom: 45px;
+  }
+  &__text {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #000000;
+    padding-bottom: 19px;
+  }
+  &__link {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #ed4c5c;
+  }
+
+  &__img-wrapper {
+    width: 445px;
+    height: 311px;
+  }
+
+  &__img {
+  }
+}

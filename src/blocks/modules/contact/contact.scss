@@ -1,0 +1,116 @@
+.contact {
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 117px;
+    padding-bottom: 113px;
+
+    @media (max-width: 736px) {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding-top: 34px;
+      padding-bottom: 34px;
+    }
+  }
+
+  &__main {
+    width: 445px;
+
+    @media (max-width: 1000px) {
+      width: 300px;
+    }
+
+    @media (max-width: 736px) {
+      padding-bottom: 50px;
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 43px;
+    color: #000000;
+    padding-bottom: 53px;
+    cursor: pointer;
+  }
+
+  &__subtitle {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #000000;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 49%;
+    gap: 25px;
+
+    @media (max-width: 736px) {
+      width: 100%;
+    }
+  }
+
+  &__input {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: rgba(19, 39, 67, 0.5);
+    height: 60px;
+    border-color: rgb(51, 51, 51);
+    border-radius: 6px;
+    border-width: 1px;
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 30px;
+    padding-top: 5px;
+
+    &:focus::placeholder {
+      font-size: 0;
+    }
+  }
+
+  &__form-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: #ed4c5c;
+    width: 160px;
+    height: 50px;
+    align-items: center;
+    border: 1px solid #ffffff;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+
+    &:hover {
+      color: #ed4c5c;
+      border-color: #ed4c5c;
+      background-color: #fff;
+    }
+
+    &:active {
+      opacity: 1;
+    }
+
+    @media (max-width: 736px) {
+      margin: 0 auto;
+    }
+  }
+}

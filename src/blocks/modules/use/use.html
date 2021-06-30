@@ -1,5 +1,5 @@
 <div class="use">
-  <div class="use__wrapper container">
+  <div class="use__wrapper container_img">
     <div class="use__main">
       <p class="use__title">
         Easy to&nbsp;Use Cloud Budget Management Software
@@ -14,7 +14,19 @@
       <a class="use__link" href="#">Learn More</a>
     </div>
     <div class="use__img-wrapper">
-      <img class="use__img" src="./img/meetup@1x.png" />
+      <picture>
+        <source
+          type="image/webp"
+          srcset="./img/meetup@1x.png 1x, ./img/meetup@1x.png 2x"
+        />
+        <img
+          class="use__img"
+          src="./img/meetup@1x.png"
+          srcset="./img/meetup@1x.png 2x"
+          alt="meetup"
+          width="445"
+          height="311"
+        />
     </div>
   </div>
 </div>

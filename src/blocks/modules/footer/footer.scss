@@ -1,0 +1,113 @@
+.footer {
+  background-color: #fafafa;
+
+  &__wrapper {
+    padding-top: 96px;
+    padding-bottom: 80px;
+    padding-right: 35px;
+    box-sizing: border-box;
+
+    @media (max-width: 1200px) {
+      padding-top: 47px;
+      padding-bottom: 30px;
+      padding-right: 0;
+    }
+  }
+  &__list {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    color: #101010;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    @media (max-width: 850px) {
+      grid-template-columns: repeat(auto-fit, minmax(256px, 1fr));
+      display: grid;
+      padding-bottom: 30px;
+      row-gap: 50px;
+    }
+
+    @media (max-width: 610px) {
+      grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
+    }
+
+    @media (max-width: 470px) {
+      grid-template-columns: repeat(auto-fit, minmax(212px, 1fr));
+      margin: 0 auto;
+      width: fit-content;
+    }
+  }
+
+  &__item {
+    &:nth-child(3) {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    color: #101010;
+    padding-bottom: 33px;
+    cursor: pointer;
+
+    @media (max-width: 850px) {
+      padding-bottom: 15px;
+    }
+  }
+  &__subtitle {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    color: #101010;
+    width: 148px;
+    padding-bottom: 141px;
+
+    @media (max-width: 1200px) {
+      padding-bottom: 70px;
+    }
+
+    @media (max-width: 850px) {
+      padding-bottom: 0;
+    }
+  }
+
+  &__services-list {
+    list-style: none;
+  }
+
+  &__services-text {
+    cursor: pointer;
+    text-decoration: none;
+  }
+  &__link {
+    color: inherit;
+    text-decoration: none;
+    padding-bottom: 10px;
+  }
+
+  &__wrapper-icon {
+    display: flex;
+    gap: 17px;
+  }
+
+  &__img {
+    cursor: pointer;
+  }
+
+  &__text {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    color: #101010;
+
+    @media (max-width: 850px) {
+      text-align: center;
+    }
+  }
+}

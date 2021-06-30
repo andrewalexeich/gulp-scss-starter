@@ -1,0 +1,97 @@
+.save {
+  color: #ffffff;
+  background-color: #ed4c5c;
+  &__wrapper {
+    padding-top: 94px;
+    padding-bottom: 94px;
+
+    @media (max-width: 1070px) {
+      padding-top: 94px;
+      padding-bottom: 94px;
+      width: 90%;
+    }
+    @media (max-width: 890px) {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      padding-top: 20px;
+      padding-bottom: 45px;
+    }
+  }
+  &__main {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__content {
+    width: 445px;
+
+    @media (max-width: 1190px) {
+      width: 330px;
+    }
+  }
+
+  &__title {
+    font-size: 36px;
+    line-height: 43px;
+    font-weight: 600;
+    padding-top: 28px;
+    padding-bottom: 44px;
+  }
+
+  &__text {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    padding-bottom: 45px;
+  }
+
+  &__img-wrapper {
+    width: 445px;
+    height: 100%;
+
+    @media (max-width: 890px) {
+      display: none;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__link {
+    width: 134px;
+    height: 32px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (max-width: 890px) {
+      margin: 0 auto;
+    }
+
+    &_play-store {
+      background-image: url("../img/svg/playstore.svg");
+      width: 32px;
+      height: 32px;
+      background-size: cover;
+    }
+
+    &_app-store {
+      background-image: url("../img/svg/appstore.svg");
+      width: 32px;
+      height: 32px;
+      background-size: cover;
+    }
+
+    &_windows {
+      background-image: url("../img/svg/windows.svg");
+      width: 24px;
+      height: 24px;
+      background-size: cover;
+      padding-top: 4px;
+    }
+  }
+}

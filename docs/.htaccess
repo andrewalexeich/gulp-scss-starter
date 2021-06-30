@@ -1,0 +1,210 @@
+# Error 404 
+ErrorDocument 404 /404.html
+
+<IfModule mod_headers.c>
+    <FilesMatch "\.(js|css|gif|png|jpe?g|pdf|xml|oga|ogg|m4a|ogv|mp4|m4v|webm|svg|svgz|woff|woff2|ico|webp|appcache|manifest|htc|crx|oex|xpi|safariextz|vcf)$">
+        Header unset X-UA-Compatible
+    </FilesMatch>
+</IfModule>
+
+<IfModule mod_setenvif.c>
+    <IfModule mod_headers.c>
+        <FilesMatch "\.(gif|png|jpe?g|svg|svgz|ico|webp)$">
+            SetEnvIf Origin ":" IS_CORS
+            Header set Access-Control-Allow-Origin "*" env=IS_CORS
+        </FilesMatch>
+    </IfModule>
+</IfModule>
+
+<IfModule mod_headers.c>
+    <FilesMatch "\.(woff|woff2)$">
+        Header set Access-Control-Allow-Origin "*"
+    </FilesMatch>
+</IfModule>
+
+AddType application/javascript .js .jsonp
+AddType application/json .json
+
+# Audio
+AddType audio/ogg .oga .ogg
+AddType audio/mp4 .m4a .f4a .f4b
+
+# Video
+AddType video/ogg .ogv
+AddType video/mp4 .mp4 .m4v .f4v .f4p
+AddType video/webm .webm
+AddType video/x-flv .flv
+
+# SVG
+AddType     image/svg+xml .svg
+AddEncoding gzip .svgz
+
+# Fonts
+AddType application/x-font-woff .woff
+AddType application/font-woff2 .woff2
+
+# Other
+AddType image/x-icon .ico
+AddType image/webp .webp
+AddType text/cache-manifest .appcache .manifest
+AddType application/xml .rss .atom .xml .rdf
+AddType text/x-vcard .vcf
+AddType text/vtt .vtt
+
+<IfModule mod_deflate.c>
+    <IfModule mod_setenvif.c>
+        <IfModule mod_headers.c>
+            SetEnvIfNoCase ^(Accept-EncodXng|X-cept-Encoding|X{15}|~{15}|-{15})$ ^((gzip|deflate)\s*,?\s*)+|[X~-]{4,13}$ HAVE_Accept-Encoding
+            RequestHeader append Accept-Encoding "gzip,deflate" env=HAVE_Accept-Encoding
+        </IfModule>
+    </IfModule>
+
+    <IfModule mod_filter.c>
+        AddOutputFilterByType DEFLATE text/plain
+        AddOutputFilterByType DEFLATE text/html
+        AddOutputFilterByType DEFLATE text/xml
+        AddOutputFilterByType DEFLATE text/css
+        AddOutputFilterByType DEFLATE text/vtt
+        AddOutputFilterByType DEFLATE text/x-component
+
+        AddOutputFilterByType DEFLATE application/xml
+        AddOutputFilterByType DEFLATE application/xhtml+xml
+        AddOutputFilterByType DEFLATE application/rss+xml
+        AddOutputFilterByType DEFLATE application/js
+        AddOutputFilterByType DEFLATE application/javascript
+        AddOutputFilterByType DEFLATE application/x-javascript
+        AddOutputFilterByType DEFLATE application/x-httpd-php
+        AddOutputFilterByType DEFLATE application/x-httpd-fastphp
+        AddOutputFilterByType DEFLATE application/atom+xml
+        AddOutputFilterByType DEFLATE application/json
+        AddOutputFilterByType DEFLATE application/ld+json
+        AddOutputFilterByType DEFLATE application/x-font-woff
+        AddOutputFilterByType DEFLATE application/font-woff2
+
+        AddOutputFilterByType DEFLATE image/svg+xml
+        AddOutputFilterByType DEFLATE image/x-icon
+
+        #For olders browsers which can't handle compression
+        BrowserMatch ^Mozilla/4 gzip-only-text/html
+        BrowserMatch ^Mozilla/4\.0[678] no-gzip
+        BrowserMatch \bMSI[E] !no-gzip !gzip-only-text/html
+
+        <IfModule mod_headers.c>
+            Header append Vary User-Agent env=!dont-vary
+        </IfModule>
+    </IfModule>
+</IfModule>
+
+<IfModule mod_gzip.c>
+    mod_gzip_on Yes
+    mod_gzip_dechunk Yes
+    mod_gzip_item_include file .(html?|txt|css|js|php|pl)$
+    mod_gzip_item_include handler ^cgi-script$
+    mod_gzip_item_include mime ^text/.*
+    mod_gzip_item_include mime ^application/x-javascript.*
+    mod_gzip_item_exclude mime ^image/.*
+    mod_gzip_item_exclude rspheader ^Content-Encoding:.*gzip.*
+</IfModule>
+
+# Leverage Browser Caching
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault "access plus 2 days"
+
+    # HTML
+    ExpiresByType text/html "access plus 1 second"
+
+    # CSS
+    ExpiresByType text/css "access plus 1 month"
+
+    # JavaScript
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType application/x-javascript "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+
+    # Data interchange
+    ExpiresByType application/atom+xml "access plus 1 hour"
+    ExpiresByType application/rdf+xml "access plus 1 hour"
+    ExpiresByType application/rss+xml "access plus 1 hour"
+    ExpiresByType application/json "access plus 0 seconds"
+    ExpiresByType application/ld+json "access plus 0 seconds"
+    ExpiresByType application/schema+json "access plus 0 seconds"
+    ExpiresByType application/vnd.geo+json "access plus 0 seconds"
+    ExpiresByType application/xml "access plus 0 seconds"
+    ExpiresByType text/xml "access plus 0 seconds"
+
+    # Favicon (cannot be renamed!) and cursor images
+    ExpiresByType image/vnd.microsoft.icon "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+
+    # Manifest files
+    ExpiresByType application/manifest+json "access plus 1 week"
+    ExpiresByType application/x-web-app-manifest+json "access plus 0 seconds"
+    ExpiresByType text/cache-manifest "access plus 0 seconds"
+
+    # Media files
+    ExpiresByType audio/ogg "access plus 1 month"
+    ExpiresByType image/bmp "access plus 1 month"
+    ExpiresByType image/gif "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/jpg "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/svg+xml "access plus 1 month"
+    ExpiresByType image/webp "access plus 1 month"
+    ExpiresByType video/mp4 "access plus 1 month"
+    ExpiresByType video/ogg "access plus 1 month"
+    ExpiresByType video/webm "access plus 1 month"
+
+    # Fonts
+    ExpiresByType application/x-font-woff "access plus 1 year"
+    ExpiresByType application/font-woff2 "access plus 1 year"
+
+    # Other
+    ExpiresByType text/x-cross-domain-policy "access plus 1 week"
+</IfModule>
+
+# Alternative caching using Apache's "mod_headers", if it's installed
+<IfModule mod_headers.c>
+    # 1 sec - HTML
+    <FilesMatch "\.(html|htm)$">
+        Header set Cache-Control "max-age=1"
+    </FilesMatch>
+
+    # 1 month - Media, JS, CSS
+    <FilesMatch "\.(bmp|gif|jpg|jpeg|png|svg|webp|mp4|ogg|webm|js|css)$">
+        Header set Cache-Control "max-age=2592000, public"
+    </FilesMatch>
+
+    # 1 year - Favicon, fonts
+    <FilesMatch "\.(ico|woff|woff2)$">
+        Header set Cache-Control "max-age=31536000, public"
+    </FilesMatch>
+
+    # Off for CGI
+    <FilesMatch "\.(pl|php|cgi|spl|scgi|fcgi)$">
+        Header unset Cache-Control
+    </FilesMatch>
+</IfModule>
+
+#If your server don't support ETags deactivate with "None" (and remove header)
+<IfModule mod_headers.c>
+    Header unset ETag
+    FileETag None
+</IfModule>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Check if browser support WebP images
+    RewriteCond %{HTTP_ACCEPT} image/webp
+
+    # Check if WebP replacement image exists
+    RewriteCond %{DOCUMENT_ROOT}/$1.webp -f
+
+    # Serve WebP image instead
+    RewriteRule (.+)\.(jpe?g|png)$ $1.webp [T=image/webp,E=accept:1]
+</IfModule>
+
+<IfModule mod_headers.c>
+    Header append Vary Accept env=REDIRECT_accept
+</IfModule>

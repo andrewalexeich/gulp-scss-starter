@@ -11,11 +11,36 @@ p {
 }
 
 .container {
-  margin: 0 168px 0 165px;
+  margin: 0 auto;
+  width: 77%;
+  max-width: 1440px;
+  min-width: 320px;
+
+  @media (max-width: 1200px) {
+    width: 90%;
+  }
+
+  &_img {
+    width: 77%;
+    max-width: 1440px;
+    margin: 0 auto;
+    min-width: 320px;
+    padding-right: 116px;
+    box-sizing: border-box;
+
+    @media (max-width: 1350px) {
+      padding-right: 0;
+    }
+
+    @media (max-width: 1000px) {
+      width: 90%;
+    }
+  }
 }
 
 body {
   font-family: lato, san-serif, arial;
   font-weight: 400;
   color: #fff;
+  counter-reset: technology__list;
 }

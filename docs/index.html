@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>gulp-scss-starter</title>
+    <meta name="theme-color" content="#fff" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <link
+      rel="shortcut icon"
+      href="img/favicons/favicon.ico"
+      type="image/x-icon"
+    />
+    <link
+      rel="icon"
+      sizes="16x16"
+      href="img/favicons/favicon-16x16.png"
+      type="image/png"
+    />
+    <link
+      rel="icon"
+      sizes="32x32"
+      href="img/favicons/favicon-32x32.png"
+      type="image/png"
+    />
+    <link
+      rel="apple-touch-icon-precomposed"
+      href="img/favicons/apple-touch-icon-precomposed.png"
+    />
+    <link rel="apple-touch-icon" href="img/favicons/apple-touch-icon.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="57x57"
+      href="img/favicons/apple-touch-icon-57x57.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="img/favicons/apple-touch-icon-60x60.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="img/favicons/apple-touch-icon-72x72.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="img/favicons/apple-touch-icon-76x76.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="img/favicons/apple-touch-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="img/favicons/apple-touch-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="img/favicons/apple-touch-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="img/favicons/apple-touch-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="167x167"
+      href="img/favicons/apple-touch-icon-167x167.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="img/favicons/apple-touch-icon-180x180.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="1024x1024"
+      href="img/favicons/apple-touch-icon-1024x1024.png"
+    />
+    <link rel="stylesheet" href="styles/main.css" />
+  </head>
+  <body>
+    <header class="header">
+  <div class="header__wrapper container">
+    <div class="header__box">
+      <div class="header__logo">
+        <h1 class="header__logo-name">CloudBudget</h1>
+      </div>
+      <div class="header__nav">
+        <ul class="header__list">
+          <li class="header__item">
+            <a class="header__text" href="#">Overview</a>
+          </li>
+          <li class="header__item">
+            <a class="header__text" href="#">Features</a>
+          </li>
+          <li class="header__item">
+            <a class="header__text" href="#">Technology</a>
+          </li>
+          <li class="header__item">
+            <a class="header__text" href="#">Contact</a>
+          </li>
+          <li class="header__item">
+            <a class="header__text" href="#">Sign up</a>
+          </li>
+        </ul>
+      </div>
+      <a class="header__button">Login</a>
+    </div>
+    <div class="header__main">
+      <h1 class="header__title">CloudBudget</h1>
+      <p class="header__subtitle">
+        Cloud budget management for everyone. Only &euro;69.95&nbsp;a Month
+        After a&nbsp;7&nbsp;Day Trial of&nbsp;Up to&nbsp;&euro;4.99
+      </p>
+      <a class="header__button-site">Sign Up</a>
+    </div>
+  </div>
+</header>
+
+    <div class="use">
+  <div class="use__wrapper container_img">
+    <div class="use__main">
+      <p class="use__title">
+        Easy to&nbsp;Use Cloud Budget Management Software
+      </p>
+      <p class="use__text">
+        Our software is&nbsp;made so&nbsp;you can access and manage your budget
+        and expenses online at&nbsp;any time from any device. It&nbsp;provides
+        detailed income and expense reports with graphs so&nbsp;you can easilly
+        see your spending patterns and budget at&nbsp;a&nbsp;glance. Read below
+        to&nbsp;find out more.
+      </p>
+      <a class="use__link" href="#">Learn More</a>
+    </div>
+    <div class="use__img-wrapper">
+      <picture>
+        <source
+          type="image/webp"
+          srcset="./img/meetup@1x.png 1x, ./img/meetup@1x.png 2x"
+        />
+        <img
+          class="use__img"
+          src="./img/meetup@1x.png"
+          srcset="./img/meetup@1x.png 2x"
+          alt="meetup"
+          width="445"
+          height="311"
+        />
+    </div>
+  </div>
+</div>
+
+    <div class="features">
+  <div class="features__wrapper container">
+    <h2 class="features__title">Features</h2>
+    <ul class="features__list">
+      <li class="features__item">
+        <picture>
+          <source
+            type="image/webp"
+            srcset="./img/money@1x.png 1x, ./img/money@1x.png 2x"
+          />
+          <img
+            class="product__img"
+            src="./img/money@1x.png"
+            srcset="./img/money@1x.png 2x"
+            alt="money"
+            width="350"
+            height="250"
+          />
+        </picture>
+        <div class="features__content">
+          <p class="features__content-title">
+            Supports All Currencies and Cards
+          </p>
+          <p class="features__subtitle">
+            We support all popular currencies and is fully customizable to add
+          </p>
+          <a class="features__link" href="#">Read More</a>
+        </div>
+      </li>
+      <li class="features__item">
+        <picture>
+          <source
+            type="image/webp"
+            srcset="./img/hands@1x.png 1x, ./img/hands@1x.png 2x"
+          />
+          <img
+            class="product__img"
+            src="./img/hands@1x.png"
+            srcset="./img/hands@1x.png 2x"
+            alt="hands"
+            width="350"
+            height="250"
+          />
+        </picture>
+        <div class="features__content">
+          <p class="features__content-title">Manage your expenses on the go</p>
+          <p class="features__subtitle">
+            You can access your account from anywhere in the world on any device
+          </p>
+          <a class="features__link">Read More</a>
+        </div>
+      </li>
+      <li class="features__item features__item_last">
+        <picture>
+          <source
+            type="image/webp"
+            srcset="./img/floor@1x.png 1x, ./img/floor@1x.png 2x"
+          />
+          <img
+            class="product__img"
+            src="./img/floor@1x.png"
+            srcset="./img/floor@1x.png 2x"
+            alt="floor"
+            width="350"
+            height="250"
+          />
+        </picture>
+        <div class="features__content">
+          <p class="features__content-title">
+            Cloud Budget Management Software
+          </p>
+          <p class="features__subtitle">
+            Our software is made so you can access and manage your budget
+          </p>
+          <a class="features__link">Read More</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+    <div class="technology">
+  <div class="technology__wrapper container">
+    <h2 class="technology__title">Technology</h2>
+    <div class="technology__main">
+      <ul class="technology__list">
+        <li class="technology__item technology__item_cloud">
+          <h3 class="technology__item-title">Cloud Storage</h3>
+          <p class="technology__item-subtitle">
+            Access your account from anywhere in the world on any device
+          </p>
+        </li>
+        <li class="technology__item technology__item_shield">
+          <h3 class="technology__item-title">Secure</h3>
+          <p class="technology__item-subtitle">
+            All your information is stored on secure cloud servers
+          </p>
+        </li>
+        <li class="technology__item technology__item_file-pdf">
+          <h3 class="technology__item-title">PDF Download</h3>
+          <p class="technology__item-subtitle">
+            Download any of your reports in PDF format
+          </p>
+        </li>
+        <li class="technology__item technology__item_file-csv">
+          <h3 class="technology__item-title">CSV Download</h3>
+          <p class="technology__item-subtitle">
+            All your information is stored on secure cloud servers
+          </p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+    <div class="save">
+  <div class="save__wrapper container_img">
+    <div class="save__main">
+      <div class="save__content">
+        <p class="save__title">Stay focused on saving money</p>
+        <p class="save__text">
+          It is important to stay focused on saving money in any way you can. We
+          help you monitor your spending habits so you can easily spot and cut
+          any unnecessary expenses. Simply join today to get started!
+        </p>
+        <div class="save__link">
+          <a class="save__link save__link_play-store" href="#"></a>
+          <a class="save__link save__link_app-store" href="#"></a>
+          <a class="save__link save__link_windows" href="#"></a>
+        </div>
+      </div>
+      <div class="save__img-wrapper">
+        <img class="save__img" src="./img/rest@1x.png" alt="lunch" />
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="contact">
+  <div class="contact__wrapper container">
+    <div class="contact__main">
+      <h2 class="contact__title">Contact</h2>
+      <p class="contact__subtitle">
+        Questions or concerns? Just fill out the form below and our support team
+        will get back to you within 24 hours
+      </p>
+    </div>
+    <form class="contact__form">
+      <div class="contact__form-wrapper">
+        <input
+          class="contact__input"
+          type="text"
+          name="user-name"
+          id="name"
+          placeholder="First Name"
+        />
+        <input
+          class="contact__input"
+          type="text"
+          name="user-last-name"
+          id="last-name"
+          placeholder="Last Name"
+        />
+      </div>
+      <input
+        class="contact__input"
+        type="text"
+        name="phone-number"
+        id="number"
+        placeholder="Phone Number"
+      />
+      <input
+        class="contact__input"
+        type="text"
+        name="user-question"
+        id="question"
+        placeholder="Your Question"
+      />
+      <button class="contact__button">submit now</button>
+    </form>
+  </div>
+</div>
+
+    <div class="footer">
+  <div class="footer__wrapper container">
+    <ul class="footer__list">
+      <li class="footer__item">
+        <h3 class="footer__title">Address</h3>
+        <p class="footer__subtitle">
+          Pipang Ltd, Griva Digeni, 81-83 Jacovides Tower, 1st Floor 1090
+          Picosia USA
+        </p>
+      </li>
+      <li class="footer__item">
+        <h3 class="footer__title">Services</h3>
+        <ul class="footer__services-list">
+          <li class="footer__services-item">
+            <a class="footer__services-text">Overview</a>
+          </li>
+          <li class="footer__services-item">
+            <a class="footer__services-text">Features</a>
+          </li>
+          <li class="footer__services-item">
+            <a class="footer__services-text">Technology</a>
+          </li>
+          <li class="footer__services-item">
+            <a class="footer__services-text">Terms & Conditions</a>
+          </li>
+          <li class="footer__services-item">
+            <a class="footer__services-text">Privecy</a>
+          </li>
+        </ul>
+      </li>
+      <li class="footer__item">
+        <h3 class="footer__title">Get in Touch</h3>
+        <a class="footer__link" href="mailto:info@cloudbudget.com"
+          >info@cloudbudget.com</a
+        >
+        <a class="footer__link" href="tel:+1 844-721-7120">+1 844-721-7120</a>
+        <div class="footer__wrapper-icon">
+          <a class="footer__social footer__social_facebook" href="#">
+            <img
+              class="footer__social-img"
+              alt="icon"
+              src="./img/svg/facebook.svg"
+            />
+          </a>
+          <a class="footer__social footer__social_linkedIn" href="#">
+            <img
+              class="footer__social-img"
+              alt="icon"
+              src="./img/svg/linkedin.svg"
+            />
+          </a>
+          <a class="footer__social footer__social_twitter" href="#">
+            <img
+              class="footer__social-img"
+              alt="icon"
+              src="./img/svg/twitter.svg"
+            />
+          </a>
+        </div>
+      </li>
+      <li class="footer__item">
+        <h3 class="footer__title">We Support</h3>
+        <picture>
+          <source
+            type="image/webp"
+            srcset="./img/payment@1x.png 1x, ./img/payment@1x.png 2x"
+          />
+          <img
+            class="footer__img"
+            src="./img/payment@1x.png"
+            srcset="./img/payment@1x.png 2x"
+            alt="money"
+            width="216"
+            height="31"
+          />
+        </picture>
+      </li>
+    </ul>
+    <p class="footer__text">Copyright 2018 CloudBudget</p>
+  </div>
+</div>
+
+    <script src="js/main.js"></script>
+    <script src="js/vendor.js"></script>
+  </body>
+</html>

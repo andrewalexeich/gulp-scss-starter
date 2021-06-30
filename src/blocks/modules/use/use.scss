@@ -5,11 +5,29 @@
     align-items: center;
     padding-top: 94px;
     padding-bottom: 95px;
-    width: 1015px;
+
+    @media (max-width: 1350px) {
+      padding-top: 60px;
+      padding-bottom: 60px;
+    }
+
+    @media (max-width: 850px) {
+      justify-content: center;
+      padding-top: 50px;
+      padding-bottom: 80px;
+    }
   }
+
   &__main {
     width: 445px;
     height: 250px;
+
+    @media (max-width: 850px) {
+      text-align: center;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
   }
   &__title {
     font-weight: 600;
@@ -18,26 +36,99 @@
     color: #000000;
     padding-top: 14px;
     padding-bottom: 45px;
+
+    @media (max-width: 1150px) {
+      font-size: 26px;
+      line-height: 45px;
+      padding-bottom: 20px;
+    }
+
+    @media (max-width: 850px) {
+      font-size: 36px;
+      line-height: 43px;
+      padding-bottom: 35px;
+    }
+
+    @media (max-width: 500px) {
+      font-size: 26px;
+      line-height: 37px;
+    }
   }
+
   &__text {
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
     color: #000000;
     padding-bottom: 19px;
+
+    @media (max-width: 1150px) {
+      font-size: 12px;
+      line-height: 23px;
+      width: 363px;
+    }
+
+    @media (max-width: 850px) {
+      font-size: 14px;
+      line-height: 26px;
+    }
+    @media (max-width: 500px) {
+      font-size: 11px;
+      line-height: 20px;
+      width: 251px;
+    }
   }
+
   &__link {
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
     color: #ed4c5c;
+    text-decoration: none;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      background-color: #ed4c5c;
+      display: block;
+      left: 0;
+      top: 40px;
+      opacity: 0;
+      transition: opacity, top 0.4s ease-out;
+    }
+
+    &:hover::after {
+      opacity: 1;
+      transition: opacity, top 0.2s ease-out;
+      top: 26px;
+    }
+
+    @media (max-width: 850px) {
+      display: flex;
+      justify-content: center;
+    }
   }
 
   &__img-wrapper {
     width: 445px;
     height: 311px;
+
+    @media (max-width: 1350px) {
+      width: 400px;
+      height: 100%;
+    }
+
+    @media (max-width: 850px) {
+      display: none;
+    }
   }
 
   &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
 }

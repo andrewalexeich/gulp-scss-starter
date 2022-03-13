@@ -1,5 +1,6 @@
 {
-    "syntax": "scss",
+    "extends": "stylelint-config-standard-scss",
+    "customSyntax": "postcss-scss",
     "plugins": [
         "stylelint-order",
         "stylelint-selector-bem-pattern"
@@ -137,6 +138,10 @@
             "message": "Ошибка в написании HEX-цвета"
         }],
 
+        "no-missing-end-of-source-newline": [
+            null
+        ],
+
         "no-duplicate-at-import-rules": [true, {
             "message": "Не должно быть повторного импорта файла"
         }],
@@ -251,7 +256,7 @@
             "message": "В проекте двойные кавычки"
         }],
 
-        "selector-attribute-operator-blacklist": [["id"], {
+        "selector-attribute-operator-disallowed-list": [["id"], {
             "message": "Для стилизации ID использовать нельзя"
         }],
         "selector-pseudo-class-case": ["lower", {

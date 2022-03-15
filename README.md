@@ -1,7 +1,10 @@
 # gulp-scss-starter
 
+![License](https://img.shields.io/github/license/andreyalexeich/gulp-scss-starter)
 ![GitHub stars](https://img.shields.io/github/stars/andreyalexeich/gulp-scss-starter.svg?style=social)
-![GitHub watchers](https://img.shields.io/github/watchers/andreyalexeich/gulp-scss-starter.svg?style=social)
+![GitHub watchers](https://img.shields.io/github/watchers/andreyalexeich/gulp-scss-starter.svg?style=social)<br>
+<a href="https://qiwi.com/n/ANDREYALEXEICH"><img src="https://img.shields.io/badge/%D0%97%D0%B0%D0%B4%D0%BE%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BD%D0%B0%20%D0%BF%D0%B8%D0%B2%D0%BE-Qiwi-orange?style=for-the-badge&logo=qiwi"></a>
+
 
 ## :fire: Особенности
 * именование классов по [БЭМ](https://ru.bem.info/)
@@ -15,9 +18,9 @@
 ## :hammer_and_wrench: Установка
 * установите [NodeJS](https://nodejs.org/en/)
 * установите глобально:
-    * [Yarn](https://yarnpkg.com/getting-started)
-    * [Gulp](https://gulpjs.com/): ```yarn global add gulp```
-    * [Bem Tools](https://www.npmjs.com/package/bem-tools-core): ```yarn global add bem-tools-core```
+    * [Yarn](https://yarnpkg.com/getting-started): ```npm i -g yarn```
+    * [Gulp](https://gulpjs.com/): ```npm i -g gulp```
+    * [Bem Tools](https://www.npmjs.com/package/bem-tools-core): ```npm i -g bem-tools-core```
 * скачайте сборку с помощью [Git](https://git-scm.com/downloads): ```git clone https://github.com/andreyalexeich/gulp-scss-starter.git```
 * перейдите в скачанную папку со сборкой: ```cd gulp-scss-starter```
 * скачайте необходимые зависимости: ```yarn```
@@ -76,8 +79,8 @@ gulp-scss-starter
 * Папка ```gulp-tasks``` - папка с Gulp-тасками
 
 ## :keyboard: Команды
-* ```yarn run lint:styles``` - проверить SCSS-файлы. Для VSCode необходимо установить [плагин](https://marketplace.visualstudio.com/items?itemName=shinnn.stylelint). Для WebStorm
-или PHPStorm необходимо включить Stylelint в ```Languages & Frameworks - Style Sheets - Stylelint``` (ошибки будут исправлены автоматически при сохранении файла)
+* ```yarn run lint:styles``` - проверить SCSS-файлы. Для VSCode необходимо установить [плагин](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint). Для WebStorm
+или PHPStorm необходимо включить Stylelint в ```Languages & Frameworks - Style Sheets - Stylelint```
 * ```yarn run dev``` - запуск сервера для разработки проекта
 * ```yarn run build``` - собрать проект с оптимизацией без запуска сервера
 * ```yarn run build:views``` - собрать HTML-файлы
@@ -131,7 +134,32 @@ blocks
 * изображения находятся в папке ```src/img```
     * изображения автоматически конвертируются в формат ```.webp```. Подробная информация по использованию [тут](https://vk.com/@vk_it-webp)
     * изображение для генерации фавиконок должно находиться в папке ```src/img/favicon``` и иметь размер не менее ```1024px x 1024px```
-    * для создания спрайтов изображения ```.svg``` должны находиться в папке ```src/img/sprites```
+
+### SVG-спрайты
+Для создания спрайтов изображения ```.svg``` должны находиться в папке ```src/img/sprites```. Например, у нас есть файлы ```icon-1.svg```, ```icon-2.svg``` и ```icon-3.svg```, и мы должны обратиться к ```icon-2.svg```. Для этого в HTML нужно воспользоваться тегом ```<use>```:
+```html
+<svg>
+    <use xlink:href="img/sprites/sprite.svg#logo"></use>
+</svg>
+```
+Изменить стили svg-иконки из спрайта в CSS:
+```css
+svg use {
+    fill: red;
+}
+```
+Бывает такая ситуация, когда стили иконки поменять не получается. Это связано с тем, что при экспорте из Figma в svg добавляется лишний код. Например:
+```html
+<svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M4.90918 4.04542L13.091 9.54088L4.90918 14.9545L4.90918 4.04542Z" fill="#1B1B1D"/>
+</svg>
+```
+Нужно удалить ```fill="none"``` и ```fill="#1B1B1D"```. Должно получиться так:
+```html
+<svg width="18" height="19" viewBox="0 0 18 19" xmlns="http://www.w3.org/2000/svg">
+  <path d="M4.90918 4.04542L13.091 9.54088L4.90918 14.9545L4.90918 4.04542Z"/>
+</svg> 
+```
 
 ### Сторонние библиотеки
 * все сторонние библиотеки устанавливаются в папку ```node_modules```
@@ -147,7 +175,7 @@ blocks
 Используйте [эту](https://github.com/andreyalexeich/gulp-pug-starter/) сборку.
 
 ## :yellow_heart: Нравится проект?
-Сообщайте мне о [багах](https://github.com/andreyalexeich/gulp-scss-starter/issues), ставьте звёздочку в правом верхнем углу, [задонатьте](qiwi.com/n/ANDREYALEXEICH) мне на пиво :beer:
+Сообщайте мне о [багах](https://github.com/andreyalexeich/gulp-scss-starter/issues), ставьте звёздочку в правом верхнем углу, [задонатьте](https://qiwi.com/n/ANDREYALEXEICH) мне на пиво :beer:
 
 ## :envelope: Контакты
-[@andreyalexeich](https://t.me/andreyalexeich)
+По всем вопросам пишите в [Telegram](https://t.me/andreyalexeich)

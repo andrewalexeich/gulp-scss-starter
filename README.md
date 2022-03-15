@@ -1,16 +1,10 @@
 # gulp-scss-starter
 
-![GitHub release](https://img.shields.io/github/release/andreyalexeich/gulp-scss-starter.svg)
-[![dependencies Status](https://david-dm.org/andreyalexeich/gulp-scss-starter/status.svg)](https://david-dm.org/andreyalexeich/gulp-scss-starter)
-[![devDependencies Status](https://david-dm.org/andreyalexeich/gulp-scss-starter/dev-status.svg)](https://david-dm.org/andreyalexeich/gulp-scss-starter?type=dev)
+![License](https://img.shields.io/github/license/andreyalexeich/gulp-scss-starter)
 ![GitHub stars](https://img.shields.io/github/stars/andreyalexeich/gulp-scss-starter.svg?style=social)
-![GitHub watchers](https://img.shields.io/github/watchers/andreyalexeich/gulp-scss-starter.svg?style=social)
-<a href="https://www.paypal.me/andreyalexeich/">
-<img src="https://img.shields.io/badge/%D0%97%D0%B0%D0%B4%D0%BE%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BD%D0%B0%20%D0%BF%D0%B8%D0%B2%D0%BE-PayPal-informational.svg">
-</a>
-<a href="https://www.tinkoff.ru/cardtocard/">
-<img src="https://img.shields.io/badge/%D0%97%D0%B0%D0%B4%D0%BE%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BD%D0%B0%20%D0%BF%D0%B8%D0%B2%D0%BE-%D0%9D%D0%B0%20%D0%BA%D0%B0%D1%80%D1%82%D1%83%20--%205536%209137%205288%201934-informational.svg">
-</a>
+![GitHub watchers](https://img.shields.io/github/watchers/andreyalexeich/gulp-scss-starter.svg?style=social)<br>
+<a href="https://qiwi.com/n/ANDREYALEXEICH"><img src="https://img.shields.io/badge/%D0%97%D0%B0%D0%B4%D0%BE%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BD%D0%B0%20%D0%BF%D0%B8%D0%B2%D0%BE-Qiwi-orange?style=for-the-badge&logo=qiwi"></a>
+
 
 ## :fire: Особенности
 * именование классов по [БЭМ](https://ru.bem.info/)
@@ -18,15 +12,16 @@
 * используется препроцессор [SCSS](https://sass-lang.com/)
 * используется транспайлер [Babel](https://babeljs.io/) для поддержки современного JavaScript (ES6) в браузерах
 * используется [Webpack](https://webpack.js.org/) для сборки JavaScript-модулей
-* используется CSS-сетка [smart-grid](https://github.com/dmitry-lavrik/smart-grid) на основе Bootstrap для быстрой адаптивной вёрстки
 * используется жёсткий кодгайд
 * используется проверка кода на ошибки перед коммитом
 
 ## :hammer_and_wrench: Установка
-* установите [NodeJS](https://nodejs.org/en/) ***12-ой версии*** (на новых версиях NodeJS имеются проблемы с установкой некоторых пакетов) и [Yarn](https://yarnpkg.com/en/docs/install)
+* установите [NodeJS](https://nodejs.org/en/)
+* установите глобально:
+    * [Yarn](https://yarnpkg.com/getting-started): ```npm i -g yarn```
+    * [Gulp](https://gulpjs.com/): ```npm i -g gulp```
+    * [Bem Tools](https://www.npmjs.com/package/bem-tools-core): ```npm i -g bem-tools-core```
 * скачайте сборку с помощью [Git](https://git-scm.com/downloads): ```git clone https://github.com/andreyalexeich/gulp-scss-starter.git```
-* установите ```gulp``` глобально: ```yarn global add gulp-cli```
-* установите ```bem-tools-core``` глобально: ```yarn global add bem-tools-core```
 * перейдите в скачанную папку со сборкой: ```cd gulp-scss-starter```
 * скачайте необходимые зависимости: ```yarn```
 * чтобы начать работу, введите команду: ```yarn run dev``` (режим разработки)
@@ -51,6 +46,7 @@ gulp-scss-starter
 ├── gulpfile.babel.js
 ├── webpack.config.js
 ├── package.json
+├── .yarnrc.yml
 ├── .babelrc.js
 ├── .bemrc.js
 ├── .eslintrc.json
@@ -66,6 +62,7 @@ gulp-scss-starter
     * ```.gitignore``` – запрет на отслеживание файлов Git'ом
     * ```.stylelintrc``` — настройки Stylelint
     * ```.stylelintignore``` – запрет на отслеживание файлов Stylelint'ом
+    * ```.yarnrc.yml``` – настройка Yarn
     * ```gulpfile.babel.js``` — настройки Gulp
     * ```webpack.config.js``` — настройки Webpack
     * ```package.json``` — список зависимостей
@@ -82,11 +79,8 @@ gulp-scss-starter
 * Папка ```gulp-tasks``` - папка с Gulp-тасками
 
 ## :keyboard: Команды
-* ```yarn run lint:styles``` - проверить SCSS-файлы. Для VSCode необходимо установить [плагин](https://marketplace.visualstudio.com/items?itemName=shinnn.stylelint). Для WebStorm
-или PHPStorm необходимо включить Stylelint в ```Languages & Frameworks - Style Sheets - Stylelint``` (ошибки будут исправлены автоматически при сохранении файла)
-* ```yarn run lint:styles --fix``` - исправить ошибки в SCSS-файлах
-* ```yarn run lint:scripts``` - проверить JS-файлы
-* ```yarn run lint:scripts --fix``` - исправить ошибки в JS-файлах
+* ```yarn run lint:styles``` - проверить SCSS-файлы. Для VSCode необходимо установить [плагин](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint). Для WebStorm
+или PHPStorm необходимо включить Stylelint в ```Languages & Frameworks - Style Sheets - Stylelint```
 * ```yarn run dev``` - запуск сервера для разработки проекта
 * ```yarn run build``` - собрать проект с оптимизацией без запуска сервера
 * ```yarn run build:views``` - собрать HTML-файлы
@@ -100,6 +94,9 @@ gulp-scss-starter
 * ```yarn run build:gzip``` - собрать конфигурацию Apache
 * ```yarn run bem-m``` - добавить БЭМ-блок
 * ```yarn run bem-c``` - добавить компонент
+* ```yarn run lint:styles --fix``` - исправить ошибки в SCSS-файлах согласно настройкам Stylelint
+* ```yarn run lint:scripts``` - проверить JS-файлы
+* ```yarn run lint:scripts --fix``` - исправить ошибки в JS-файлах согласно настройкам ESLint
 
 ## :bulb: Рекомендации по использованию
 ### Компонентный подход к разработке сайтов
@@ -135,12 +132,38 @@ blocks
 
 ### Изображения
 * изображения находятся в папке ```src/img```
+    * изображения автоматически конвертируются в формат ```.webp```. Подробная информация по использованию [тут](https://vk.com/@vk_it-webp)
     * изображение для генерации фавиконок должно находиться в папке ```src/img/favicon``` и иметь размер не менее ```1024px x 1024px```
-    * изображения автоматически конвертируются в формат ```.webp```. Подробная информация по использованию [тут](https://vk.com/@vk_it-webp).
+
+### SVG-спрайты
+Для создания спрайтов изображения ```.svg``` должны находиться в папке ```src/img/sprites```. Например, у нас есть файлы ```icon-1.svg```, ```icon-2.svg``` и ```icon-3.svg```, и мы должны обратиться к ```icon-2.svg```. Для этого в HTML нужно воспользоваться тегом ```<use>```:
+```html
+<svg>
+    <use xlink:href="img/sprites/sprite.svg#logo"></use>
+</svg>
+```
+Изменить стили svg-иконки из спрайта в CSS:
+```css
+svg use {
+    fill: red;
+}
+```
+Бывает такая ситуация, когда стили иконки поменять не получается. Это связано с тем, что при экспорте из Figma в svg добавляется лишний код. Например:
+```html
+<svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M4.90918 4.04542L13.091 9.54088L4.90918 14.9545L4.90918 4.04542Z" fill="#1B1B1D"/>
+</svg>
+```
+Нужно удалить ```fill="none"``` и ```fill="#1B1B1D"```. Должно получиться так:
+```html
+<svg width="18" height="19" viewBox="0 0 18 19" xmlns="http://www.w3.org/2000/svg">
+  <path d="M4.90918 4.04542L13.091 9.54088L4.90918 14.9545L4.90918 4.04542Z"/>
+</svg> 
+```
 
 ### Сторонние библиотеки
 * все сторонние библиотеки устанавливаются в папку ```node_modules```
-    * для их загрузки воспользуйтеcь командой ```yarn add package_name```
+    * для их загрузки воспользуйтеcь командой ```yarn add package_name``` (например, ```yarn add jquery```)
     * для подключения JS-файлов библиотек импортируйте их в самом начале JS-файла БЭМ-блока (то есть тот БЭМ-блок, который использует скрипт), например:
     ```javascript
     import $ from "jquery";
@@ -148,32 +171,11 @@ blocks
     * для подключения стилевых файлов библиотек импортируйте их в файл ```src/styles/vendor/_libs.scss```
     * JS-файлы и стилевые файлы библиотек самостоятельно изменять нельзя
 
-:warning: Если в вашем проекте используется несколько библиотек, которые необходимо подключать на нескольких страницах, во избежании ошибок нужно:
-* по пути ```src/js/import``` создать папку ```pages```
-* в папке ```pages``` создать js-файл для страницы, например, ```pageA.js```, и импортировать туда библиотеку, которая будет использоваться только на этой странице
-    * аналогично проделать шаг для дополнительных страниц
-* в файле ```webpack.config.js``` в точку входа добавить js-файлы страниц, пример:
-```javascript
-entry: {
-    main: "./src/js/index.js",
-    pageA: "./src/js/import/pages/pageA.js",
-    pageB: "./src/js/import/pages/pageB.js"
-}
-```
-* подключить скомпилированные js-файлы на необходимых страницах
-
-## :hash: CSS-сетка smart-grid
-В сборщик включена CSS-сетка [smart-grid](https://github.com/dmitry-lavrik/smart-grid) от [Дмитрия Лаврика](https://dmitrylavrik.ru/). Она позволяет избавиться от
-лишних классов в разметке за счёт использования примесей в SCSS и ускоряет адаптивную вёрстку. Конфигурация уже настроена в соответствии с сеткой [Bootstrap](https://getbootstrap.com/). Инструкция по использованию [здесь](https://grid4web.ru/basics).
-
 ## :point_right: Нужен SCSS + Pug?
 Используйте [эту](https://github.com/andreyalexeich/gulp-pug-starter/) сборку.
 
 ## :yellow_heart: Нравится проект?
-Сообщайте мне о [багах](https://github.com/andreyalexeich/gulp-scss-starter/issues), ставьте звёздочку в правом верхнем углу, задонатьте мне на пиво :beer:
-* [На PayPal](https://www.paypal.me/andreyalexeich)
-* [На карту - 5536 9137 5288 1934](https://www.tinkoff.ru/cardtocard/)
+Сообщайте мне о [багах](https://github.com/andreyalexeich/gulp-scss-starter/issues), ставьте звёздочку в правом верхнем углу, [задонатьте](https://qiwi.com/n/ANDREYALEXEICH) мне на пиво :beer:
 
 ## :envelope: Контакты
-* ВКонтакте: [@andreyalexeich](https://vk.com/andreyalexeich)
-* Telegram: [@andreyalexeich](https://t-do.ru/andreyalexeich)
+По всем вопросам пишите в [Telegram](https://t.me/andreyalexeich)

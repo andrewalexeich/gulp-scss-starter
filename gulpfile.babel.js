@@ -40,9 +40,9 @@ const requireDir = require("require-dir"),
             watch: "./src/img/**/*.{jpg,jpeg,png,gif,svg,tiff}"
         },
         sprites: {
-            src: "./src/img/svg/*.svg",
+            src: "./src/img/sprites/*.svg",
             dist: "./dist/img/sprites/",
-            watch: "./src/img/svg/*.svg"
+            watch: "./src/img/sprites/*.svg"
         },
         fonts: {
             src: "./src/fonts/**/*.{woff,woff2}",
@@ -63,7 +63,7 @@ requireDir("./gulp-tasks/");
 
 export { paths };
 
-export const development = gulp.series("clean", "smart-grid",
+export const development = gulp.series("clean",
     gulp.parallel(["views", "styles", "scripts", "images", "webp", "sprites", "fonts", "favicons"]),
     gulp.parallel("serve"));
 

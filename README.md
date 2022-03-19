@@ -23,6 +23,7 @@
     * [Bem Tools](https://www.npmjs.com/package/bem-tools-core): ```npm i -g bem-tools-core```
 * скачайте сборку с помощью [Git](https://git-scm.com/downloads): ```git clone https://github.com/andreyalexeich/gulp-scss-starter.git```
 * перейдите в скачанную папку со сборкой: ```cd gulp-scss-starter```
+* введите ```yarn set version berry```
 * скачайте необходимые зависимости: ```yarn```
 * чтобы начать работу, введите команду: ```yarn run dev``` (режим разработки)
 * чтобы собрать проект, введите команду ```yarn run build``` (режим сборки)
@@ -93,7 +94,6 @@ gulp-scss-starter
 * ```yarn run build:favicons``` - собрать фавиконки
 * ```yarn run build:gzip``` - собрать конфигурацию Apache
 * ```yarn run bem-m``` - добавить БЭМ-блок
-* ```yarn run bem-c``` - добавить компонент
 * ```yarn run lint:styles --fix``` - исправить ошибки в SCSS-файлах согласно настройкам Stylelint
 * ```yarn run lint:scripts``` - проверить JS-файлы
 * ```yarn run lint:scripts --fix``` - исправить ошибки в JS-файлах согласно настройкам ESLint
@@ -116,9 +116,7 @@ blocks
 │   │   ├── header.scss
 ```
 
-Чтобы вручную не создавать соответствующие папку и файлы, достаточно в консоли прописать следующие команды:
-* ```yarn run bem-m my-block``` - для создания БЭМ-блока в ```src/block/modules``` (для основных БЭМ-блоков), где ```my-block``` - имя БЭМ-блока; 
-* ```yarn run bem-с my-component``` - для создания компонента в ```src/blocks/components``` (для компонентов), где ```my-component``` - имя компонента
+Чтобы вручную не создавать соответствующие папку и файлы, достаточно в консоли прописать следующую команду: ```yarn run bem-m my-block``` - для создания БЭМ-блока в ```src/block/modules```, где ```my-block``` - имя БЭМ-блока (после создания нужно удалить содержимое js-файла БЭМ-блока).
 
 ### Страницы проекта
 * страницы проекта находятся в папке ```src/views/pages```

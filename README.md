@@ -94,7 +94,6 @@ gulp-scss-starter
 * ```yarn run build:favicons``` - собрать фавиконки
 * ```yarn run build:gzip``` - собрать конфигурацию Apache
 * ```yarn run bem-m``` - добавить БЭМ-блок
-* ```yarn run bem-c``` - добавить компонент
 * ```yarn run lint:styles --fix``` - исправить ошибки в SCSS-файлах согласно настройкам Stylelint
 * ```yarn run lint:scripts``` - проверить JS-файлы
 * ```yarn run lint:scripts --fix``` - исправить ошибки в JS-файлах согласно настройкам ESLint

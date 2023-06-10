@@ -3,8 +3,7 @@
 ![License](https://img.shields.io/github/license/andreyalexeich/gulp-scss-starter)
 ![GitHub stars](https://img.shields.io/github/stars/andreyalexeich/gulp-scss-starter.svg?style=social)
 ![GitHub watchers](https://img.shields.io/github/watchers/andreyalexeich/gulp-scss-starter.svg?style=social)<br>
-<a href="https://qiwi.com/n/ANDREYALEXEICH"><img src="https://img.shields.io/badge/%D0%97%D0%B0%D0%B4%D0%BE%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BD%D0%B0%20%D0%BF%D0%B8%D0%B2%D0%BE-Qiwi-orange?style=for-the-badge&logo=qiwi"></a>
-
+<a href="https://t.me/andrewalexeich"><img src="https://img.shields.io/badge/Donate%20to%20me%20(Telegram%20TON)-UQC5GESVoOmFKJ8Khw8wwGIM3stCsnrXRHDcdfHvVjwR4ddL-blue?style=for-the-badge"></a>
 
 ## :fire: Особенности
 * именование классов по [БЭМ](https://ru.bem.info/)
@@ -170,10 +169,10 @@ svg use {
     * JS-файлы и стилевые файлы библиотек самостоятельно изменять нельзя
 
 ## :point_right: Нужен SCSS + Pug?
-Используйте [эту](https://github.com/andreyalexeich/gulp-pug-starter/) сборку.
+Используйте [эту](https://github.com/andrewalexeich/gulp-pug-starter/) сборку.
 
 ## :yellow_heart: Нравится проект?
-Сообщайте мне о [багах](https://github.com/andreyalexeich/gulp-scss-starter/issues), ставьте звёздочку в правом верхнем углу, [задонатьте](https://qiwi.com/n/ANDREYALEXEICH) мне на пиво :beer:
+Сообщайте мне о [багах](https://github.com/andrewalexeich/gulp-scss-starter/issues), ставьте звёздочку, [задонатьте](https://t.me/andrewalexeich) мне Telegram TON на пиво :beer:
 
 ## :envelope: Контакты
-По всем вопросам пишите в [Telegram](https://t.me/andreyalexeich)
+По всем вопросам пишите в [Telegram](https://t.me/andrewalexeich)
